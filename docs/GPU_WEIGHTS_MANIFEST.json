@@ -1,0 +1,116 @@
+{
+  "torch_version": "2.12.1+cpu",
+  "cuda_available": false,
+  "torchvision_finetune_weights": [
+    {
+      "arch": "resnet50",
+      "weights": "ResNet50_Weights.IMAGENET1K_V2",
+      "file": "resnet50-11ad3fa6.pth",
+      "path": "/home/ubuntu/.cache/torch/hub/checkpoints/resnet50-11ad3fa6.pth",
+      "bytes": 102540417,
+      "was_cached": true
+    },
+    {
+      "arch": "vit_b_16",
+      "weights": "ViT_B_16_Weights.IMAGENET1K_V1",
+      "file": "vit_b_16-c867db91.pth",
+      "path": "/home/ubuntu/.cache/torch/hub/checkpoints/vit_b_16-c867db91.pth",
+      "bytes": 346328529,
+      "was_cached": true
+    },
+    {
+      "arch": "vit_l_16",
+      "weights": "ViT_L_16_Weights.IMAGENET1K_SWAG_E2E_V1",
+      "file": "vit_l_16_swag-4f3808c9.pth",
+      "path": "/home/ubuntu/.cache/torch/hub/checkpoints/vit_l_16_swag-4f3808c9.pth",
+      "bytes": 1220812593,
+      "was_cached": false
+    }
+  ],
+  "hf_encoders": [
+    {
+      "name": "models--timm--vit_giant_patch14_dinov2.lvd142m",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--timm--vit_giant_patch14_dinov2.lvd142m",
+      "bytes": 4545971262,
+      "present": true
+    },
+    {
+      "name": "models--timm--vit_large_patch14_dinov2.lvd142m",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--timm--vit_large_patch14_dinov2.lvd142m",
+      "bytes": 1217502798,
+      "present": true
+    },
+    {
+      "name": "models--timm--vit_small_patch14_dinov2.lvd142m",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--timm--vit_small_patch14_dinov2.lvd142m",
+      "bytes": 88240550,
+      "present": true
+    },
+    {
+      "name": "models--timm--vit_large_patch14_clip_224.openai",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--timm--vit_large_patch14_clip_224.openai",
+      "bytes": 1710517764,
+      "present": true
+    },
+    {
+      "name": "models--timm--vit_base_patch32_clip_224.openai",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--timm--vit_base_patch32_clip_224.openai",
+      "bytes": 605143324,
+      "present": true
+    },
+    {
+      "name": "models--timm--vit_so400m_patch14_siglip_224.webli",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--timm--vit_so400m_patch14_siglip_224.webli",
+      "bytes": 1710755576,
+      "present": true
+    },
+    {
+      "name": "models--timm--ViT-L-16-SigLIP-256",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--timm--ViT-L-16-SigLIP-256",
+      "bytes": 2608671272,
+      "present": true
+    },
+    {
+      "name": "models--timm--eva02_large_patch14_224.mim_m38m",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--timm--eva02_large_patch14_224.mim_m38m",
+      "bytes": 1213120044,
+      "present": true
+    },
+    {
+      "name": "models--sentence-transformers--all-mpnet-base-v2",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--sentence-transformers--all-mpnet-base-v2",
+      "bytes": 438682962,
+      "present": true
+    },
+    {
+      "name": "models--sentence-transformers--all-MiniLM-L6-v2",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--sentence-transformers--all-MiniLM-L6-v2",
+      "bytes": 91578455,
+      "present": true
+    },
+    {
+      "name": "models--intfloat--e5-base-v2",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--intfloat--e5-base-v2",
+      "bytes": 438967750,
+      "present": true
+    },
+    {
+      "name": "models--intfloat--e5-large-v2",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--intfloat--e5-large-v2",
+      "bytes": 1341629102,
+      "present": true
+    },
+    {
+      "name": "models--intfloat--e5-small-v2",
+      "path": "/home/ubuntu/.cache/huggingface/hub/models--intfloat--e5-small-v2",
+      "bytes": 134478737,
+      "present": true
+    }
+  ],
+  "totals": {
+    "torchvision_bytes": 1669681539,
+    "hf_encoder_bytes": 16145259596
+  },
+  "missing_encoders": [],
+  "ready": true
+}

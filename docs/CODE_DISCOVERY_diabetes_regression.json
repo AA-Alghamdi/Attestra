@@ -1,0 +1,190 @@
+{
+  "champion": "raw \u00b7 linear_probe \u00b7 head=linear",
+  "champion_recipe": {
+    "backbone": "raw",
+    "adaptation": "linear_probe",
+    "augmentation": "none",
+    "optimizer": "adamw",
+    "schedule": "cosine",
+    "llrd": false,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 10,
+    "aggregation": "single",
+    "data_strategy": "none",
+    "head": "linear",
+    "code_role": null,
+    "uses_code_patch": false,
+    "code_patch": null,
+    "label": "raw \u00b7 linear_probe \u00b7 head=linear"
+  },
+  "promotions": [],
+  "move_class_path": [
+    "model",
+    "features",
+    "capacity"
+  ],
+  "stop_reason": "plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop",
+  "sealed_lb": {
+    "diabetes_regression_shard0": 0.4472,
+    "diabetes_regression_shard1": 0.3117,
+    "diabetes_regression_shard2": 0.4732
+  },
+  "sealed_acc": {
+    "diabetes_regression_shard0": 0.6,
+    "diabetes_regression_shard1": 0.4571,
+    "diabetes_regression_shard2": 0.6216
+  },
+  "pareto_front": [
+    "raw \u00b7 linear_probe \u00b7 head=linear"
+  ],
+  "pareto_report": "Certified Pareto front: 1 of 1 candidates certified+nondominated\n  raw \u00b7 linear_probe \u00b7 head=linear: metric_lb=0.312 latency=1.0ms cost=$1.0000 ece=0.000\n  pick[fastest_certified] = raw \u00b7 linear_probe \u00b7 head=linear\n  pick[most_accurate] = raw \u00b7 linear_probe \u00b7 head=linear\n  pick[best_calibrated] = raw \u00b7 linear_probe \u00b7 head=linear\n  pick[cheapest_certified] = raw \u00b7 linear_probe \u00b7 head=linear",
+  "data_ceiling_tasks": [
+    "diabetes_regression_shard0",
+    "diabetes_regression_shard1",
+    "diabetes_regression_shard2"
+  ],
+  "peeks_used": 0,
+  "novelty": {
+    "champion": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "champion_backbone": "raw",
+    "backbone_is_novel": false,
+    "recipe_is_novel": false,
+    "uses_authored_code": false,
+    "from_retrieval": false,
+    "menu_free": false,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 1,
+    "n_proposed_recipes": 11,
+    "n_retrieved_backbones": 0
+  },
+  "discovery": {
+    "pool_size": 1,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 1,
+    "n_retrieved_backbones": 0,
+    "seed_backbones": [
+      "raw"
+    ],
+    "sample_pool": [
+      "raw"
+    ]
+  },
+  "framing_report": {
+    "trustworthy": true,
+    "summary": "trustworthy=True -- all probes passed -- framing is trustworthy to drive search\n  [PASS] trivial_baseline: majority-class score=0.234 vs theta=0.500 (ok: trivial model fails)\n  [PASS] label_shuffle: mean shuffled-label score=0.310 over 5 perms vs theta=0.500 (ok: shuffle fails)\n  [PASS] straddle_leak: no near-duplicate straddle\n  [PASS] split_leak: no group/time structure declared"
+  },
+  "data_hygiene": {
+    "admitted": true,
+    "dataset": "diabetes_regression",
+    "certificate": {
+      "passed": true,
+      "n": 292,
+      "near_dup_straddle": 0,
+      "label_noise_est": null,
+      "min_class_fraction": null,
+      "degenerate_features": [],
+      "warnings": [],
+      "detail": {
+        "near_dup_eps": 1e-06,
+        "k": 5,
+        "is_regression": true
+      }
+    },
+    "pool_counts": {
+      "total": 5,
+      "by_modality": {
+        "forest_cartographic": 3,
+        "pixel_tabular": 1,
+        "clinical_progression_reg": 1
+      }
+    }
+  },
+  "gold_confirmation": {
+    "champion": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "baseline": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "n_tasks": 3,
+    "gold_n": 225,
+    "survivors": [],
+    "mean_lift": 0.0,
+    "champion_gold_lb": 0.3972,
+    "baseline_gold_lb": 0.3972,
+    "per_task": [
+      {
+        "task": "diabetes_regression_shard0",
+        "champ_gold_acc": 0.4533,
+        "base_gold_acc": 0.4533,
+        "lift": 0.0,
+        "p_gt_base": 1.0,
+        "n": 75
+      },
+      {
+        "task": "diabetes_regression_shard1",
+        "champ_gold_acc": 0.4533,
+        "base_gold_acc": 0.4533,
+        "lift": 0.0,
+        "p_gt_base": 1.0,
+        "n": 75
+      },
+      {
+        "task": "diabetes_regression_shard2",
+        "champ_gold_acc": 0.4533,
+        "base_gold_acc": 0.4533,
+        "lift": 0.0,
+        "p_gt_base": 1.0,
+        "n": 75
+      }
+    ],
+    "confirmed": false
+  },
+  "multiplicity": {
+    "champion": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "baseline": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "n_tasks": 3,
+    "sealed_comparisons": 0,
+    "mcnemar_tests_total": 0,
+    "per_comparison_fdr_alpha": 0.1,
+    "session_bonferroni_alpha": 0.1,
+    "champion_vs_start_sealed": [
+      {
+        "task": "diabetes_regression_shard0",
+        "champ_acc": 0.6,
+        "start_acc": 0.6,
+        "lift": 0.0,
+        "p_gt_start": 1.0
+      },
+      {
+        "task": "diabetes_regression_shard1",
+        "champ_acc": 0.4571,
+        "start_acc": 0.4571,
+        "lift": 0.0,
+        "p_gt_start": 1.0
+      },
+      {
+        "task": "diabetes_regression_shard2",
+        "champ_acc": 0.6216,
+        "start_acc": 0.6216,
+        "lift": 0.0,
+        "p_gt_start": 1.0
+      }
+    ],
+    "fdr_survivors_nominal": [],
+    "bonferroni_survivors_session": [],
+    "champion_sealed_lb": 0.4766,
+    "robust_to_session_multiplicity": false,
+    "gold_independent_confirmation": false
+  },
+  "qd_coverage": 3,
+  "driver": "climb",
+  "refused": false,
+  "log": [
+    "meta-certifier framing probe -> trustworthy=True -- all probes passed -- framing is trustworthy to drive search",
+    "data-hygiene gate -> ADMITTED 'diabetes_regression' (near_dup_straddle=0, n=292)",
+    "start champion=raw \u00b7 linear_probe \u00b7 head=linear sealed_lb=0.477 theta_floor=0.5 driver=climb",
+    "escalate: escalate_to_features (from=model since_improve=3: val_lb plateaued for >= 3 rounds on the 'model' class; the same-class sweep is saturated -> switch KIND of move to 'features')",
+    "escalate: escalate_to_capacity (from=features since_improve=3: val_lb plateaued for >= 3 rounds on the 'features' class; the same-class sweep is saturated -> switch KIND of move to 'capacity')",
+    "escalate: stop (from=capacity since_improve=3: plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop)",
+    "gold-confirmation (never-peeked n=225): raw \u00b7 linear_probe \u00b7 head=linear vs raw \u00b7 linear_probe \u00b7 head=linear -> 0/3 FDR survivors, confirmed=False",
+    "ANTI-MENU novelty: menu_free=False (champion backbone 'raw', backbone_is_novel=False, uses_authored_code=False, from_retrieval=False)"
+  ]
+}

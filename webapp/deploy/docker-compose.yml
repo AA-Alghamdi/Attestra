@@ -1,0 +1,67 @@
+# Public deployment: VectorForge behind Caddy (automatic HTTPS + HTTP basic-auth).
+#
+#   internet --443/HTTPS--> caddy (TLS + password gate) --HTTP--> vf:8765 (the app, NOT published to the host)
+#
+# The app container binds 0.0.0.0:8765 but that port is published ONLY on the internal compose network, so
+# the ONLY way in from the internet is through Caddy -- which terminates TLS and enforces basic-auth first.
+# Secrets + caps come from deploy/.env (copy .env.example -> .env and fill it in). See webapp/DEPLOY.md.
+#
+# Run from the REPO ROOT so the build context sees vfplatform/ + vectorforge/ + webapp/:
+#   docker compose --env-file webapp/deploy/.env -f webapp/deploy/docker-compose.yml up -d --build
+
+services:
+  vf:
+    build:
+      context: ../..                      # repo root: the Dockerfile COPYs vfplatform/ vectorforge/ webapp/
+      dockerfile: webapp/Dockerfile
+    image: vectorforge-web
+    restart: unless-stopped
+    expose:
+      - "8765"                            # internal-only; NOT "ports:" -> never reachable except via caddy
+    environment:
+      VF_HOST: "0.0.0.0"
+      VF_PORT: "8765"
+      # --- optional spend lanes (omit a key to keep that lane a free local fallback) ---
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+      RUNPOD_API_KEY: "${RUNPOD_API_KEY:-}"
+      RUNPOD_ENDPOINT_ID: "${RUNPOD_ENDPOINT_ID:-}"
+      # --- hard per-UTC-day spend backstop (a leaked password cannot run away with the budget) ---
+      VF_DAILY_USD_CAP: "${VF_DAILY_USD_CAP:-5.0}"
+      VF_MAX_GPU_RUNS_PER_DAY: "${VF_MAX_GPU_RUNS_PER_DAY:-100}"
+      VF_MAX_LLM_CALLS_PER_DAY: "${VF_MAX_LLM_CALLS_PER_DAY:-200}"
+      VF_GPU_USD_PER_RUN: "${VF_GPU_USD_PER_RUN:-0.05}"
+      VF_LLM_USD_PER_CALL: "${VF_LLM_USD_PER_CALL:-0.02}"
+      VF_SPEND_STATE: "/app/vf_runs/_spend_state.json"
+      VF_CERT_DIR: "/app/vf_certs"        # persisted certificates + event streams (the verified-runs gallery)
+    volumes:
+      - vf_runs:/app/vf_runs              # persist the model registry + spend counter across restarts
+      - vf_certs:/app/vf_certs            # persist certificates so the gallery survives image rebuilds
+    healthcheck:                          # hits /healthz INSIDE the container (bypasses the basic-auth at caddy)
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8765/healthz',timeout=4).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - vf
+    ports:
+      - "80:80"                           # ACME HTTP-01 challenge + redirect to HTTPS
+      - "443:443"                         # the public HTTPS endpoint
+    environment:
+      VF_DOMAIN: "${VF_DOMAIN:?set VF_DOMAIN in webapp/deploy/.env (e.g. vf.example.com)}"
+      VF_BASIC_USER: "${VF_BASIC_USER:?set VF_BASIC_USER in webapp/deploy/.env}"
+      VF_BASIC_HASH: "${VF_BASIC_HASH:?set VF_BASIC_HASH (output of: docker run --rm caddy:2 caddy hash-password --plaintext 'yourpass')}"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data                  # persist issued TLS certs (avoid Let's Encrypt rate limits on restart)
+      - caddy_config:/config
+
+volumes:
+  vf_runs:
+  vf_certs:
+  caddy_data:
+  caddy_config:

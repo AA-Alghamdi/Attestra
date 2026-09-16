@@ -1,0 +1,24 @@
+# Caddy reverse proxy for Attestera.
+# - Automatic HTTPS: Caddy provisions + renews a Let's Encrypt cert for $VF_DOMAIN (needs the domain's A
+#   record pointing at this server, and ports 80+443 open).
+# - The read-only site is PUBLIC (homepage, certificate permalinks, replay, gallery): shared certificate
+#   links must open for anyone. Anything that can spend money or drive the engine stays behind basic auth:
+#   POST /run, POST /cancel, and the live event streams.
+# - SSE-friendly: flush_interval -1 disables response buffering so the live /events stream arrives in
+#   real time instead of being buffered by the proxy.
+#
+# $VF_DOMAIN / $VF_BASIC_USER / $VF_BASIC_HASH are injected from the environment (see docker-compose.yml + .env).
+
+{$VF_DOMAIN} {
+	encode gzip
+
+	@gated path /run /cancel /events/*
+
+	basic_auth @gated {
+		{$VF_BASIC_USER} {$VF_BASIC_HASH}
+	}
+
+	reverse_proxy vf:8765 {
+		flush_interval -1
+	}
+}

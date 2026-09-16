@@ -1,0 +1,19 @@
+# keep the image small AND keep secrets OUT of it (passed as -e env at runtime instead)
+.git
+.runpod_key
+.anthropic_key
+*.key
+# runtime secrets are injected as env, never baked in -> keep every .env out of the image
+.env
+*.env
+**/.env
+webapp/deploy/.env
+store/
+vf_runs/
+vf_runs_test/
+**/__pycache__/
+*.pyc
+worker/
+AUDIT_CYCLE1_PLAN.md
+docs/
+experiments/

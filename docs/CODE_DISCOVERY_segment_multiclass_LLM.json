@@ -1,0 +1,244 @@
+{
+  "champion": "raw \u00b7 linear_probe \u00b7 head=gbm",
+  "champion_recipe": {
+    "backbone": "raw",
+    "adaptation": "linear_probe",
+    "augmentation": "none",
+    "optimizer": "adamw",
+    "schedule": "cosine",
+    "llrd": false,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 10,
+    "aggregation": "single",
+    "data_strategy": "none",
+    "head": "gbm",
+    "code_role": null,
+    "uses_code_patch": false,
+    "code_patch": null,
+    "label": "raw \u00b7 linear_probe \u00b7 head=gbm"
+  },
+  "promotions": [
+    {
+      "rung": "features",
+      "from_recipe": "raw \u00b7 linear_probe \u00b7 head=linear",
+      "to_recipe": "raw \u00b7 linear_probe \u00b7 head=gbm",
+      "survivors": [
+        "segment_multiclass_shard0",
+        "segment_multiclass_shard2"
+      ],
+      "mean_lift": 0.042168674698795185,
+      "sealed_lb": 0.9469
+    }
+  ],
+  "move_class_path": [
+    "model",
+    "features",
+    "capacity"
+  ],
+  "stop_reason": "no budget left; cannot run any further move -> honest stop",
+  "sealed_lb": {
+    "segment_multiclass_shard0": 0.9377,
+    "segment_multiclass_shard1": 0.9,
+    "segment_multiclass_shard2": 0.954
+  },
+  "sealed_acc": {
+    "segment_multiclass_shard0": 0.9699,
+    "segment_multiclass_shard1": 0.9398,
+    "segment_multiclass_shard2": 0.9819
+  },
+  "pareto_front": [
+    "raw \u00b7 linear_probe \u00b7 head=gbm"
+  ],
+  "pareto_report": "Certified Pareto front: 1 of 2 candidates certified+nondominated\n  raw \u00b7 linear_probe \u00b7 head=gbm: metric_lb=0.900 latency=1.0ms cost=$1.0000 ece=0.000\n  pick[fastest_certified] = raw \u00b7 linear_probe \u00b7 head=linear\n  pick[most_accurate] = raw \u00b7 linear_probe \u00b7 head=gbm\n  pick[best_calibrated] = raw \u00b7 linear_probe \u00b7 head=linear\n  pick[cheapest_certified] = raw \u00b7 linear_probe \u00b7 head=linear",
+  "data_ceiling_tasks": [
+    "segment_multiclass_shard0",
+    "segment_multiclass_shard1",
+    "segment_multiclass_shard2"
+  ],
+  "peeks_used": 14,
+  "novelty": {
+    "champion": "raw \u00b7 linear_probe \u00b7 head=gbm",
+    "champion_backbone": "raw",
+    "backbone_is_novel": false,
+    "recipe_is_novel": true,
+    "uses_authored_code": false,
+    "from_retrieval": false,
+    "menu_free": false,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 1,
+    "n_proposed_recipes": 16,
+    "n_retrieved_backbones": 0
+  },
+  "discovery": {
+    "pool_size": 1,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 1,
+    "n_retrieved_backbones": 0,
+    "seed_backbones": [
+      "raw"
+    ],
+    "sample_pool": [
+      "raw"
+    ]
+  },
+  "framing_report": {
+    "trustworthy": true,
+    "summary": "trustworthy=True -- all probes passed -- framing is trustworthy to drive search\n  [PASS] trivial_baseline: majority-class score=0.131 vs theta=0.500 (ok: trivial model fails)\n  [PASS] label_shuffle: mean shuffled-label score=0.159 over 5 perms vs theta=0.500 (ok: shuffle fails)\n  [PASS] straddle_leak: no near-duplicate straddle\n  [PASS] split_leak: no group/time structure declared"
+  },
+  "data_hygiene": {
+    "admitted": true,
+    "dataset": "segment_multiclass_random",
+    "certificate": {
+      "passed": true,
+      "n": 1366,
+      "near_dup_straddle": 0,
+      "label_noise_est": 0.060029282576866766,
+      "min_class_fraction": 0.13250366032210834,
+      "degenerate_features": [
+        1
+      ],
+      "warnings": [
+        "degenerate feature columns (constant or row-id-like): [1]"
+      ],
+      "detail": {
+        "near_dup_eps": 1e-06,
+        "k": 5,
+        "is_regression": false
+      }
+    },
+    "pool_counts": {
+      "total": 15,
+      "by_modality": {
+        "forest_cartographic": 4,
+        "pixel_tabular": 1,
+        "clinical_progression_reg": 1,
+        "housing_value_reg": 2,
+        "vehicle_silhouette": 1,
+        "optical_digit": 1,
+        "image_segmentation": 1,
+        "fourier_digit": 1,
+        "dna_splice": 1,
+        "pima_diabetes": 1,
+        "german_credit": 1
+      }
+    }
+  },
+  "gold_confirmation": {
+    "champion": "raw \u00b7 linear_probe \u00b7 head=gbm",
+    "baseline": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "n_tasks": 3,
+    "gold_n": 1053,
+    "survivors": [
+      "segment_multiclass_shard0",
+      "segment_multiclass_shard1",
+      "segment_multiclass_shard2"
+    ],
+    "mean_lift": 0.0456,
+    "champion_gold_lb": 0.9583,
+    "baseline_gold_lb": 0.9082,
+    "per_task": [
+      {
+        "task": "segment_multiclass_shard0",
+        "champ_gold_acc": 0.9687,
+        "base_gold_acc": 0.9231,
+        "lift": 0.0456,
+        "p_gt_base": 0.0008,
+        "n": 351
+      },
+      {
+        "task": "segment_multiclass_shard1",
+        "champ_gold_acc": 0.9687,
+        "base_gold_acc": 0.9231,
+        "lift": 0.0456,
+        "p_gt_base": 0.0008,
+        "n": 351
+      },
+      {
+        "task": "segment_multiclass_shard2",
+        "champ_gold_acc": 0.9687,
+        "base_gold_acc": 0.9231,
+        "lift": 0.0456,
+        "p_gt_base": 0.0008,
+        "n": 351
+      }
+    ],
+    "confirmed": true
+  },
+  "multiplicity": {
+    "champion": "raw \u00b7 linear_probe \u00b7 head=gbm",
+    "baseline": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "n_tasks": 3,
+    "sealed_comparisons": 14,
+    "mcnemar_tests_total": 42,
+    "per_comparison_fdr_alpha": 0.1,
+    "session_bonferroni_alpha": 0.007143,
+    "champion_vs_start_sealed": [
+      {
+        "task": "segment_multiclass_shard0",
+        "champ_acc": 0.9699,
+        "start_acc": 0.9096,
+        "lift": 0.0602,
+        "p_gt_start": 0.0032
+      },
+      {
+        "task": "segment_multiclass_shard1",
+        "champ_acc": 0.9398,
+        "start_acc": 0.9157,
+        "lift": 0.0241,
+        "p_gt_start": 0.1938
+      },
+      {
+        "task": "segment_multiclass_shard2",
+        "champ_acc": 0.9819,
+        "start_acc": 0.9398,
+        "lift": 0.0422,
+        "p_gt_start": 0.0078
+      }
+    ],
+    "fdr_survivors_nominal": [
+      "segment_multiclass_shard0",
+      "segment_multiclass_shard2"
+    ],
+    "bonferroni_survivors_session": [
+      "segment_multiclass_shard0"
+    ],
+    "champion_sealed_lb": 0.9469,
+    "robust_to_session_multiplicity": true,
+    "gold_independent_confirmation": true
+  },
+  "qd_coverage": 3,
+  "driver": "climb",
+  "refused": false,
+  "log": [
+    "meta-certifier framing probe -> trustworthy=True -- all probes passed -- framing is trustworthy to drive search",
+    "data-hygiene gate -> ADMITTED 'segment_multiclass_random' (near_dup_straddle=0, n=1366)",
+    "start champion=raw \u00b7 linear_probe \u00b7 head=linear sealed_lb=0.899 theta_floor=0.5 driver=climb",
+    "escalate: escalate_to_features (from=model since_improve=3: val_lb plateaued for >= 3 rounds on the 'model' class; the same-class sweep is saturated -> switch KIND of move to 'features')",
+    "[features] raw \u00b7 linear_probe \u00b7 head=gbm: frozen Tier-3 CERTIFIED over raw \u00b7 linear_probe \u00b7 head=linear (survivors 2/3, mean_lift +0.042, sealed_lb 0.947)",
+    "[features] PROMOTE raw \u00b7 linear_probe \u00b7 head=linear -> raw \u00b7 linear_probe \u00b7 head=gbm (sealed_lb 0.947)",
+    "escalate: escalate_to_capacity (from=features since_improve=3: val_lb plateaued for >= 3 rounds on the 'features' class; the same-class sweep is saturated -> switch KIND of move to 'capacity')",
+    "peek budget exhausted -> stop spending sealed certifications",
+    "escalate: stop (from=capacity since_improve=3: no budget left; cannot run any further move -> honest stop)",
+    "gold-confirmation (never-peeked n=1053): raw \u00b7 linear_probe \u00b7 head=gbm vs raw \u00b7 linear_probe \u00b7 head=linear -> 3/3 FDR survivors, confirmed=True",
+    "ANTI-MENU novelty: menu_free=False (champion backbone 'raw', backbone_is_novel=False, uses_authored_code=False, from_retrieval=False)"
+  ],
+  "llm_calls": [
+    {
+      "role": "classifier",
+      "task_shape": "multiclass",
+      "attempt": 1,
+      "authored": false,
+      "used_llm": false,
+      "reason": "DECLINED: verify rejected: self-test: valid_predictions=TypeError: LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    {
+      "role": "classifier",
+      "task_shape": "multiclass",
+      "attempt": 2,
+      "authored": true,
+      "used_llm": true,
+      "reason": "passed static gate + isolated exec + scientific self-test; admitted as a candidate family"
+    }
+  ]
+}

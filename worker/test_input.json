@@ -1,0 +1,1 @@
+{"input": {"op":"fit_val","task_type":"binary","family":"torch_mlp_clf|64","params":{"hidden":"64","epochs":20},"seed":0,"n_classes":2,"Xtr":[[0.1,0.2],[0.9,0.8],[0.2,0.1],[0.8,0.9]],"ytr":[0,1,0,1],"Xva":[[0.1,0.2],[0.9,0.8]],"yva":[0,1]}}

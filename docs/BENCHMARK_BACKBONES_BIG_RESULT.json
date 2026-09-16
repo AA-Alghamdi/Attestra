@@ -1,0 +1,290 @@
+{
+  "roster": "big",
+  "per_class": 500,
+  "baseline": "clip_vitb32",
+  "backbone_errors": {},
+  "rows": [
+    {
+      "name": "cat_vs_dog",
+      "n_test": 300,
+      "acc": {
+        "clip_vitb32": 0.93,
+        "resnet18": 0.83,
+        "dinov2_vits14": 0.9133,
+        "clip_vitl14": 0.9567,
+        "dinov2_vitl14": 0.9967,
+        "siglip_vitl16": 0.9667
+      },
+      "lb": {
+        "clip_vitb32": 0.9008,
+        "resnet18": 0.7903,
+        "dinov2_vits14": 0.8818,
+        "clip_vitl14": 0.932,
+        "dinov2_vitl14": 0.9843,
+        "siglip_vitl16": 0.9441
+      },
+      "dim": {
+        "clip_vitb32": 512,
+        "resnet18": 512,
+        "dinov2_vits14": 384,
+        "clip_vitl14": 768,
+        "dinov2_vitl14": 1024,
+        "siglip_vitl16": 1024
+      },
+      "lift_vs_base": {
+        "resnet18": -0.1,
+        "dinov2_vits14": -0.0167,
+        "clip_vitl14": 0.0267,
+        "dinov2_vitl14": 0.0667,
+        "siglip_vitl16": 0.0367
+      },
+      "p_gt_base": {
+        "resnet18": 0.9999954683640415,
+        "dinov2_vits14": 0.8761057183146477,
+        "clip_vitl14": 0.057659149169921875,
+        "dinov2_vitl14": 9.5367431640625e-07,
+        "siglip_vitl16": 0.01734483242034912
+      },
+      "secs": {
+        "resnet18": 86.8,
+        "dinov2_vits14": 279.9,
+        "clip_vitl14": 2964.6,
+        "dinov2_vitl14": 2767.3,
+        "siglip_vitl16": 2837.1
+      }
+    },
+    {
+      "name": "automobile_vs_truck",
+      "n_test": 300,
+      "acc": {
+        "clip_vitb32": 0.97,
+        "resnet18": 0.9133,
+        "dinov2_vits14": 0.96,
+        "clip_vitl14": 0.97,
+        "dinov2_vitl14": 0.9733,
+        "siglip_vitl16": 0.9867
+      },
+      "lb": {
+        "clip_vitb32": 0.9482,
+        "resnet18": 0.8818,
+        "dinov2_vits14": 0.936,
+        "clip_vitl14": 0.9482,
+        "dinov2_vitl14": 0.9524,
+        "siglip_vitl16": 0.9697
+      },
+      "dim": {
+        "clip_vitb32": 512,
+        "resnet18": 512,
+        "dinov2_vits14": 384,
+        "clip_vitl14": 768,
+        "dinov2_vitl14": 1024,
+        "siglip_vitl16": 1024
+      },
+      "lift_vs_base": {
+        "resnet18": -0.0567,
+        "dinov2_vits14": -0.01,
+        "clip_vitl14": 0.0,
+        "dinov2_vitl14": 0.0033,
+        "siglip_vitl16": 0.0167
+      },
+      "p_gt_base": {
+        "resnet18": 0.9999895095825195,
+        "dinov2_vits14": 0.84912109375,
+        "clip_vitl14": 0.623046875,
+        "dinov2_vitl14": 0.5,
+        "siglip_vitl16": 0.0625
+      },
+      "secs": {
+        "resnet18": 86.8,
+        "dinov2_vits14": 279.9,
+        "clip_vitl14": 2964.6,
+        "dinov2_vitl14": 2767.3,
+        "siglip_vitl16": 2837.1
+      }
+    },
+    {
+      "name": "deer_vs_horse",
+      "n_test": 300,
+      "acc": {
+        "clip_vitb32": 0.98,
+        "resnet18": 0.8967,
+        "dinov2_vits14": 0.9767,
+        "clip_vitl14": 0.9767,
+        "dinov2_vitl14": 0.9967,
+        "siglip_vitl16": 1.0
+      },
+      "lb": {
+        "clip_vitb32": 0.9609,
+        "resnet18": 0.8631,
+        "dinov2_vits14": 0.9566,
+        "clip_vitl14": 0.9566,
+        "dinov2_vitl14": 0.9843,
+        "siglip_vitl16": 0.9901
+      },
+      "dim": {
+        "clip_vitb32": 512,
+        "resnet18": 512,
+        "dinov2_vits14": 384,
+        "clip_vitl14": 768,
+        "dinov2_vitl14": 1024,
+        "siglip_vitl16": 1024
+      },
+      "lift_vs_base": {
+        "resnet18": -0.0833,
+        "dinov2_vits14": -0.0033,
+        "clip_vitl14": -0.0033,
+        "dinov2_vitl14": 0.0167,
+        "siglip_vitl16": 0.02
+      },
+      "p_gt_base": {
+        "resnet18": 0.9999982672743499,
+        "dinov2_vits14": 0.7255859375,
+        "clip_vitl14": 0.7255859375,
+        "dinov2_vitl14": 0.0625,
+        "siglip_vitl16": 0.015625
+      },
+      "secs": {
+        "resnet18": 86.8,
+        "dinov2_vits14": 279.9,
+        "clip_vitl14": 2964.6,
+        "dinov2_vitl14": 2767.3,
+        "siglip_vitl16": 2837.1
+      }
+    },
+    {
+      "name": "airplane_vs_ship",
+      "n_test": 300,
+      "acc": {
+        "clip_vitb32": 0.9833,
+        "resnet18": 0.8933,
+        "dinov2_vits14": 0.9967,
+        "clip_vitl14": 0.9867,
+        "dinov2_vitl14": 1.0,
+        "siglip_vitl16": 0.9967
+      },
+      "lb": {
+        "clip_vitb32": 0.9653,
+        "resnet18": 0.8594,
+        "dinov2_vits14": 0.9843,
+        "clip_vitl14": 0.9697,
+        "dinov2_vitl14": 0.9901,
+        "siglip_vitl16": 0.9843
+      },
+      "dim": {
+        "clip_vitb32": 512,
+        "resnet18": 512,
+        "dinov2_vits14": 384,
+        "clip_vitl14": 768,
+        "dinov2_vitl14": 1024,
+        "siglip_vitl16": 1024
+      },
+      "lift_vs_base": {
+        "resnet18": -0.09,
+        "dinov2_vits14": 0.0134,
+        "clip_vitl14": 0.0034,
+        "dinov2_vitl14": 0.0167,
+        "siglip_vitl16": 0.0134
+      },
+      "p_gt_base": {
+        "resnet18": 0.9999999345745891,
+        "dinov2_vits14": 0.109375,
+        "clip_vitl14": 0.5,
+        "dinov2_vitl14": 0.03125,
+        "siglip_vitl16": 0.109375
+      },
+      "secs": {
+        "resnet18": 86.8,
+        "dinov2_vits14": 279.9,
+        "clip_vitl14": 2964.6,
+        "dinov2_vitl14": 2767.3,
+        "siglip_vitl16": 2837.1
+      }
+    },
+    {
+      "name": "bird_vs_frog",
+      "n_test": 300,
+      "acc": {
+        "clip_vitb32": 0.9867,
+        "resnet18": 0.9033,
+        "dinov2_vits14": 0.9933,
+        "clip_vitl14": 1.0,
+        "dinov2_vitl14": 0.9967,
+        "siglip_vitl16": 0.9933
+      },
+      "lb": {
+        "clip_vitb32": 0.9697,
+        "resnet18": 0.8705,
+        "dinov2_vits14": 0.9792,
+        "clip_vitl14": 0.9901,
+        "dinov2_vitl14": 0.9843,
+        "siglip_vitl16": 0.9792
+      },
+      "dim": {
+        "clip_vitb32": 512,
+        "resnet18": 512,
+        "dinov2_vits14": 384,
+        "clip_vitl14": 768,
+        "dinov2_vitl14": 1024,
+        "siglip_vitl16": 1024
+      },
+      "lift_vs_base": {
+        "resnet18": -0.0834,
+        "dinov2_vits14": 0.0066,
+        "clip_vitl14": 0.0133,
+        "dinov2_vitl14": 0.01,
+        "siglip_vitl16": 0.0066
+      },
+      "p_gt_base": {
+        "resnet18": 0.9999997685663402,
+        "dinov2_vits14": 0.34375,
+        "clip_vitl14": 0.0625,
+        "dinov2_vitl14": 0.1875,
+        "siglip_vitl16": 0.34375
+      },
+      "secs": {
+        "resnet18": 86.8,
+        "dinov2_vits14": 279.9,
+        "clip_vitl14": 2964.6,
+        "dinov2_vitl14": 2767.3,
+        "siglip_vitl16": 2837.1
+      }
+    }
+  ],
+  "summary": {
+    "resnet18": {
+      "survivors": [],
+      "n": 5,
+      "mean_lift": -0.0827
+    },
+    "dinov2_vits14": {
+      "survivors": [],
+      "n": 5,
+      "mean_lift": -0.002
+    },
+    "clip_vitl14": {
+      "survivors": [],
+      "n": 5,
+      "mean_lift": 0.008
+    },
+    "dinov2_vitl14": {
+      "survivors": [
+        "cat_vs_dog",
+        "airplane_vs_ship"
+      ],
+      "n": 5,
+      "mean_lift": 0.0227
+    },
+    "siglip_vitl16": {
+      "survivors": [
+        "cat_vs_dog",
+        "deer_vs_horse"
+      ],
+      "n": 5,
+      "mean_lift": 0.0187
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

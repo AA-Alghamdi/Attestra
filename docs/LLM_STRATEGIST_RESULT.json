@@ -1,0 +1,122 @@
+{
+  "arena": "fgvc-aircraft",
+  "smoke": 0,
+  "peek_budget": 12,
+  "model": "claude-sonnet-4-5",
+  "start_tag": "clip_vitb32",
+  "deterministic": {
+    "champion": "dinov2_g",
+    "champion_family": "dinov2",
+    "peeks_used": 7,
+    "promotions": [
+      "clip_vitb32->dinov2_vitl14",
+      "dinov2_vitl14->fuse[dinov2_vitl14+siglip_so]",
+      "fuse[dinov2_vitl14+siglip_so]->dinov2_g"
+    ],
+    "move_class_path": [
+      "model",
+      "features",
+      "capacity"
+    ],
+    "stop_reason": "plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop",
+    "data_ceiling_tasks": [
+      "737-300_vs_737-400",
+      "737-700_vs_737-800",
+      "747-200_vs_747-400",
+      "A330-200_vs_A330-300",
+      "CRJ-700_vs_CRJ-900",
+      "DHC-8-100_vs_DHC-8-300",
+      "E-190_vs_E-195"
+    ]
+  },
+  "llm": {
+    "champion": "dinov2_g",
+    "champion_family": "dinov2",
+    "peeks_used": 2,
+    "promotions": [
+      "clip_vitb32->dinov2_vitl14",
+      "dinov2_vitl14->dinov2_g"
+    ],
+    "move_class_path": [
+      "model",
+      "features",
+      "capacity"
+    ],
+    "stop_reason": "plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop",
+    "data_ceiling_tasks": [
+      "737-300_vs_737-400",
+      "737-700_vs_737-800",
+      "747-200_vs_747-400",
+      "A330-200_vs_A330-300",
+      "CRJ-700_vs_CRJ-900",
+      "DHC-8-100_vs_DHC-8-300",
+      "E-190_vs_E-195"
+    ]
+  },
+  "verdict": {
+    "verdict": "LLM_MORE_EFFICIENT",
+    "same_champion": true,
+    "peeks_deterministic": 7,
+    "peeks_llm": 2,
+    "peeks_saved": 5,
+    "llm_is_better_strategist": true
+  },
+  "llm_calls": [
+    {
+      "move_class": "model",
+      "champion": "clip_vitb32",
+      "legal": [
+        "dinov2_vitl14",
+        "eva02_l",
+        "siglip_so"
+      ],
+      "model": "claude-sonnet-4-5",
+      "shortlist": [
+        "dinov2_vitl14"
+      ],
+      "rationale": "DINOv2 is the only self-supervised encoder that consistently beats language-aligned models like CLIP on fine-grained vision tasks according to the evidence base, while EVA-02 and SigLIP are both bigger-but-different families that tend to lose on fine-grained tasks.",
+      "ok": true
+    },
+    {
+      "move_class": "model",
+      "champion": "dinov2_vitl14",
+      "legal": [
+        "eva02_l",
+        "siglip_so"
+      ],
+      "model": "claude-sonnet-4-5",
+      "shortlist": [],
+      "rationale": "Both EVA-02 and SigLIP are bigger-but-different families that the evidence base shows tend to lose on fine-grained tasks, and since the move_class requires swapping to a different family than the current DINOv2 champion but no promising alternative families remain, no candidates are worth the sealed certification cost.",
+      "ok": true
+    },
+    {
+      "move_class": "features",
+      "champion": "dinov2_vitl14",
+      "legal": [
+        "fuse[dinov2_vitl14+clip_vitb32]"
+      ],
+      "model": "claude-sonnet-4-5",
+      "shortlist": [],
+      "rationale": "Fusion has never certified in any prior run and the evidence base shows it consistently dilutes performance on hard tasks, making this CLIP+DINOv2 concatenation not worth the sealed peek.",
+      "ok": true
+    },
+    {
+      "move_class": "capacity",
+      "champion": "dinov2_vitl14",
+      "legal": [
+        "dinov2_g"
+      ],
+      "model": "claude-sonnet-4-5",
+      "shortlist": [
+        "dinov2_g"
+      ],
+      "rationale": "Within-family scaling from the winning DINOv2 family (300M\u21921.1B parameters) is the highest-probability improvement given that family changes don't help and scaling up has historically paid off.",
+      "ok": true
+    }
+  ],
+  "note": "Both runs use the frozen certifier as sole promoter and a shared memoized arena; only the proposal order/pruning differs. The strategist proposals are intersected with the policy's legal set, so the LLM can only reorder/prune -- never inject an illegal encoder or promote.",
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

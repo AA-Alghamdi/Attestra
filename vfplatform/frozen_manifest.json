@@ -1,0 +1,9 @@
+{
+  "_doc": "Pinned integrity baseline for the FROZEN certifier core. The audit harness (and the in-repo verify_frozen_core() check) compares the live sha256 of each file against these REAL constants and fails on ANY difference. Replaces the previous 'undefined' baseline, which made the read-only hash check unprovable. These files are the root of trust: vectorforge/science.py is the frozen certifier (Clopper-Pearson / bootstrap lower bounds, leakage auditor, stratified split, calibration) and vfplatform/sealed.py is the counted-peek + metric-routing guard in front of it. They MUST NOT change outside an explicit, reviewed re-freeze; if either legitimately changes, recompute and re-pin here in the same commit and explain why in the commit message.",
+  "algo": "sha256",
+  "pinned_at": "2026-06-16",
+  "files": {
+    "vectorforge/science.py": "b564fba248ea009495fcfc2cb7e2e14a1d1285c2f46165cd9401dfbcd461270d",
+    "vfplatform/sealed.py": "30ad62450c53cc4a52ed55e65593352c146549d24e756dcb38532569007c8661"
+  }
+}

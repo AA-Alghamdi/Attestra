@@ -1,0 +1,164 @@
+{
+  "arena": "letter-recognition-confusable-pairs",
+  "budgets": [
+    20,
+    40,
+    80,
+    160,
+    320
+  ],
+  "val_per_class": 25,
+  "sealed_per_class": 90,
+  "alpha_fdr": 0.1,
+  "curve": [
+    {
+      "train_per_class": 20,
+      "gbm_acc": 0.9033,
+      "tabpfn_acc": 0.9289,
+      "mean_lift": 0.0256,
+      "fdr_survivors": [
+        "U_vs_V",
+        "B_vs_D",
+        "V_vs_Y"
+      ],
+      "n_survivors": 3,
+      "gbm_pooled_lb": 0.8911,
+      "tabpfn_pooled_lb": 0.9181,
+      "per_pair_lift": {
+        "O_vs_Q": -0.0167,
+        "E_vs_F": 0.0167,
+        "M_vs_N": -0.0056,
+        "U_vs_V": 0.1167,
+        "B_vs_D": 0.05,
+        "I_vs_J": 0.0,
+        "K_vs_X": -0.0056,
+        "P_vs_R": 0.0278,
+        "C_vs_G": 0.0,
+        "V_vs_Y": 0.0722
+      }
+    },
+    {
+      "train_per_class": 40,
+      "gbm_acc": 0.935,
+      "tabpfn_acc": 0.9556,
+      "mean_lift": 0.0206,
+      "fdr_survivors": [
+        "B_vs_D",
+        "V_vs_Y"
+      ],
+      "n_survivors": 2,
+      "gbm_pooled_lb": 0.9246,
+      "tabpfn_pooled_lb": 0.9467,
+      "per_pair_lift": {
+        "O_vs_Q": 0.0167,
+        "E_vs_F": 0.0222,
+        "M_vs_N": 0.0111,
+        "U_vs_V": 0.0333,
+        "B_vs_D": 0.0333,
+        "I_vs_J": 0.0056,
+        "K_vs_X": 0.0056,
+        "P_vs_R": 0.0111,
+        "C_vs_G": 0.0278,
+        "V_vs_Y": 0.0389
+      }
+    },
+    {
+      "train_per_class": 80,
+      "gbm_acc": 0.945,
+      "tabpfn_acc": 0.9767,
+      "mean_lift": 0.0317,
+      "fdr_survivors": [
+        "O_vs_Q",
+        "M_vs_N",
+        "B_vs_D",
+        "I_vs_J",
+        "K_vs_X",
+        "C_vs_G",
+        "V_vs_Y"
+      ],
+      "n_survivors": 7,
+      "gbm_pooled_lb": 0.9353,
+      "tabpfn_pooled_lb": 0.9699,
+      "per_pair_lift": {
+        "O_vs_Q": 0.0333,
+        "E_vs_F": 0.0,
+        "M_vs_N": 0.0278,
+        "U_vs_V": 0.0056,
+        "B_vs_D": 0.0333,
+        "I_vs_J": 0.05,
+        "K_vs_X": 0.0444,
+        "P_vs_R": 0.0056,
+        "C_vs_G": 0.0389,
+        "V_vs_Y": 0.0778
+      }
+    },
+    {
+      "train_per_class": 160,
+      "gbm_acc": 0.9633,
+      "tabpfn_acc": 0.9844,
+      "mean_lift": 0.0211,
+      "fdr_survivors": [
+        "O_vs_Q",
+        "M_vs_N",
+        "K_vs_X",
+        "C_vs_G"
+      ],
+      "n_survivors": 4,
+      "gbm_pooled_lb": 0.9552,
+      "tabpfn_pooled_lb": 0.9787,
+      "per_pair_lift": {
+        "O_vs_Q": 0.0278,
+        "E_vs_F": 0.0167,
+        "M_vs_N": 0.0278,
+        "U_vs_V": 0.0167,
+        "B_vs_D": 0.0056,
+        "I_vs_J": 0.0,
+        "K_vs_X": 0.05,
+        "P_vs_R": 0.0222,
+        "C_vs_G": 0.0333,
+        "V_vs_Y": 0.0111
+      }
+    },
+    {
+      "train_per_class": 320,
+      "gbm_acc": 0.9711,
+      "tabpfn_acc": 0.9917,
+      "mean_lift": 0.0206,
+      "fdr_survivors": [
+        "B_vs_D",
+        "C_vs_G"
+      ],
+      "n_survivors": 2,
+      "gbm_pooled_lb": 0.9637,
+      "tabpfn_pooled_lb": 0.9872,
+      "per_pair_lift": {
+        "O_vs_Q": 0.0222,
+        "E_vs_F": 0.0222,
+        "M_vs_N": 0.0222,
+        "U_vs_V": 0.0056,
+        "B_vs_D": 0.0333,
+        "I_vs_J": 0.0111,
+        "K_vs_X": 0.0278,
+        "P_vs_R": 0.0167,
+        "C_vs_G": 0.0444,
+        "V_vs_Y": 0.0
+      }
+    }
+  ],
+  "lever_fires_at_budgets": [
+    20,
+    40,
+    80,
+    160,
+    320
+  ],
+  "note": "the tabular representation lever (TabPFN > tuned GBM) PERSISTS across every tested budget [20, 40, 80, 160, 320] train/class -- FDR-surviving at all of them with TabPFN's pooled lower bound above the GBM's throughout; the tuned GBM does NOT catch up within this range (both rise with data, but the foundation prior keeps a steady ~+0.02-0.03 certified edge)",
+  "frozen_hashes_pre": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  },
+  "frozen_hashes_post": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

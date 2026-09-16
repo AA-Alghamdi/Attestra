@@ -1,0 +1,207 @@
+{
+  "per_class": 500,
+  "baseline": "resnet18",
+  "backbone_errors": {},
+  "rows": [
+    {
+      "name": "cat_vs_dog",
+      "n_test": 300,
+      "acc": {
+        "resnet18": 0.83,
+        "resnet50": 0.86,
+        "clip_vitb32": 0.93,
+        "dinov2_vits14": 0.9133
+      },
+      "lb": {
+        "resnet18": 0.7903,
+        "resnet50": 0.8227,
+        "clip_vitb32": 0.9008,
+        "dinov2_vits14": 0.8818
+      },
+      "dim": {
+        "resnet18": 512,
+        "resnet50": 2048,
+        "clip_vitb32": 512,
+        "dinov2_vits14": 384
+      },
+      "lift_vs_base": {
+        "resnet50": 0.03,
+        "clip_vitb32": 0.1,
+        "dinov2_vits14": 0.0833
+      },
+      "p_gt_base": {
+        "resnet50": 0.13583958303275168,
+        "clip_vitb32": 1.7943958064758903e-05,
+        "dinov2_vits14": 0.00012354389230040397
+      },
+      "secs": 255.5
+    },
+    {
+      "name": "automobile_vs_truck",
+      "n_test": 300,
+      "acc": {
+        "resnet18": 0.9133,
+        "resnet50": 0.92,
+        "clip_vitb32": 0.97,
+        "dinov2_vits14": 0.96
+      },
+      "lb": {
+        "resnet18": 0.8818,
+        "resnet50": 0.8893,
+        "clip_vitb32": 0.9482,
+        "dinov2_vits14": 0.936
+      },
+      "dim": {
+        "resnet18": 512,
+        "resnet50": 2048,
+        "clip_vitb32": 512,
+        "dinov2_vits14": 384
+      },
+      "lift_vs_base": {
+        "resnet50": 0.0067,
+        "clip_vitb32": 0.0567,
+        "dinov2_vits14": 0.0467
+      },
+      "p_gt_base": {
+        "resnet50": 0.4194098711013794,
+        "clip_vitb32": 0.000110626220703125,
+        "dinov2_vits14": 0.0046776533126831055
+      },
+      "secs": 224.9
+    },
+    {
+      "name": "deer_vs_horse",
+      "n_test": 300,
+      "acc": {
+        "resnet18": 0.8967,
+        "resnet50": 0.9267,
+        "clip_vitb32": 0.98,
+        "dinov2_vits14": 0.9767
+      },
+      "lb": {
+        "resnet18": 0.8631,
+        "resnet50": 0.8969,
+        "clip_vitb32": 0.9609,
+        "dinov2_vits14": 0.9566
+      },
+      "dim": {
+        "resnet18": 512,
+        "resnet50": 2048,
+        "clip_vitb32": 512,
+        "dinov2_vits14": 384
+      },
+      "lift_vs_base": {
+        "resnet50": 0.03,
+        "clip_vitb32": 0.0833,
+        "dinov2_vits14": 0.08
+      },
+      "p_gt_base": {
+        "resnet50": 0.08773262449540198,
+        "clip_vitb32": 1.1180760338902473e-05,
+        "dinov2_vits14": 9.650597348809242e-06
+      },
+      "secs": 228.2
+    },
+    {
+      "name": "airplane_vs_ship",
+      "n_test": 300,
+      "acc": {
+        "resnet18": 0.8933,
+        "resnet50": 0.94,
+        "clip_vitb32": 0.9833,
+        "dinov2_vits14": 0.9967
+      },
+      "lb": {
+        "resnet18": 0.8594,
+        "resnet50": 0.9123,
+        "clip_vitb32": 0.9653,
+        "dinov2_vits14": 0.9843
+      },
+      "dim": {
+        "resnet18": 512,
+        "resnet50": 2048,
+        "clip_vitb32": 512,
+        "dinov2_vits14": 384
+      },
+      "lift_vs_base": {
+        "resnet50": 0.0467,
+        "clip_vitb32": 0.09,
+        "dinov2_vits14": 0.1034
+      },
+      "p_gt_base": {
+        "resnet50": 0.014408359827939421,
+        "clip_vitb32": 7.005874067544937e-07,
+        "dinov2_vits14": 3.958120942115784e-09
+      },
+      "secs": 219.9
+    },
+    {
+      "name": "bird_vs_frog",
+      "n_test": 300,
+      "acc": {
+        "resnet18": 0.9033,
+        "resnet50": 0.9067,
+        "clip_vitb32": 0.9867,
+        "dinov2_vits14": 0.9933
+      },
+      "lb": {
+        "resnet18": 0.8705,
+        "resnet50": 0.8743,
+        "clip_vitb32": 0.9697,
+        "dinov2_vits14": 0.9792
+      },
+      "dim": {
+        "resnet18": 512,
+        "resnet50": 2048,
+        "clip_vitb32": 512,
+        "dinov2_vits14": 384
+      },
+      "lift_vs_base": {
+        "resnet50": 0.0034,
+        "clip_vitb32": 0.0834,
+        "dinov2_vits14": 0.09
+      },
+      "p_gt_base": {
+        "resnet50": 0.5,
+        "clip_vitb32": 2.3245811462402344e-06,
+        "dinov2_vits14": 2.314336597919464e-07
+      },
+      "secs": 225.3
+    }
+  ],
+  "summary": {
+    "resnet50": {
+      "survivors": [
+        "airplane_vs_ship"
+      ],
+      "n": 5,
+      "mean_lift": 0.0234
+    },
+    "clip_vitb32": {
+      "survivors": [
+        "cat_vs_dog",
+        "automobile_vs_truck",
+        "deer_vs_horse",
+        "airplane_vs_ship",
+        "bird_vs_frog"
+      ],
+      "n": 5,
+      "mean_lift": 0.0827
+    },
+    "dinov2_vits14": {
+      "survivors": [
+        "cat_vs_dog",
+        "automobile_vs_truck",
+        "deer_vs_horse",
+        "airplane_vs_ship",
+        "bird_vs_frog"
+      ],
+      "n": 5,
+      "mean_lift": 0.0807
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

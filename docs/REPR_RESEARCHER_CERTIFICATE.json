@@ -1,0 +1,261 @@
+{
+  "arena": "fgvc-aircraft",
+  "start_champion": "clip_vitb32",
+  "champion": "dinov2_g",
+  "champion_family": "dinov2",
+  "move_class_path": [
+    "model",
+    "features",
+    "capacity"
+  ],
+  "stop_reason": "plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop",
+  "peeks_used": 7,
+  "promotions": [
+    {
+      "rung": "model",
+      "from_tag": "clip_vitb32",
+      "to_tag": "dinov2_vitl14",
+      "survivors": [
+        "737-700_vs_737-800",
+        "737-300_vs_737-400"
+      ],
+      "n": 10,
+      "mean_lift": 0.10333333333333335
+    },
+    {
+      "rung": "features",
+      "from_tag": "dinov2_vitl14",
+      "to_tag": "fuse[dinov2_vitl14+siglip_so]",
+      "survivors": [
+        "ERJ 135_vs_ERJ 145"
+      ],
+      "n": 10,
+      "mean_lift": 0.008333333333333354
+    },
+    {
+      "rung": "capacity",
+      "from_tag": "fuse[dinov2_vitl14+siglip_so]",
+      "to_tag": "dinov2_g",
+      "survivors": [
+        "A330-200_vs_A330-300"
+      ],
+      "n": 10,
+      "mean_lift": 0.0483333333333333
+    }
+  ],
+  "rejections": [
+    {
+      "rung": "model",
+      "tag": "eva02_l",
+      "survivors": [],
+      "n": 10,
+      "mean_lift": 0.016666666666666673,
+      "reason": "frozen Tier-3 did not certify over champion clip_vitb32 (0 FDR survivors, mean_lift +0.017)"
+    },
+    {
+      "rung": "model",
+      "tag": "siglip_so",
+      "survivors": [
+        "737-300_vs_737-400",
+        "CRJ-700_vs_CRJ-900",
+        "ERJ 135_vs_ERJ 145",
+        "767-300_vs_767-400"
+      ],
+      "n": 10,
+      "mean_lift": 0.07666666666666666,
+      "reason": "certified over prior champion clip_vitb32 but superseded by dinov2_vitl14 (sealed lower bound 0.757 > 0.730)"
+    },
+    {
+      "rung": "features",
+      "tag": "fuse[dinov2_vitl14+clip_vitb32]",
+      "survivors": [],
+      "n": 10,
+      "mean_lift": -0.019999999999999997,
+      "reason": "frozen Tier-3 did not certify over champion dinov2_vitl14 (0 FDR survivors, mean_lift -0.020)"
+    },
+    {
+      "rung": "features",
+      "tag": "fuse[dinov2_vitl14+eva02_l]",
+      "survivors": [],
+      "n": 10,
+      "mean_lift": -0.011666666666666659,
+      "reason": "frozen Tier-3 did not certify over champion dinov2_vitl14 (0 FDR survivors, mean_lift -0.012)"
+    }
+  ],
+  "data_ceiling_tasks": [
+    "737-300_vs_737-400",
+    "737-700_vs_737-800",
+    "747-200_vs_747-400",
+    "A330-200_vs_A330-300",
+    "CRJ-700_vs_CRJ-900",
+    "DHC-8-100_vs_DHC-8-300",
+    "E-190_vs_E-195"
+  ],
+  "sealed_acc": {
+    "737-700_vs_737-800": 0.8833,
+    "737-300_vs_737-400": 0.7667,
+    "747-200_vs_747-400": 0.75,
+    "A330-200_vs_A330-300": 0.7333,
+    "A340-300_vs_A340-600": 0.9333,
+    "CRJ-700_vs_CRJ-900": 0.8833,
+    "ERJ 135_vs_ERJ 145": 0.9167,
+    "E-190_vs_E-195": 0.75,
+    "767-300_vs_767-400": 0.9333,
+    "DHC-8-100_vs_DHC-8-300": 0.8833
+  },
+  "sealed_lb": {
+    "737-700_vs_737-800": 0.792,
+    "737-300_vs_737-400": 0.6595,
+    "747-200_vs_747-400": 0.6415,
+    "A330-200_vs_A330-300": 0.6236,
+    "A340-300_vs_A340-600": 0.8539,
+    "CRJ-700_vs_CRJ-900": 0.792,
+    "ERJ 135_vs_ERJ 145": 0.8327,
+    "E-190_vs_E-195": 0.6415,
+    "767-300_vs_767-400": 0.8539,
+    "DHC-8-100_vs_DHC-8-300": 0.792
+  },
+  "gold_confirmation": null,
+  "multiplicity": {
+    "champion": "dinov2_g",
+    "baseline": "clip_vitb32",
+    "n_tasks": 10,
+    "sealed_comparisons": 7,
+    "mcnemar_tests_total": 70,
+    "per_comparison_fdr_alpha": 0.1,
+    "session_bonferroni_alpha": 0.014286,
+    "champion_vs_start_sealed": [
+      {
+        "task": "737-700_vs_737-800",
+        "champ_acc": 0.8833,
+        "start_acc": 0.55,
+        "lift": 0.3333,
+        "p_gt_start": 0.0
+      },
+      {
+        "task": "737-300_vs_737-400",
+        "champ_acc": 0.7667,
+        "start_acc": 0.5667,
+        "lift": 0.2,
+        "p_gt_start": 0.0145
+      },
+      {
+        "task": "747-200_vs_747-400",
+        "champ_acc": 0.75,
+        "start_acc": 0.6333,
+        "lift": 0.1167,
+        "p_gt_start": 0.0946
+      },
+      {
+        "task": "A330-200_vs_A330-300",
+        "champ_acc": 0.7333,
+        "start_acc": 0.6,
+        "lift": 0.1333,
+        "p_gt_start": 0.1077
+      },
+      {
+        "task": "A340-300_vs_A340-600",
+        "champ_acc": 0.9333,
+        "start_acc": 0.6667,
+        "lift": 0.2667,
+        "p_gt_start": 0.0002
+      },
+      {
+        "task": "CRJ-700_vs_CRJ-900",
+        "champ_acc": 0.8833,
+        "start_acc": 0.65,
+        "lift": 0.2333,
+        "p_gt_start": 0.0033
+      },
+      {
+        "task": "ERJ 135_vs_ERJ 145",
+        "champ_acc": 0.9167,
+        "start_acc": 0.7,
+        "lift": 0.2167,
+        "p_gt_start": 0.0005
+      },
+      {
+        "task": "E-190_vs_E-195",
+        "champ_acc": 0.75,
+        "start_acc": 0.7833,
+        "lift": -0.0333,
+        "p_gt_start": 0.7597
+      },
+      {
+        "task": "767-300_vs_767-400",
+        "champ_acc": 0.9333,
+        "start_acc": 0.9,
+        "lift": 0.0333,
+        "p_gt_start": 0.3633
+      },
+      {
+        "task": "DHC-8-100_vs_DHC-8-300",
+        "champ_acc": 0.8833,
+        "start_acc": 0.7833,
+        "lift": 0.1,
+        "p_gt_start": 0.1316
+      }
+    ],
+    "fdr_survivors_nominal": [
+      "737-700_vs_737-800",
+      "737-300_vs_737-400",
+      "A340-300_vs_A340-600",
+      "CRJ-700_vs_CRJ-900",
+      "ERJ 135_vs_ERJ 145"
+    ],
+    "bonferroni_survivors_session": [
+      "737-700_vs_737-800",
+      "A340-300_vs_A340-600",
+      "CRJ-700_vs_CRJ-900",
+      "ERJ 135_vs_ERJ 145"
+    ],
+    "champion_sealed_lb": 0.8168,
+    "robust_to_session_multiplicity": true,
+    "gold_independent_confirmation": false,
+    "note": "M sealed certifications were spent climbing; the champion is the argmax over them, so its sealed lower bound is selection-biased. bonferroni_survivors_session re-tests champion vs start at alpha/M as a conservative family-wise check; the multiplicity-FREE verdict is the gold confirmation, which never read the sealed set."
+  },
+  "pareto_front": [
+    "clip_vitb32",
+    "dinov2_vitl14",
+    "dinov2_g"
+  ],
+  "pareto_report": "Certified Pareto front: 3 of 3 candidates certified+nondominated\n  dinov2_g: metric_lb=0.624 latency=1100.0ms cost=$1.1000 ece=0.000\n  dinov2_vitl14: metric_lb=0.606 latency=300.0ms cost=$0.3000 ece=0.000\n  clip_vitb32: metric_lb=0.436 latency=88.0ms cost=$0.0880 ece=0.000\n  pick[fastest_certified] = clip_vitb32\n  pick[most_accurate] = dinov2_g\n  pick[best_calibrated] = clip_vitb32\n  pick[cheapest_certified] = clip_vitb32",
+  "acceptance": {
+    "champion is DINOv2-g": true,
+    "climbed via DINOv2-L then g": true,
+    "rejected SigLIP-SO400M": true,
+    "rejected EVA-02-L": true,
+    "flagged 737-700/800 as data ceiling": true,
+    "flagged 737-300/400 as data ceiling": true
+  },
+  "all_pass": true,
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  },
+  "log": [
+    "start champion=clip_vitb32 (clip) sealed_lb=0.651 theta_floor=0.5",
+    "[model] dinov2_vitl14: competence-screen SURVIVED (val_acc 0.807) -> Tier-3 eligible",
+    "[model] eva02_l: competence-screen SURVIVED (val_acc 0.764) -> Tier-3 eligible",
+    "[model] siglip_so: competence-screen SURVIVED (val_acc 0.814) -> Tier-3 eligible",
+    "[model] siglip_so: frozen Tier-3 CERTIFIED over clip_vitb32 (survivors 4/10, mean_lift +0.077, sealed_lb 0.730)",
+    "[model] dinov2_vitl14: frozen Tier-3 CERTIFIED over clip_vitb32 (survivors 2/10, mean_lift +0.103, sealed_lb 0.757)",
+    "[model] reject eva02_l (not certified over clip_vitb32: 0/10, mean_lift +0.017)",
+    "[model] supersede siglip_so (sealed_lb 0.730) by dinov2_vitl14 (sealed_lb 0.757)",
+    "[model] PROMOTE clip_vitb32 -> dinov2_vitl14 (survivors 2/10, mean_lift +0.103, sealed_lb 0.757)",
+    "escalate: escalate_to_features (from=model since_improve=3: val_lb plateaued for >= 3 rounds on the 'model' class; the same-class sweep is saturated -> switch KIND of move to 'features')",
+    "[features] fuse[dinov2_vitl14+siglip_so]: competence-screen SURVIVED (val_acc 0.818) -> Tier-3 eligible",
+    "[features] fuse[dinov2_vitl14+eva02_l]: competence-screen SURVIVED (val_acc 0.782) -> Tier-3 eligible",
+    "[features] fuse[dinov2_vitl14+clip_vitb32]: competence-screen SURVIVED (val_acc 0.782) -> Tier-3 eligible",
+    "[features] fuse[dinov2_vitl14+siglip_so]: frozen Tier-3 CERTIFIED over dinov2_vitl14 (survivors 1/10, mean_lift +0.008, sealed_lb 0.766)",
+    "[features] reject fuse[dinov2_vitl14+clip_vitb32] (not certified over dinov2_vitl14: 0/10, mean_lift -0.020)",
+    "[features] reject fuse[dinov2_vitl14+eva02_l] (not certified over dinov2_vitl14: 0/10, mean_lift -0.012)",
+    "[features] PROMOTE dinov2_vitl14 -> fuse[dinov2_vitl14+siglip_so] (survivors 1/10, mean_lift +0.008, sealed_lb 0.766)",
+    "escalate: escalate_to_capacity (from=features since_improve=3: val_lb plateaued for >= 3 rounds on the 'features' class; the same-class sweep is saturated -> switch KIND of move to 'capacity')",
+    "[capacity] dinov2_g: competence-screen SURVIVED (val_acc 0.857) -> Tier-3 eligible",
+    "[capacity] dinov2_g: frozen Tier-3 CERTIFIED over fuse[dinov2_vitl14+siglip_so] (survivors 1/10, mean_lift +0.048, sealed_lb 0.817)",
+    "[capacity] PROMOTE fuse[dinov2_vitl14+siglip_so] -> dinov2_g (survivors 1/10, mean_lift +0.048, sealed_lb 0.817)",
+    "escalate: stop (from=capacity since_improve=3: plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop)",
+    "session-multiplicity: 7 sealed certifications (70 McNemar tests); Bonferroni alpha/M=0.0143 -> 4/10 champion-vs-start survivors (FDR-nominal 5); robust=True, gold-independent=False"
+  ]
+}

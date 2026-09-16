@@ -1,0 +1,395 @@
+{
+  "arena": "fgvc-aircraft",
+  "per_class": 100,
+  "champion": "dinov2_vitl14",
+  "challengers": [
+    "siglip_so",
+    "eva02_l",
+    "dinov2_g"
+  ],
+  "rows": [
+    {
+      "name": "737-700_vs_737-800",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.55,
+        "dinov2_vitl14": 0.85,
+        "siglip_so": 0.6667,
+        "eva02_l": 0.5833,
+        "dinov2_g": 0.8833
+      },
+      "lb": {
+        "clip_vitb32": 0.436,
+        "dinov2_vitl14": 0.7528,
+        "siglip_so": 0.5535,
+        "eva02_l": 0.469,
+        "dinov2_g": 0.792
+      },
+      "lift_dino_vs_clip": 0.3,
+      "p_dino_gt_clip": 2.002716064453125e-05,
+      "lift_siglip_so_vs_dino": -0.1833,
+      "lift_siglip_so_vs_clip": 0.1167,
+      "p_siglip_so_gt_dino": 0.99951171875,
+      "p_siglip_so_gt_clip": 0.08353424072265625,
+      "secs_siglip_so": 5.3,
+      "lift_eva02_l_vs_dino": -0.2667,
+      "lift_eva02_l_vs_clip": 0.0333,
+      "p_eva02_l_gt_dino": 0.9999394416809082,
+      "p_eva02_l_gt_clip": 0.40726470947265625,
+      "secs_eva02_l": 4.7,
+      "lift_dinov2_g_vs_dino": 0.0333,
+      "lift_dinov2_g_vs_clip": 0.3333,
+      "p_dinov2_g_gt_dino": 0.376953125,
+      "p_dinov2_g_gt_clip": 5.4836273193359375e-06,
+      "secs_dinov2_g": 6.9
+    },
+    {
+      "name": "737-300_vs_737-400",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.5667,
+        "dinov2_vitl14": 0.7667,
+        "siglip_so": 0.7,
+        "eva02_l": 0.5333,
+        "dinov2_g": 0.7667
+      },
+      "lb": {
+        "clip_vitb32": 0.4524,
+        "dinov2_vitl14": 0.6595,
+        "siglip_so": 0.5883,
+        "eva02_l": 0.4197,
+        "dinov2_g": 0.6595
+      },
+      "lift_dino_vs_clip": 0.2,
+      "p_dino_gt_clip": 0.017849069088697433,
+      "lift_siglip_so_vs_dino": -0.0667,
+      "lift_siglip_so_vs_clip": 0.1333,
+      "p_siglip_so_gt_dino": 0.8568606376647949,
+      "p_siglip_so_gt_clip": 0.0384063720703125,
+      "secs_siglip_so": 160.1,
+      "lift_eva02_l_vs_dino": -0.2334,
+      "lift_eva02_l_vs_clip": -0.0334,
+      "p_eva02_l_gt_dino": 0.9973885603249073,
+      "p_eva02_l_gt_clip": 0.7596588134765625,
+      "secs_eva02_l": 121.7,
+      "lift_dinov2_g_vs_dino": -0.0,
+      "lift_dinov2_g_vs_clip": 0.2,
+      "p_dinov2_g_gt_dino": 0.61279296875,
+      "p_dinov2_g_gt_clip": 0.014479637145996094,
+      "secs_dinov2_g": 381.1
+    },
+    {
+      "name": "747-200_vs_747-400",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.6333,
+        "dinov2_vitl14": 0.75,
+        "siglip_so": 0.75,
+        "eva02_l": 0.5833,
+        "dinov2_g": 0.75
+      },
+      "lb": {
+        "clip_vitb32": 0.5193,
+        "dinov2_vitl14": 0.6415,
+        "siglip_so": 0.6415,
+        "eva02_l": 0.469,
+        "dinov2_g": 0.6415
+      },
+      "lift_dino_vs_clip": 0.1167,
+      "p_dino_gt_clip": 0.11476147174835205,
+      "lift_siglip_so_vs_dino": 0.0,
+      "lift_siglip_so_vs_clip": 0.1167,
+      "p_siglip_so_gt_dino": 0.5927352905273438,
+      "p_siglip_so_gt_clip": 0.08353424072265625,
+      "secs_siglip_so": 154.7,
+      "lift_eva02_l_vs_dino": -0.1667,
+      "lift_eva02_l_vs_clip": -0.05,
+      "p_eva02_l_gt_dino": 0.9886720776557922,
+      "p_eva02_l_gt_clip": 0.7975635528564453,
+      "secs_eva02_l": 117.7,
+      "lift_dinov2_g_vs_dino": 0.0,
+      "lift_dinov2_g_vs_clip": 0.1167,
+      "p_dinov2_g_gt_dino": 0.623046875,
+      "p_dinov2_g_gt_clip": 0.09462356567382812,
+      "secs_dinov2_g": 379.5
+    },
+    {
+      "name": "A330-200_vs_A330-300",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.6,
+        "dinov2_vitl14": 0.75,
+        "siglip_so": 0.4833,
+        "eva02_l": 0.5833,
+        "dinov2_g": 0.7333
+      },
+      "lb": {
+        "clip_vitb32": 0.4856,
+        "dinov2_vitl14": 0.6415,
+        "siglip_so": 0.3714,
+        "eva02_l": 0.469,
+        "dinov2_g": 0.6236
+      },
+      "lift_dino_vs_clip": 0.15,
+      "p_dino_gt_clip": 0.07480639219284058,
+      "lift_siglip_so_vs_dino": -0.2667,
+      "lift_siglip_so_vs_clip": -0.1167,
+      "p_siglip_so_gt_dino": 0.9989487992133945,
+      "p_siglip_so_gt_clip": 0.9389609396457672,
+      "secs_siglip_so": 156.7,
+      "lift_eva02_l_vs_dino": -0.1667,
+      "lift_eva02_l_vs_clip": -0.0167,
+      "p_eva02_l_gt_dino": 0.9886720776557922,
+      "p_eva02_l_gt_clip": 0.6681880950927734,
+      "secs_eva02_l": 124.1,
+      "lift_dinov2_g_vs_dino": -0.0167,
+      "lift_dinov2_g_vs_clip": 0.1333,
+      "p_dinov2_g_gt_dino": 0.7255859375,
+      "p_dinov2_g_gt_clip": 0.10766357486136258,
+      "secs_dinov2_g": 372.8
+    },
+    {
+      "name": "A340-300_vs_A340-600",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.6667,
+        "dinov2_vitl14": 0.8167,
+        "siglip_so": 0.7333,
+        "eva02_l": 0.6833,
+        "dinov2_g": 0.9333
+      },
+      "lb": {
+        "clip_vitb32": 0.5535,
+        "dinov2_vitl14": 0.7148,
+        "siglip_so": 0.6236,
+        "eva02_l": 0.5708,
+        "dinov2_g": 0.8539
+      },
+      "lift_dino_vs_clip": 0.15,
+      "p_dino_gt_clip": 0.0317840576171875,
+      "lift_siglip_so_vs_dino": -0.0834,
+      "lift_siglip_so_vs_clip": 0.0666,
+      "p_siglip_so_gt_dino": 0.9164657592773438,
+      "p_siglip_so_gt_clip": 0.2403411865234375,
+      "secs_siglip_so": 161.3,
+      "lift_eva02_l_vs_dino": -0.1334,
+      "lift_eva02_l_vs_clip": 0.0166,
+      "p_eva02_l_gt_dino": 0.9737606048583984,
+      "p_eva02_l_gt_clip": 0.5,
+      "secs_eva02_l": 119.7,
+      "lift_dinov2_g_vs_dino": 0.1166,
+      "lift_dinov2_g_vs_clip": 0.2666,
+      "p_dinov2_g_gt_dino": 0.0078125,
+      "p_dinov2_g_gt_clip": 0.00020122528076171875,
+      "secs_dinov2_g": 372.9
+    },
+    {
+      "name": "CRJ-700_vs_CRJ-900",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.65,
+        "dinov2_vitl14": 0.75,
+        "siglip_so": 0.8333,
+        "eva02_l": 0.6333,
+        "dinov2_g": 0.8833
+      },
+      "lb": {
+        "clip_vitb32": 0.5364,
+        "dinov2_vitl14": 0.6415,
+        "siglip_so": 0.7337,
+        "eva02_l": 0.5193,
+        "dinov2_g": 0.792
+      },
+      "lift_dino_vs_clip": 0.1,
+      "p_dino_gt_clip": 0.17246422544121742,
+      "lift_siglip_so_vs_dino": 0.0833,
+      "lift_siglip_so_vs_clip": 0.1833,
+      "p_siglip_so_gt_dino": 0.1661529541015625,
+      "p_siglip_so_gt_clip": 0.01734483242034912,
+      "secs_siglip_so": 156.8,
+      "lift_eva02_l_vs_dino": -0.1167,
+      "lift_eva02_l_vs_clip": -0.0167,
+      "p_eva02_l_gt_dino": 0.9319770261645317,
+      "p_eva02_l_gt_clip": 0.6681880950927734,
+      "secs_eva02_l": 118.8,
+      "lift_dinov2_g_vs_dino": 0.1333,
+      "lift_dinov2_g_vs_clip": 0.2333,
+      "p_dinov2_g_gt_dino": 0.019287109375,
+      "p_dinov2_g_gt_clip": 0.003305375576019287,
+      "secs_dinov2_g": 367.0
+    },
+    {
+      "name": "ERJ 135_vs_ERJ 145",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.7,
+        "dinov2_vitl14": 0.7167,
+        "siglip_so": 0.85,
+        "eva02_l": 0.75,
+        "dinov2_g": 0.9167
+      },
+      "lb": {
+        "clip_vitb32": 0.5883,
+        "dinov2_vitl14": 0.6058,
+        "siglip_so": 0.7528,
+        "eva02_l": 0.6415,
+        "dinov2_g": 0.8327
+      },
+      "lift_dino_vs_clip": 0.0167,
+      "p_dino_gt_clip": 0.5,
+      "lift_siglip_so_vs_dino": 0.1333,
+      "lift_siglip_so_vs_clip": 0.15,
+      "p_siglip_so_gt_dino": 0.0384063720703125,
+      "p_siglip_so_gt_clip": 0.017578125,
+      "secs_siglip_so": 158.8,
+      "lift_eva02_l_vs_dino": 0.0333,
+      "lift_eva02_l_vs_clip": 0.05,
+      "p_eva02_l_gt_dino": 0.40726470947265625,
+      "p_eva02_l_gt_clip": 0.3238029479980469,
+      "secs_eva02_l": 118.0,
+      "lift_dinov2_g_vs_dino": 0.2,
+      "lift_dinov2_g_vs_clip": 0.2167,
+      "p_dinov2_g_gt_dino": 0.00091552734375,
+      "p_dinov2_g_gt_clip": 0.00048828125,
+      "secs_dinov2_g": 370.2
+    },
+    {
+      "name": "E-190_vs_E-195",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.7833,
+        "dinov2_vitl14": 0.7167,
+        "siglip_so": 0.8,
+        "eva02_l": 0.8167,
+        "dinov2_g": 0.75
+      },
+      "lb": {
+        "clip_vitb32": 0.6778,
+        "dinov2_vitl14": 0.6058,
+        "siglip_so": 0.6962,
+        "eva02_l": 0.7148,
+        "dinov2_g": 0.6415
+      },
+      "lift_dino_vs_clip": -0.0666,
+      "p_dino_gt_clip": 0.8462718725204468,
+      "lift_siglip_so_vs_dino": 0.0833,
+      "lift_siglip_so_vs_clip": 0.0167,
+      "p_siglip_so_gt_dino": 0.19165515899658203,
+      "p_siglip_so_gt_clip": 0.5,
+      "secs_siglip_so": 158.0,
+      "lift_eva02_l_vs_dino": 0.1,
+      "lift_eva02_l_vs_clip": 0.0334,
+      "p_eva02_l_gt_dino": 0.08978271484375,
+      "p_eva02_l_gt_clip": 0.4159059524536133,
+      "secs_eva02_l": 120.7,
+      "lift_dinov2_g_vs_dino": 0.0333,
+      "lift_dinov2_g_vs_clip": -0.0333,
+      "p_dinov2_g_gt_dino": 0.376953125,
+      "p_dinov2_g_gt_clip": 0.7596588134765625,
+      "secs_dinov2_g": 365.5
+    },
+    {
+      "name": "767-300_vs_767-400",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.9,
+        "dinov2_vitl14": 0.8833,
+        "siglip_so": 0.9833,
+        "eva02_l": 0.95,
+        "dinov2_g": 0.9333
+      },
+      "lb": {
+        "clip_vitb32": 0.8121,
+        "dinov2_vitl14": 0.792,
+        "siglip_so": 0.9234,
+        "eva02_l": 0.8758,
+        "dinov2_g": 0.8539
+      },
+      "lift_dino_vs_clip": -0.0167,
+      "p_dino_gt_clip": 0.7255859375,
+      "lift_siglip_so_vs_dino": 0.1,
+      "lift_siglip_so_vs_clip": 0.0833,
+      "p_siglip_so_gt_dino": 0.015625,
+      "p_siglip_so_gt_clip": 0.03125,
+      "secs_siglip_so": 160.0,
+      "lift_eva02_l_vs_dino": 0.0667,
+      "lift_eva02_l_vs_clip": 0.05,
+      "p_eva02_l_gt_dino": 0.14453125,
+      "p_eva02_l_gt_clip": 0.2265625,
+      "secs_eva02_l": 117.3,
+      "lift_dinov2_g_vs_dino": 0.05,
+      "lift_dinov2_g_vs_clip": 0.0333,
+      "p_dinov2_g_gt_dino": 0.1875,
+      "p_dinov2_g_gt_clip": 0.36328125,
+      "secs_dinov2_g": 370.3
+    },
+    {
+      "name": "DHC-8-100_vs_DHC-8-300",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.7833,
+        "dinov2_vitl14": 0.8667,
+        "siglip_so": 0.8,
+        "eva02_l": 0.8833,
+        "dinov2_g": 0.8833
+      },
+      "lb": {
+        "clip_vitb32": 0.6778,
+        "dinov2_vitl14": 0.7723,
+        "siglip_so": 0.6962,
+        "eva02_l": 0.792,
+        "dinov2_g": 0.792
+      },
+      "lift_dino_vs_clip": 0.0834,
+      "p_dino_gt_clip": 0.1796417236328125,
+      "lift_siglip_so_vs_dino": -0.0667,
+      "lift_siglip_so_vs_clip": 0.0167,
+      "p_siglip_so_gt_dino": 0.8949432373046875,
+      "p_siglip_so_gt_clip": 0.5,
+      "secs_siglip_so": 157.1,
+      "lift_eva02_l_vs_dino": 0.0166,
+      "lift_eva02_l_vs_clip": 0.1,
+      "p_eva02_l_gt_dino": 0.5,
+      "p_eva02_l_gt_clip": 0.072998046875,
+      "secs_eva02_l": 117.6,
+      "lift_dinov2_g_vs_dino": 0.0166,
+      "lift_dinov2_g_vs_clip": 0.1,
+      "p_dinov2_g_gt_dino": 0.5,
+      "p_dinov2_g_gt_clip": 0.13158798217773438,
+      "secs_dinov2_g": 370.7
+    }
+  ],
+  "summary": {
+    "SigLIP SO400M/14 (428M) vs DINOv2-L(champion)": {
+      "survivors": [],
+      "n": 10,
+      "mean_lift": -0.0267
+    },
+    "EVA-02 ViT-L/14 MIM (304M) vs DINOv2-L(champion)": {
+      "survivors": [],
+      "n": 10,
+      "mean_lift": -0.0867
+    },
+    "DINOv2 ViT-g/14 (1.1B) vs DINOv2-L(champion)": {
+      "survivors": [
+        "A340-300_vs_A340-600",
+        "CRJ-700_vs_CRJ-900",
+        "ERJ 135_vs_ERJ 145"
+      ],
+      "n": 10,
+      "mean_lift": 0.0566
+    },
+    "DINOv2-L(champion) vs CLIP-B (sanity, reproduces #3)": {
+      "survivors": [
+        "737-700_vs_737-800",
+        "737-300_vs_737-400"
+      ],
+      "n": 10,
+      "mean_lift": 0.1033
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

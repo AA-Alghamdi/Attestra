@@ -1,0 +1,65 @@
+{
+  "suite": "attestra-default",
+  "_doc": "The reproducible campaign Attestra runs to certify itself end-to-end. The 'goal' lane exercises the autonomous /goal front door on CPU (certified champion / honest decline). The 'loop' lane exercises the provider-aware harness engine, which PROPOSES the GPU torch families (torch_mlp / torch_cnn): on a GPU box (RunPod) they train on cuda; with no GPU they device-swap to the in-process worker on CPU so the IDENTICAL contract is verified before any spend. See docs/EXPERIMENTS.md.",
+  "experiments": [
+    {
+      "name": "wine_goal",
+      "lane": "goal",
+      "goal": "classify wine cultivar from its chemical assay",
+      "data": "wine",
+      "peeks": 8,
+      "seed": 0,
+      "note": "multiclass i.i.d.; expected SOLVED with a clear sealed lower bound above the floor"
+    },
+    {
+      "name": "breast_cancer_goal",
+      "lane": "goal",
+      "goal": "detect malignant tumors from cell-nucleus measurements",
+      "data": "breast_cancer",
+      "peeks": 8,
+      "seed": 0,
+      "note": "imbalanced; data-driven competence floor (>0.5); expected SOLVED, not wrongly refused"
+    },
+    {
+      "name": "diabetes_goal",
+      "lane": "goal",
+      "goal": "predict one-year diabetes disease progression",
+      "data": "diabetes",
+      "peeks": 8,
+      "seed": 0,
+      "note": "regression-tolerance; an honest NOT-SOLVED is an acceptable, correct outcome here"
+    },
+    {
+      "name": "forecast_decline",
+      "lane": "goal",
+      "goal": "forecast next quarter's revenue time series",
+      "data": "wine",
+      "peeks": 8,
+      "seed": 0,
+      "note": "out-of-scope framing -> expected honest DECLINE (no run, no sealed peek)"
+    },
+    {
+      "name": "wine_goal_gpu_head",
+      "lane": "goal",
+      "goal": "classify wine cultivar from its chemical assay",
+      "data": "wine",
+      "peeks": 8,
+      "seed": 0,
+      "gpu": true,
+      "note": "same goal, GPU head enabled: the loop may recruit a torch-MLP candidate (cuda on a GPU box)"
+    },
+    {
+      "name": "digits_loop_gpu",
+      "lane": "loop",
+      "goal": "classify handwritten digits 0-9",
+      "data": "digits",
+      "task_type": "multiclass",
+      "threshold": 0.5,
+      "metric": "accuracy",
+      "candidate_seeds": [0, 1],
+      "max_rounds": 4,
+      "seed": 0,
+      "note": "provider-aware engine; torch_mlp/torch_cnn proposed when the provider can run them (GPU box -> cuda)"
+    }
+  ]
+}

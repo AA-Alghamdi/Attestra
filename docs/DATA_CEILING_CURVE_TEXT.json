@@ -1,0 +1,329 @@
+{
+  "modality": "text",
+  "champion": "mpnet",
+  "alpha": 0.1,
+  "seeds": 5,
+  "hard_tasks": [
+    "alt.atheism_vs_religion.misc",
+    "ms-windows.misc_vs_windows.x",
+    "pc.hardware_vs_mac.hardware",
+    "rec.autos_vs_rec.motorcycles"
+  ],
+  "data_limited_survivors": [
+    "alt.atheism_vs_religion.misc",
+    "ms-windows.misc_vs_windows.x",
+    "pc.hardware_vs_mac.hardware",
+    "rec.autos_vs_rec.motorcycles"
+  ],
+  "n_data_limited": 4,
+  "per_task": {
+    "alt.atheism_vs_religion.misc": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        96,
+        134
+      ],
+      "n_test": 144,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.5375,
+          "acc_std": 0.0498,
+          "acc_lb_mean": 0.4659,
+          "acc_lb_canonical": 0.4767
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.5694,
+          "acc_std": 0.0421,
+          "acc_lb_mean": 0.4978,
+          "acc_lb_canonical": 0.4285
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.5986,
+          "acc_std": 0.0269,
+          "acc_lb_mean": 0.527,
+          "acc_lb_canonical": 0.4767
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.5986,
+          "acc_std": 0.035,
+          "acc_lb_mean": 0.5271,
+          "acc_lb_canonical": 0.4905
+        },
+        {
+          "budget_per_class": 96,
+          "n_train": 192,
+          "acc_mean": 0.6764,
+          "acc_std": 0.0409,
+          "acc_lb_mean": 0.6067,
+          "acc_lb_canonical": 0.6036
+        },
+        {
+          "budget_per_class": 134,
+          "n_train": 268,
+          "acc_mean": 0.7014,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.6324,
+          "acc_lb_canonical": 0.6324
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 134,
+        "lift": 0.1528,
+        "p": 0.0023
+      },
+      "top_step": {
+        "from_b": 96,
+        "to_b": 134,
+        "lift": 0.0278,
+        "p": 0.2617
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    },
+    "ms-windows.misc_vs_windows.x": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        96,
+        134
+      ],
+      "n_test": 144,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.7583,
+          "acc_std": 0.0609,
+          "acc_lb_mean": 0.6932,
+          "acc_lb_canonical": 0.7508
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.8125,
+          "acc_std": 0.0228,
+          "acc_lb_mean": 0.751,
+          "acc_lb_canonical": 0.7584
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.8486,
+          "acc_std": 0.0226,
+          "acc_lb_mean": 0.7908,
+          "acc_lb_canonical": 0.7433
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.8792,
+          "acc_std": 0.0184,
+          "acc_lb_mean": 0.8252,
+          "acc_lb_canonical": 0.8522
+        },
+        {
+          "budget_per_class": 96,
+          "n_train": 192,
+          "acc_mean": 0.8764,
+          "acc_std": 0.0193,
+          "acc_lb_mean": 0.822,
+          "acc_lb_canonical": 0.7968
+        },
+        {
+          "budget_per_class": 134,
+          "n_train": 268,
+          "acc_mean": 0.875,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.8203,
+          "acc_lb_canonical": 0.8203
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 134,
+        "lift": 0.0625,
+        "p": 0.0748
+      },
+      "top_step": {
+        "from_b": 96,
+        "to_b": 134,
+        "lift": 0.0208,
+        "p": 0.3318
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    },
+    "pc.hardware_vs_mac.hardware": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        96,
+        134
+      ],
+      "n_test": 144,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.6208,
+          "acc_std": 0.0353,
+          "acc_lb_mean": 0.5496,
+          "acc_lb_canonical": 0.618
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.6611,
+          "acc_std": 0.0721,
+          "acc_lb_mean": 0.5915,
+          "acc_lb_canonical": 0.7207
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.7472,
+          "acc_std": 0.0546,
+          "acc_lb_mean": 0.6813,
+          "acc_lb_canonical": 0.7433
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.7306,
+          "acc_std": 0.0384,
+          "acc_lb_mean": 0.6633,
+          "acc_lb_canonical": 0.7357
+        },
+        {
+          "budget_per_class": 96,
+          "n_train": 192,
+          "acc_mean": 0.7722,
+          "acc_std": 0.0464,
+          "acc_lb_mean": 0.7078,
+          "acc_lb_canonical": 0.7737
+        },
+        {
+          "budget_per_class": 134,
+          "n_train": 268,
+          "acc_mean": 0.8472,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.7891,
+          "acc_lb_canonical": 0.7891
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 134,
+        "lift": 0.1597,
+        "p": 0.0003
+      },
+      "top_step": {
+        "from_b": 96,
+        "to_b": 134,
+        "lift": 0.0139,
+        "p": 0.4018
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    },
+    "rec.autos_vs_rec.motorcycles": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        96,
+        134
+      ],
+      "n_test": 144,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.7181,
+          "acc_std": 0.0824,
+          "acc_lb_mean": 0.651,
+          "acc_lb_canonical": 0.7132
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.7944,
+          "acc_std": 0.0209,
+          "acc_lb_mean": 0.7313,
+          "acc_lb_canonical": 0.7132
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.8167,
+          "acc_std": 0.0184,
+          "acc_lb_mean": 0.7555,
+          "acc_lb_canonical": 0.7508
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.8333,
+          "acc_std": 0.0211,
+          "acc_lb_mean": 0.7738,
+          "acc_lb_canonical": 0.7968
+        },
+        {
+          "budget_per_class": 96,
+          "n_train": 192,
+          "acc_mean": 0.8778,
+          "acc_std": 0.0156,
+          "acc_lb_mean": 0.8235,
+          "acc_lb_canonical": 0.8522
+        },
+        {
+          "budget_per_class": 134,
+          "n_train": 268,
+          "acc_mean": 0.8681,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.8124,
+          "acc_lb_canonical": 0.8124
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 134,
+        "lift": 0.0903,
+        "p": 0.0147
+      },
+      "top_step": {
+        "from_b": 96,
+        "to_b": 134,
+        "lift": -0.0347,
+        "p": 0.9539
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

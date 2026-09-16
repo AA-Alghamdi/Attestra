@@ -1,0 +1,125 @@
+{
+  "per_class": 500,
+  "rows": [
+    {
+      "name": "cat_vs_dog",
+      "n_test": 300,
+      "winner": "variance+svc_rbf|b__C=1.0|b__gamma=scale|t__vthresh=0.0",
+      "acc_raw_strong": 0.61,
+      "lb_raw_strong": 0.5613,
+      "acc_emb_strong": 0.8267,
+      "lb_emb_strong": 0.7867,
+      "acc_cycle_emb": 0.8267,
+      "lb_cycle_emb": 0.7867,
+      "lift_cycle_vs_raw": 0.2167,
+      "lift_cycle_vs_embstrong": 0.0,
+      "lift_embstrong_vs_raw": 0.2167,
+      "p_cycle_gt_raw": 1.2200521597382528e-09,
+      "p_cycle_gt_embstrong": 0.564292660317733,
+      "p_embstrong_gt_raw": 2.3299892143964283e-09,
+      "secs": 196.1
+    },
+    {
+      "name": "automobile_vs_truck",
+      "n_test": 300,
+      "winner": "knn|k=21",
+      "acc_raw_strong": 0.7133,
+      "lb_raw_strong": 0.6673,
+      "acc_emb_strong": 0.9133,
+      "lb_emb_strong": 0.8818,
+      "acc_cycle_emb": 0.9133,
+      "lb_cycle_emb": 0.8818,
+      "lift_cycle_vs_raw": 0.2,
+      "lift_cycle_vs_embstrong": 0.0,
+      "lift_embstrong_vs_raw": 0.2,
+      "p_cycle_gt_raw": 4.588242747857363e-11,
+      "p_cycle_gt_embstrong": 0.75,
+      "p_embstrong_gt_raw": 4.588242747857363e-11,
+      "secs": 163.8
+    },
+    {
+      "name": "deer_vs_horse",
+      "n_test": 300,
+      "winner": "knn|k=11",
+      "acc_raw_strong": 0.6967,
+      "lb_raw_strong": 0.65,
+      "acc_emb_strong": 0.8967,
+      "lb_emb_strong": 0.8631,
+      "acc_cycle_emb": 0.89,
+      "lb_cycle_emb": 0.8557,
+      "lift_cycle_vs_raw": 0.1933,
+      "lift_cycle_vs_embstrong": -0.0067,
+      "lift_embstrong_vs_raw": 0.2,
+      "p_cycle_gt_raw": 3.6464492882102256e-10,
+      "p_cycle_gt_embstrong": 0.9375,
+      "p_embstrong_gt_raw": 7.99857649555311e-11,
+      "secs": 159.3
+    },
+    {
+      "name": "airplane_vs_ship",
+      "n_test": 300,
+      "winner": "variance+random_forest|b__max_depth=0|b__n=400|t__vthresh=0.0",
+      "acc_raw_strong": 0.7533,
+      "lb_raw_strong": 0.709,
+      "acc_emb_strong": 0.93,
+      "lb_emb_strong": 0.9008,
+      "acc_cycle_emb": 0.91,
+      "lb_cycle_emb": 0.878,
+      "lift_cycle_vs_raw": 0.1567,
+      "lift_cycle_vs_embstrong": -0.02,
+      "lift_embstrong_vs_raw": 0.1767,
+      "p_cycle_gt_raw": 4.719610636744021e-08,
+      "p_cycle_gt_embstrong": 0.9713134765625,
+      "p_embstrong_gt_raw": 2.9588572962144007e-10,
+      "secs": 162.8
+    },
+    {
+      "name": "bird_vs_frog",
+      "n_test": 300,
+      "winner": "variance+random_forest|b__max_depth=0|b__n=400|t__vthresh=0.0",
+      "acc_raw_strong": 0.7433,
+      "lb_raw_strong": 0.6985,
+      "acc_emb_strong": 0.8867,
+      "lb_emb_strong": 0.852,
+      "acc_cycle_emb": 0.91,
+      "lb_cycle_emb": 0.878,
+      "lift_cycle_vs_raw": 0.1667,
+      "lift_cycle_vs_embstrong": 0.0233,
+      "lift_embstrong_vs_raw": 0.1433,
+      "p_cycle_gt_raw": 1.4277743080767409e-09,
+      "p_cycle_gt_embstrong": 0.09462356567382812,
+      "p_embstrong_gt_raw": 1.6382351767205677e-06,
+      "secs": 161.4
+    }
+  ],
+  "summary": {
+    "CYCLE(emb) vs RAW-STRONG": {
+      "survivors": [
+        "cat_vs_dog",
+        "automobile_vs_truck",
+        "deer_vs_horse",
+        "airplane_vs_ship",
+        "bird_vs_frog"
+      ],
+      "n": 5
+    },
+    "CYCLE(emb) vs EMB-STRONG": {
+      "survivors": [],
+      "n": 5
+    },
+    "EMB-STRONG vs RAW-STRONG": {
+      "survivors": [
+        "cat_vs_dog",
+        "automobile_vs_truck",
+        "deer_vs_horse",
+        "airplane_vs_ship",
+        "bird_vs_frog"
+      ],
+      "n": 5
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

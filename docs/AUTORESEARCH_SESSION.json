@@ -1,0 +1,53 @@
+{
+  "session": "attestra-autoresearch",
+  "modalities": [
+    "text",
+    "vision"
+  ],
+  "law": "representation is the lever; the same brain + frozen certifier derive it in every modality",
+  "representation_lever_fires_in_every_modality": true,
+  "champion_robust_to_session_multiplicity_everywhere": true,
+  "champion_gold_confirmed_where_gold_exists": true,
+  "all_modalities_accept": true,
+  "per_modality": {
+    "vision": {
+      "arena": "fgvc-aircraft",
+      "champion": "dinov2_g",
+      "champion_family": "dinov2",
+      "lever_fired": true,
+      "peeks_used": 7,
+      "robust_to_session_multiplicity": true,
+      "gold_confirmed": null,
+      "data_ceiling_tasks": [
+        "737-300_vs_737-400",
+        "737-700_vs_737-800",
+        "747-200_vs_747-400",
+        "A330-200_vs_A330-300",
+        "CRJ-700_vs_CRJ-900",
+        "DHC-8-100_vs_DHC-8-300",
+        "E-190_vs_E-195"
+      ],
+      "acceptance_all_pass": true
+    },
+    "text": {
+      "arena": "20newsgroups-confusable-pairs",
+      "champion": "mpnet",
+      "champion_family": "mpnet",
+      "lever_fired": true,
+      "peeks_used": 8,
+      "robust_to_session_multiplicity": true,
+      "gold_confirmed": true,
+      "data_ceiling_tasks": [
+        "alt.atheism_vs_religion.misc",
+        "ms-windows.misc_vs_windows.x",
+        "pc.hardware_vs_mac.hardware",
+        "rec.autos_vs_rec.motorcycles"
+      ],
+      "acceptance_all_pass": true
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

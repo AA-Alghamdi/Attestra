@@ -1,0 +1,480 @@
+{
+  "problem": "histopathology tumor classification under hospital distribution shift",
+  "online": true,
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  },
+  "scout_summary": {
+    "problem": "histopathology tumor classification under hospital distribution shift",
+    "n_findings": 16,
+    "findings_by_source": {
+      "arxiv": 8,
+      "huggingface": 8
+    },
+    "n_backbones": 12,
+    "backbones": [
+      "rizvandwiki/gender-classification",
+      "E-MIMIC/inclusively-classification",
+      "padmajabfrl/Gender-Classification",
+      "rizvandwiki/gender-classification-2",
+      "kaczmarj/breast-tumor-resnet34.tcga-brca",
+      "inosukeo1/vg16_tumor",
+      "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+      "kaczmarj/lung-tumor-resnet34.tcga-luad",
+      "resnet50.a1_in1k",
+      "efficientnet_b0.ra_in1k",
+      "convnext_base.fb_in22k",
+      "vit_base_patch16_224.augreg2_in21k_ft_in1k"
+    ],
+    "n_motifs": 2,
+    "motifs": [
+      {
+        "name": "lit:ensemble",
+        "genes": {
+          "aggregation": "logit_ensemble"
+        }
+      },
+      {
+        "name": "lit:rebalance",
+        "genes": {
+          "data_strategy": "class_rebalance"
+        }
+      }
+    ],
+    "used_llm": false,
+    "provenance": {
+      "rizvandwiki/gender-classification": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "rizvandwiki/gender-classification",
+        "url": "https://huggingface.co/rizvandwiki/gender-classification",
+        "title": "rizvandwiki/gender-classification"
+      },
+      "E-MIMIC/inclusively-classification": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "E-MIMIC/inclusively-classification",
+        "url": "https://huggingface.co/E-MIMIC/inclusively-classification",
+        "title": "E-MIMIC/inclusively-classification"
+      },
+      "padmajabfrl/Gender-Classification": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "padmajabfrl/Gender-Classification",
+        "url": "https://huggingface.co/padmajabfrl/Gender-Classification",
+        "title": "padmajabfrl/Gender-Classification"
+      },
+      "rizvandwiki/gender-classification-2": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "rizvandwiki/gender-classification-2",
+        "url": "https://huggingface.co/rizvandwiki/gender-classification-2",
+        "title": "rizvandwiki/gender-classification-2"
+      },
+      "kaczmarj/breast-tumor-resnet34.tcga-brca": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "kaczmarj/breast-tumor-resnet34.tcga-brca",
+        "url": "https://huggingface.co/kaczmarj/breast-tumor-resnet34.tcga-brca",
+        "title": "kaczmarj/breast-tumor-resnet34.tcga-brca"
+      },
+      "inosukeo1/vg16_tumor": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "inosukeo1/vg16_tumor",
+        "url": "https://huggingface.co/inosukeo1/vg16_tumor",
+        "title": "inosukeo1/vg16_tumor"
+      },
+      "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+        "url": "https://huggingface.co/gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+        "title": "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification"
+      },
+      "kaczmarj/lung-tumor-resnet34.tcga-luad": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "kaczmarj/lung-tumor-resnet34.tcga-luad",
+        "url": "https://huggingface.co/kaczmarj/lung-tumor-resnet34.tcga-luad",
+        "title": "kaczmarj/lung-tumor-resnet34.tcga-luad"
+      },
+      "resnet50.a1_in1k": {
+        "kind": "backbone",
+        "source": "arxiv",
+        "ident": "2409.01330v2",
+        "url": "http://arxiv.org/abs/2409.01330v2",
+        "title": "Pediatric brain tumor classification using digital histopathology and deep learning: evaluation of SOTA methods on a multi-center Swedish cohort"
+      },
+      "efficientnet_b0.ra_in1k": {
+        "kind": "backbone",
+        "source": "arxiv",
+        "ident": "2011.11052v1",
+        "url": "http://arxiv.org/abs/2011.11052v1",
+        "title": "Efficient embedding network for 3D brain tumor segmentation"
+      },
+      "convnext_base.fb_in22k": {
+        "kind": "backbone",
+        "source": "arxiv",
+        "ident": "2409.03543v1",
+        "url": "http://arxiv.org/abs/2409.03543v1",
+        "title": "Prediction Accuracy & Reliability: Classification and Object Localization under Distribution Shift"
+      },
+      "vit_base_patch16_224.augreg2_in21k_ft_in1k": {
+        "kind": "backbone",
+        "source": "huggingface",
+        "ident": "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+        "url": "https://huggingface.co/gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+        "title": "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification"
+      },
+      "lit:ensemble": {
+        "kind": "motif",
+        "genes": {
+          "aggregation": "logit_ensemble"
+        },
+        "source": "arxiv",
+        "ident": "2409.03543v1",
+        "url": "http://arxiv.org/abs/2409.03543v1",
+        "title": "Prediction Accuracy & Reliability: Classification and Object Localization under Distribution Shift"
+      },
+      "lit:rebalance": {
+        "kind": "motif",
+        "genes": {
+          "data_strategy": "class_rebalance"
+        },
+        "source": "arxiv",
+        "ident": "2308.06821v1",
+        "url": "http://arxiv.org/abs/2308.06821v1",
+        "title": "Optimizing Brain Tumor Classification: A Comprehensive Study on Transfer Learning and Imbalance Handling in Deep Learning Models"
+      }
+    },
+    "findings": [
+      {
+        "source": "arxiv",
+        "ident": "1909.06684v1",
+        "title": "3D Kidneys and Kidney Tumor Semantic Segmentation using Boundary-Aware Networks",
+        "url": "http://arxiv.org/abs/1909.06684v1",
+        "text": "3D Kidneys and Kidney Tumor Semantic Segmentation using Boundary-Aware Networks. Automated segmentation of kidneys and kidney tumors is an important step in quantifying the tumor's morphometrical details to monitor the progression of the disease and accurately compare decisions regarding the kidney tumor treatment. Manual delineation techniques are often tedious, error-prone and require expert knowledge for creating unambiguous representation of kidneys and kidney tumors segmentation. In this work, we propose an end-to-end boundary aware fully Convolutional Neural Networks (CNNs) for reliable kidney and kidney tumor semantic segmentation from arterial phase abdominal 3D CT scans. We propose a segmentation network consisting of an encoder-decoder architecture that specifically accounts for organ and tumor edge information by devising a dedicated boundary branch supervised by edge-aware loss terms. We have evaluated our model on 2019 MICCAI KiTS Kidney Tumor Segmentation Challenge dataset and our method has achieved dice scores of 0.9742 and 0.8103 for kidney and tumor repetitively and an overall composite dice score of 0.8923.",
+        "score": 0.0,
+        "model_ids": []
+      },
+      {
+        "source": "arxiv",
+        "ident": "2409.01330v2",
+        "title": "Pediatric brain tumor classification using digital histopathology and deep learning: evaluation of SOTA methods on a multi-center Swedish cohort",
+        "url": "http://arxiv.org/abs/2409.01330v2",
+        "text": "Pediatric brain tumor classification using digital histopathology and deep learning: evaluation of SOTA methods on a multi-center Swedish cohort. Brain tumors are the most common solid tumors in children and young adults, but the scarcity of large histopathology datasets has limited the application of computational pathology in this group. This study implements two weakly supervised multiple-instance learning (MIL) approaches on patch-features obtained from state-of-the-art histology-specific foundation models to classify pediatric brain tumors in hematoxylin and eosin whole slide images (WSIs) from a multi-center Swedish cohort. WSIs from 540 subjects (age 8.5$\\pm$4.9 years) diagnosed with brain tumor were gathered from the six Swedish university hospitals. Instance (patch)-level features were obtained from WSIs using three pre-trained feature extractors: ResNet50, UNI, and CONCH. Instances were aggregated using attention-based MIL (ABMIL) or clustering-constrained attention MIL (CLAM) for patient-level classification. Models were evaluated on three classification tasks based on the hierarchical classification of pediatric brain tumors: tumor category, family, and type. Model generalization was assessed by training on data from two of the centers and testing on data from four other centers. Model interpretability was evaluated through attention mapping. The highest classification performance was achieved using UNI features and ABMIL aggregation, with Matthew's correlation coefficient of 0.76$\\pm$0.04, 0.63$\\pm$0.04, and 0.60$\\pm$0.05 for tumor category, family, and type classification, respectively. When evaluating generalization, models utilizing UNI and CONCH features outperformed those using ResNet50. However, the drop in performance from the in-site to out-of-site testing was similar across feature extractors. These results show the potential of state-of-the-art computational pathology methods in diagnosing pediatric brain tumors at different hierarchical levels with fair generalizability on a multi-center national dataset.",
+        "score": 0.0,
+        "model_ids": []
+      },
+      {
+        "source": "arxiv",
+        "ident": "2207.05796v1",
+        "title": "Estimating Test Performance for AI Medical Devices under Distribution Shift with Conformal Prediction",
+        "url": "http://arxiv.org/abs/2207.05796v1",
+        "text": "Estimating Test Performance for AI Medical Devices under Distribution Shift with Conformal Prediction. Estimating the test performance of software AI-based medical devices under distribution shifts is crucial for evaluating the safety, efficiency, and usability prior to clinical deployment. Due to the nature of regulated medical device software and the difficulty in acquiring large amounts of labeled medical datasets, we consider the task of predicting the test accuracy of an arbitrary black-box model on an unlabeled target domain without modification to the original training process or any distributional assumptions of the original source data (i.e. we treat the model as a \"black-box\" and only use the predicted output responses). We propose a \"black-box\" test estimation technique based on conformal prediction and evaluate it against other methods on three medical imaging datasets (mammography, dermatology, and histopathology) under several clinically relevant types of distribution shift (institution, hardware scanner, atlas, hospital). We hope that by promoting practical and effective estimation techniques for black-box models, manufacturers of medical devices will develop more standardized and realistic evaluation procedures to improve the robustness and trustworthiness of clinical AI tools.",
+        "score": 0.0,
+        "model_ids": []
+      },
+      {
+        "source": "arxiv",
+        "ident": "2207.11486v1",
+        "title": "Time Series Prediction under Distribution Shift using Differentiable Forgetting",
+        "url": "http://arxiv.org/abs/2207.11486v1",
+        "text": "Time Series Prediction under Distribution Shift using Differentiable Forgetting. Time series prediction is often complicated by distribution shift which demands adaptive models to accommodate time-varying distributions. We frame time series prediction under distribution shift as a weighted empirical risk minimisation problem. The weighting of previous observations in the empirical risk is determined by a forgetting mechanism which controls the trade-off between the relevancy and effective sample size that is used for the estimation of the predictive model. In contrast to previous work, we propose a gradient-based learning method for the parameters of the forgetting mechanism. This speeds up optimisation and therefore allows more expressive forgetting mechanisms.",
+        "score": 0.0,
+        "model_ids": []
+      },
+      {
+        "source": "arxiv",
+        "ident": "2011.11052v1",
+        "title": "Efficient embedding network for 3D brain tumor segmentation",
+        "url": "http://arxiv.org/abs/2011.11052v1",
+        "text": "Efficient embedding network for 3D brain tumor segmentation. 3D medical image processing with deep learning greatly suffers from a lack of data. Thus, studies carried out in this field are limited compared to works related to 2D natural image analysis, where very large datasets exist. As a result, powerful and efficient 2D convolutional neural networks have been developed and trained. In this paper, we investigate a way to transfer the performance of a two-dimensional classiffication network for the purpose of three-dimensional semantic segmentation of brain tumors. We propose an asymmetric U-Net network by incorporating the EfficientNet model as part of the encoding branch. As the input data is in 3D, the first layers of the encoder are devoted to the reduction of the third dimension in order to fit the input of the EfficientNet network. Experimental results on validation and test data from the BraTS 2020 challenge demonstrate that the proposed method achieve promising performance.",
+        "score": 0.0,
+        "model_ids": []
+      },
+      {
+        "source": "arxiv",
+        "ident": "2308.06821v1",
+        "title": "Optimizing Brain Tumor Classification: A Comprehensive Study on Transfer Learning and Imbalance Handling in Deep Learning Models",
+        "url": "http://arxiv.org/abs/2308.06821v1",
+        "text": "Optimizing Brain Tumor Classification: A Comprehensive Study on Transfer Learning and Imbalance Handling in Deep Learning Models. Deep learning has emerged as a prominent field in recent literature, showcasing the introduction of models that utilize transfer learning to achieve remarkable accuracies in the classification of brain tumor MRI images. However, the majority of these proposals primarily focus on balanced datasets, neglecting the inherent data imbalance present in real-world scenarios. Consequently, there is a pressing need for approaches that not only address the data imbalance but also prioritize precise classification of brain cancer. In this work, we present a novel deep learning-based approach, called Transfer Learning-CNN, for brain tumor classification using MRI data. The proposed model leverages the predictive capabilities of existing publicly available models by utilizing their pre-trained weights and transferring those weights to the CNN. By leveraging a publicly available Brain MRI dataset, the experiment evaluated various transfer learning models for classifying different tumor types, including meningioma, glioma, and pituitary tumors. We investigate the impact of different loss functions, including focal loss, and oversampling methods, such as SMOTE and ADASYN, in addressing the data imbalance issue. Notably, the proposed strategy, which combines VGG-16 and CNN, achieved an impressive accuracy rate of 96%, surpassing alternative approaches significantly.",
+        "score": 0.0,
+        "model_ids": []
+      },
+      {
+        "source": "arxiv",
+        "ident": "2409.03543v1",
+        "title": "Prediction Accuracy & Reliability: Classification and Object Localization under Distribution Shift",
+        "url": "http://arxiv.org/abs/2409.03543v1",
+        "text": "Prediction Accuracy & Reliability: Classification and Object Localization under Distribution Shift. Natural distribution shift causes a deterioration in the perception performance of convolutional neural networks (CNNs). This comprehensive analysis for real-world traffic data addresses: 1) investigating the effect of natural distribution shift and weather augmentations on both detection quality and confidence estimation, 2) evaluating model performance for both classification and object localization, and 3) benchmarking two common uncertainty quantification methods - Ensembles and different variants of Monte-Carlo (MC) Dropout - under natural and close-to-natural distribution shift. For this purpose, a novel dataset has been curated from publicly available autonomous driving datasets. The in-distribution (ID) data is based on cutouts of a single object, for which both class and bounding box annotations are available. The six distribution-shift datasets cover adverse weather scenarios, simulated rain and fog, corner cases, and out-of-distribution data. A granular analysis of CNNs under distribution shift allows to quantize the impact of different types of shifts on both, task performance and confidence estimation: ConvNeXt-Tiny is more robust than EfficientNet-B0; heavy rain degrades classification stronger than localization, contrary to heavy fog; integrating MC-Dropout into selected layers only has the potential to enhance task performance and confidence estimation, whereby the identification of these layers depends on the type of distribution shift and the considered task.",
+        "score": 0.0,
+        "model_ids": []
+      },
+      {
+        "source": "arxiv",
+        "ident": "2109.05025v1",
+        "title": "Medulloblastoma Tumor Classification using Deep Transfer Learning with Multi-Scale EfficientNets",
+        "url": "http://arxiv.org/abs/2109.05025v1",
+        "text": "Medulloblastoma Tumor Classification using Deep Transfer Learning with Multi-Scale EfficientNets. Medulloblastoma (MB) is the most common malignant brain tumor in childhood. The diagnosis is generally based on the microscopic evaluation of histopathological tissue slides. However, visual-only assessment of histopathological patterns is a tedious and time-consuming task and is also affected by observer variability. Hence, automated MB tumor classification could assist pathologists by promoting consistency and robust quantification. Recently, convolutional neural networks (CNNs) have been proposed for this task, while transfer learning has shown promising results. In this work, we propose an end-to-end MB tumor classification and explore transfer learning with various input sizes and matching network dimensions. We focus on differentiating between the histological subtypes classic and desmoplastic/nodular. For this purpose, we systematically evaluate recently proposed EfficientNets, which uniformly scale all dimensions of a CNN. Using a data set with 161 cases, we demonstrate that pre-trained EfficientNets with larger input resolutions lead to significant performance improvements compared to commonly used pre-trained CNN architectures. Also, we highlight the importance of transfer learning, when using such large architectures. Overall, our best performing method achieves an F1-Score of 80.1%.",
+        "score": 0.0,
+        "model_ids": []
+      },
+      {
+        "source": "huggingface",
+        "ident": "rizvandwiki/gender-classification",
+        "title": "rizvandwiki/gender-classification",
+        "url": "https://huggingface.co/rizvandwiki/gender-classification",
+        "text": "rizvandwiki/gender-classification image-classification",
+        "score": 1445871.0,
+        "model_ids": [
+          "rizvandwiki/gender-classification"
+        ]
+      },
+      {
+        "source": "huggingface",
+        "ident": "E-MIMIC/inclusively-classification",
+        "title": "E-MIMIC/inclusively-classification",
+        "url": "https://huggingface.co/E-MIMIC/inclusively-classification",
+        "text": "E-MIMIC/inclusively-classification text-classification",
+        "score": 299408.0,
+        "model_ids": [
+          "E-MIMIC/inclusively-classification"
+        ]
+      },
+      {
+        "source": "huggingface",
+        "ident": "padmajabfrl/Gender-Classification",
+        "title": "padmajabfrl/Gender-Classification",
+        "url": "https://huggingface.co/padmajabfrl/Gender-Classification",
+        "text": "padmajabfrl/Gender-Classification text-classification",
+        "score": 177271.0,
+        "model_ids": [
+          "padmajabfrl/Gender-Classification"
+        ]
+      },
+      {
+        "source": "huggingface",
+        "ident": "rizvandwiki/gender-classification-2",
+        "title": "rizvandwiki/gender-classification-2",
+        "url": "https://huggingface.co/rizvandwiki/gender-classification-2",
+        "text": "rizvandwiki/gender-classification-2 image-classification",
+        "score": 136247.0,
+        "model_ids": [
+          "rizvandwiki/gender-classification-2"
+        ]
+      },
+      {
+        "source": "huggingface",
+        "ident": "kaczmarj/breast-tumor-resnet34.tcga-brca",
+        "title": "kaczmarj/breast-tumor-resnet34.tcga-brca",
+        "url": "https://huggingface.co/kaczmarj/breast-tumor-resnet34.tcga-brca",
+        "text": "kaczmarj/breast-tumor-resnet34.tcga-brca ",
+        "score": 2614.0,
+        "model_ids": [
+          "kaczmarj/breast-tumor-resnet34.tcga-brca"
+        ]
+      },
+      {
+        "source": "huggingface",
+        "ident": "inosukeo1/vg16_tumor",
+        "title": "inosukeo1/vg16_tumor",
+        "url": "https://huggingface.co/inosukeo1/vg16_tumor",
+        "text": "inosukeo1/vg16_tumor ",
+        "score": 510.0,
+        "model_ids": [
+          "inosukeo1/vg16_tumor"
+        ]
+      },
+      {
+        "source": "huggingface",
+        "ident": "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+        "title": "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+        "url": "https://huggingface.co/gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+        "text": "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification image-classification",
+        "score": 419.0,
+        "model_ids": [
+          "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification"
+        ]
+      },
+      {
+        "source": "huggingface",
+        "ident": "kaczmarj/lung-tumor-resnet34.tcga-luad",
+        "title": "kaczmarj/lung-tumor-resnet34.tcga-luad",
+        "url": "https://huggingface.co/kaczmarj/lung-tumor-resnet34.tcga-luad",
+        "text": "kaczmarj/lung-tumor-resnet34.tcga-luad ",
+        "score": 346.0,
+        "model_ids": [
+          "kaczmarj/lung-tumor-resnet34.tcga-luad"
+        ]
+      }
+    ]
+  },
+  "champion": "convnext_base.fb_in22k \u00b7 linear_probe \u00b7 logit_ensemble \u00b7 head=gbm",
+  "champion_recipe": {
+    "backbone": "convnext_base.fb_in22k",
+    "adaptation": "linear_probe",
+    "augmentation": "none",
+    "optimizer": "adamw",
+    "schedule": "cosine",
+    "llrd": false,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 10,
+    "aggregation": "logit_ensemble",
+    "data_strategy": "none",
+    "head": "gbm",
+    "code_role": null,
+    "uses_code_patch": false,
+    "code_patch": null,
+    "label": "convnext_base.fb_in22k \u00b7 linear_probe \u00b7 logit_ensemble \u00b7 head=gbm"
+  },
+  "novelty": {
+    "champion": "convnext_base.fb_in22k \u00b7 linear_probe \u00b7 logit_ensemble \u00b7 head=gbm",
+    "champion_backbone": "convnext_base.fb_in22k",
+    "backbone_is_novel": true,
+    "recipe_is_novel": true,
+    "uses_authored_code": false,
+    "from_retrieval": true,
+    "literature_grounded": true,
+    "literature_source": {
+      "kind": "backbone",
+      "source": "arxiv",
+      "ident": "2409.03543v1",
+      "url": "http://arxiv.org/abs/2409.03543v1",
+      "title": "Prediction Accuracy & Reliability: Classification and Object Localization under Distribution Shift"
+    },
+    "menu_free": true,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 9,
+    "n_proposed_recipes": 25,
+    "n_retrieved_backbones": 12,
+    "n_literature_backbones": 12
+  },
+  "discovery": {
+    "pool_size": 13,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 9,
+    "n_retrieved_backbones": 12,
+    "n_literature_backbones": 12,
+    "literature_backbones": [
+      "E-MIMIC/inclusively-classification",
+      "convnext_base.fb_in22k",
+      "efficientnet_b0.ra_in1k",
+      "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+      "inosukeo1/vg16_tumor",
+      "kaczmarj/breast-tumor-resnet34.tcga-brca",
+      "kaczmarj/lung-tumor-resnet34.tcga-luad",
+      "padmajabfrl/Gender-Classification",
+      "resnet50.a1_in1k",
+      "rizvandwiki/gender-classification",
+      "rizvandwiki/gender-classification-2",
+      "vit_base_patch16_224.augreg2_in21k_ft_in1k"
+    ],
+    "seed_backbones": [
+      "resnet18"
+    ],
+    "sample_pool": [
+      "resnet18",
+      "rizvandwiki/gender-classification",
+      "E-MIMIC/inclusively-classification",
+      "padmajabfrl/Gender-Classification",
+      "rizvandwiki/gender-classification-2",
+      "kaczmarj/breast-tumor-resnet34.tcga-brca",
+      "inosukeo1/vg16_tumor",
+      "gulsmyigit/vit-base-patch16-224-finetuned-Brain-Tumor-Classification",
+      "kaczmarj/lung-tumor-resnet34.tcga-luad",
+      "resnet50.a1_in1k",
+      "efficientnet_b0.ra_in1k",
+      "convnext_base.fb_in22k",
+      "vit_base_patch16_224.augreg2_in21k_ft_in1k"
+    ],
+    "literature": {
+      "problem": "histopathology tumor classification under hospital distribution shift",
+      "n_findings": 16,
+      "n_motifs": 2,
+      "motifs": [
+        "lit:ensemble",
+        "lit:rebalance"
+      ],
+      "used_llm": false
+    }
+  },
+  "promotions": [
+    {
+      "rung": "model",
+      "from": "resnet18 \u00b7 linear_probe \u00b7 head=gbm",
+      "to": "convnext_base.fb_in22k \u00b7 linear_probe \u00b7 logit_ensemble \u00b7 head=gbm",
+      "survivors": [
+        "center_a",
+        "center_b",
+        "center_c"
+      ],
+      "mean_lift": 0.2783333333333333
+    }
+  ],
+  "gold_confirmation": {
+    "champion": "convnext_base.fb_in22k \u00b7 linear_probe \u00b7 logit_ensemble \u00b7 head=gbm",
+    "baseline": "resnet18 \u00b7 linear_probe \u00b7 head=gbm",
+    "n_tasks": 3,
+    "gold_n": 600,
+    "survivors": [
+      "center_a",
+      "center_b",
+      "center_c"
+    ],
+    "mean_lift": 0.2333,
+    "champion_gold_lb": 0.8204,
+    "baseline_gold_lb": 0.5794,
+    "per_task": [
+      {
+        "task": "center_a",
+        "champ_gold_acc": 0.83,
+        "base_gold_acc": 0.61,
+        "lift": 0.22,
+        "p_gt_base": 0.0,
+        "n": 200
+      },
+      {
+        "task": "center_b",
+        "champ_gold_acc": 0.87,
+        "base_gold_acc": 0.605,
+        "lift": 0.265,
+        "p_gt_base": 0.0,
+        "n": 200
+      },
+      {
+        "task": "center_c",
+        "champ_gold_acc": 0.84,
+        "base_gold_acc": 0.625,
+        "lift": 0.215,
+        "p_gt_base": 0.0,
+        "n": 200
+      }
+    ],
+    "confirmed": true
+  },
+  "checks": {
+    "frozen certifier byte-identical (sole promoter, untouched)": true,
+    "champion is menu-free (reached beyond the seed)": true,
+    "champion backbone is NOT a seed": true,
+    "champion traces to a LITERATURE source (not a hand-list)": true,
+    "literature provenance has a real url": true,
+    "champion gold-confirmed on a never-peeked set": true
+  },
+  "all_pass": true,
+  "log": [
+    "start champion=resnet18 \u00b7 linear_probe \u00b7 head=gbm sealed_lb=0.537 theta_floor=0.5 driver=climb",
+    "[model] convnext_base.fb_in22k \u00b7 linear_probe \u00b7 logit_ensemble \u00b7 head=gbm: frozen Tier-3 CERTIFIED over resnet18 \u00b7 linear_probe \u00b7 head=gbm (survivors 3/3, mean_lift +0.278, sealed_lb 0.797)",
+    "[model] PROMOTE resnet18 \u00b7 linear_probe \u00b7 head=gbm -> convnext_base.fb_in22k \u00b7 linear_probe \u00b7 logit_ensemble \u00b7 head=gbm (sealed_lb 0.797)",
+    "escalate: escalate_to_features (from=model since_improve=3: val_lb plateaued for >= 3 rounds on the 'model' class; the same-class sweep is saturated -> switch KIND of move to 'features')",
+    "escalate: escalate_to_capacity (from=features since_improve=3: val_lb plateaued for >= 3 rounds on the 'features' class; the same-class sweep is saturated -> switch KIND of move to 'capacity')",
+    "escalate: escalate_to_data_acquisition (from=capacity since_improve=3: val_lb plateaued for >= 3 rounds on the 'capacity' class; the same-class sweep is saturated -> switch KIND of move to 'data_acquisition')",
+    "escalate: stop (from=data_acquisition since_improve=3: no budget left; cannot run any further move -> honest stop)",
+    "gold-confirmation (never-peeked n=600): convnext_base.fb_in22k \u00b7 linear_probe \u00b7 logit_ensemble \u00b7 head=gbm vs resnet18 \u00b7 linear_probe \u00b7 head=gbm -> 3/3 FDR survivors, confirmed=True",
+    "ANTI-MENU novelty: menu_free=True (champion backbone 'convnext_base.fb_in22k', backbone_is_novel=True, uses_authored_code=False, from_retrieval=True, literature_grounded=True)",
+    "LITERATURE-GROUNDED: champion backbone traces to [arxiv:2409.03543v1] 'Prediction Accuracy & Reliability: Classification and Object Localization under Distribution Shift' (http://arxiv.org/abs/2409.03543v1)"
+  ]
+}

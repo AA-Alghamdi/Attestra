@@ -1,0 +1,11 @@
+# Lint config: catch real bugs (undefined names, unused imports, obvious mistakes)
+# without reformatting the frozen certification core to a particular style.
+line-length = 120
+target-version = "py311"
+
+[lint]
+select = ["F", "E9"]
+# F401 (re-exports / lazy optional imports), and cosmetic pyflakes codes that would otherwise
+# require reformatting the existing package: kept off so the lint gate flags real defects only
+# (undefined names F821, syntax errors E9) rather than style.
+ignore = ["F401", "F541", "F811", "F841"]

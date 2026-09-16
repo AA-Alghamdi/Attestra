@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Attestera · Autonomous ML Research</title>
+<meta name="description" content="Attestera is an autonomous machine-learning research engine: it proposes, trains in parallel, measures, self-diagnoses and improves, round after round, then certifies a model on a sealed test or stops honestly." />
+<meta property="og:title" content="Attestera · Autonomous ML Research" />
+<meta property="og:description" content="An autonomous research engine that proposes, trains in parallel, measures and improves round after round, then certifies on a sealed test or declines with the real number." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lab.abdullahalghamdi.com/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Attestera · Autonomous ML Research" />
+<meta name="twitter:description" content="Certified on a sealed test, or declined with the real number. One peek, every run." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f4ed; --paper2:#f0ece1; --card:#fbf9f4;
+  --ink:#1c1a17; --mut:#5d584e; --dim:#918a7c;
+  --line:#e3ddce; --line2:#cfc7b3;
+  --acc:#1f5f47; --acc-soft:#e6efe8;
+  --warn:#96601b; --warn-soft:#f4e9d6;
+  --bad:#993434; --bad-soft:#f3e0dd;
+  --serif:"Fraunces","Iowan Old Style",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --maxw:1140px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono)}
+h1,h2,h3{font-family:var(--serif);font-weight:420;line-height:1.06;letter-spacing:-.015em;margin:0}
+h1 em,h2 em{font-style:italic;font-weight:380}
+section{padding:110px 0}
+section + section{border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.lead{color:var(--mut);font-size:18px;max-width:60ch;font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--ink);background:var(--ink);
+  color:var(--paper);padding:13px 24px;border-radius:999px;font-weight:500;font-size:14.5px;cursor:pointer;
+  font-family:var(--sans);transition:.18s background,.18s color,.18s border-color,.18s transform;letter-spacing:.01em}
+.btn:hover{background:var(--acc);border-color:var(--acc);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+.btn.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:disabled{opacity:.45;cursor:default;transform:none}
+.pill{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;
+  color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--card)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--dim);display:inline-block}
+.dot.live{background:var(--acc);box-shadow:0 0 0 0 rgba(31,95,71,.5);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,95,71,.4)}70%{box-shadow:0 0 0 8px rgba(31,95,71,0)}100%{box-shadow:0 0 0 0 rgba(31,95,71,0)}}
+
+/* ---------- nav ---------- */
+header.nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);
+  background:rgba(247,244,237,.85);border-bottom:1px solid var(--line)}
+.nav .row{display:flex;align-items:center;gap:20px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:-.01em}
+.logo{width:24px;height:24px;flex:0 0 auto}
+.nav nav{display:flex;gap:26px;margin-left:14px}
+.nav nav a{color:var(--mut);font-size:14px;font-weight:500;transition:.15s color}
+.nav nav a:hover{color:var(--ink)}
+.nav .spacer{flex:1}
+.nav .statuspill{font-family:var(--mono);font-size:11px}
+.nav .gh{font-size:14px;font-weight:500;color:var(--mut)}
+.nav .gh:hover{color:var(--ink)}
+@media(max-width:860px){.nav nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:130px 0 90px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(1100px 560px at 78% -14%, rgba(31,95,71,.07), transparent 62%),
+    radial-gradient(800px 480px at 8% 108%, rgba(150,96,27,.06), transparent 58%),
+    var(--paper)}
+.hero .eyebrow{color:var(--acc)}
+.hero h1{font-size:clamp(46px,7.4vw,96px);max-width:14ch;margin-top:26px}
+.hero .sub{margin-top:30px;font-size:clamp(17px,2vw,20px);color:var(--mut);max-width:56ch;line-height:1.7}
+.hero .cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero .rule{margin-top:84px;border:0;border-top:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:0}
+.stat{padding:28px 26px 4px 0}
+.stat + .stat{border-left:1px solid var(--line);padding-left:26px}
+.stat .n{font-family:var(--serif);font-size:44px;font-weight:380;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+.stat .l{color:var(--dim);font-size:13px;margin-top:10px;line-height:1.5}
+@media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-left:0;padding-left:0}}
+
+/* ---------- section headers ---------- */
+.sh h2{font-size:clamp(32px,4.6vw,54px);margin-top:18px;max-width:22ch}
+.sh .lead{margin-top:20px}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+.card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 30px;background:transparent;transition:.2s background}
+.card:hover{background:var(--card)}
+.card .ic{width:26px;height:26px;margin-bottom:20px;color:var(--acc)}
+.card h3{font-size:21px;margin-bottom:12px;font-weight:480}
+.card p{color:var(--mut);font-size:14.5px;margin:0;line-height:1.7}
+
+/* ---------- pipeline: intake ramp -> ring -> gated exit ---------- */
+.loopwrap{margin-top:64px;border:1px solid var(--line);border-radius:4px;background:var(--card);padding:30px}
+.loophead{display:flex;align-items:center;gap:10px;margin-bottom:22px;flex-wrap:wrap}
+.loophead .t{font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--mut)}
+.ringgrid{display:grid;grid-template-columns:180px minmax(0,1fr) 230px;gap:34px;align-items:center}
+.ramp{display:flex;flex-direction:column;gap:0}
+.varrow{color:var(--line2);text-align:center;padding:4px 0;font-size:15px}
+.ramp .into{font-family:var(--mono);font-size:10.5px;color:var(--dim);text-align:center;padding-top:10px;letter-spacing:.08em}
+.ringbox{position:relative;width:430px;max-width:100%;height:430px;margin:0 auto}
+.ringsvg{position:absolute;inset:0;width:100%;height:100%}
+.ringsvg .rp{stroke:var(--line2);stroke-width:1.5;fill:none}
+.ringsvg .rp.ret{stroke:var(--acc);stroke-width:2}
+.ringcenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;max-width:130px}
+.ringcenter .rk{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.ringcenter .rn{font-family:var(--serif);font-size:46px;font-weight:380;line-height:1.1}
+.ringcenter .rr{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:6px;line-height:1.5}
+.ringlabel{position:absolute;font-family:var(--mono);font-size:10px;color:var(--acc);letter-spacing:.08em}
+.ringbox .node.rpos{position:absolute;width:158px}
+.ringbox .rpos.rtop{left:50%;top:0;transform:translateX(-50%)}
+.ringbox .rpos.rright{right:-12px;top:50%;transform:translateY(-50%)}
+.ringbox .rpos.rbottom{left:50%;bottom:0;transform:translateX(-50%)}
+.ringbox .rpos.rleft{left:-12px;top:50%;transform:translateY(-50%)}
+.exitcol{display:flex;flex-direction:column;gap:0}
+.exitcol .xa{font-family:var(--mono);font-size:10.5px;color:var(--dim);padding:6px 0;letter-spacing:.06em}
+.sealedframe{margin-top:14px;border:1.5px dashed var(--warn);border-radius:4px;padding:14px;position:relative;background:var(--warn-soft)}
+.sealedframe .sf{position:absolute;top:-9px;left:12px;background:var(--card);padding:0 8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--warn)}
+.node{border:1px solid var(--line);border-radius:3px;background:var(--paper);
+  padding:14px 14px;position:relative;transition:.25s all}
+@media(max-width:940px){
+  .ringgrid{grid-template-columns:1fr;gap:14px}
+  .ringgrid > *{min-width:0}
+  .ringbox{width:auto;height:auto;display:flex;flex-direction:column;gap:10px}
+  .ringsvg,.ringcenter,.ringlabel{display:none}
+  .ringbox .node.rpos{position:static;width:auto;transform:none}
+}
+.node .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.node .t{font-family:var(--serif);font-weight:500;font-size:15px;margin-top:5px}
+.node .d{color:var(--dim);font-size:11.5px;margin-top:5px;min-height:16px;font-family:var(--mono)}
+.node .k .rnum{color:inherit}
+.node.active{border-color:var(--acc);background:var(--acc-soft);box-shadow:0 0 0 1px var(--acc)}
+.node.active .k{color:var(--acc)}
+.node.done{border-color:var(--line2);background:var(--paper2)}
+.node.done .k{color:var(--acc)}
+.node.bad.active{border-color:var(--warn);background:var(--warn-soft);box-shadow:0 0 0 1px var(--warn)}
+.hint{color:var(--dim);font-size:12px;margin-top:16px;font-family:var(--mono);line-height:1.6}
+
+/* ---------- console / launch ---------- */
+.console{display:grid;grid-template-columns:minmax(0,370px) minmax(0,1fr);gap:26px;margin-top:64px}
+@media(max-width:940px){.console{grid-template-columns:1fr}}
+.panel{border:1px solid var(--line);border-radius:4px;background:var(--card);padding:28px}
+.panel h3{font-size:16px;margin-bottom:18px;display:flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;letter-spacing:.02em}
+label.f{display:block;margin:14px 0 6px;font-size:12px;color:var(--mut);font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+input[type=text],input[type=number],select,textarea{width:100%;background:var(--paper);border:1px solid var(--line2);
+  color:var(--ink);border-radius:3px;padding:11px 13px;font-size:14px;font-family:var(--sans);outline:none;transition:.15s border-color}
+input:focus,select:focus,textarea:focus{border-color:var(--acc)}
+textarea{resize:vertical;min-height:60px;font-family:var(--mono);font-size:12.5px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.toggle{display:flex;align-items:flex-start;gap:11px;margin-top:14px;padding:13px;border:1px solid var(--line);
+  border-radius:3px;background:var(--paper);cursor:pointer;transition:.15s border-color}
+.toggle:hover{border-color:var(--line2)}
+.toggle input{margin-top:3px;accent-color:var(--acc)}
+.toggle .tx b{font-size:13px;font-weight:600}
+.toggle .tx span{display:block;color:var(--dim);font-size:11px;font-family:var(--mono);margin-top:3px;line-height:1.5}
+.toggle .st{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--mut);background:var(--card)}
+.toggle .st.ok{border-color:var(--acc);color:var(--acc);background:var(--acc-soft)}
+.toggle .st.fb{border-color:var(--warn);color:var(--warn);background:var(--warn-soft)}
+.toggle:has(input:checked){border-color:var(--acc);background:var(--acc-soft)}
+.micro{color:var(--dim);font-size:11px;font-family:var(--mono);margin:6px 0 0;line-height:1.5}
+.spendmeter{margin-top:20px}
+.spendmeter .bar{height:5px;border-radius:999px;background:var(--line);overflow:hidden}
+.spendmeter .fill{height:100%;background:var(--acc);width:0%;transition:.3s width}
+.spendmeter .lbl{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:7px}
+.runrow{display:flex;gap:10px;margin-top:22px}
+.runrow .btn{flex:1;justify-content:center}
+
+/* live right column */
+.live-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.live-head .t{font-weight:600;font-size:15px;letter-spacing:.02em}
+.live-head .s{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:18px;border:1px solid var(--line);border-radius:3px;background:var(--paper)}
+.metric{padding:14px 16px}
+.metric + .metric{border-left:1px solid var(--line)}
+.metric .n{font-family:var(--serif);font-size:26px;font-weight:420;letter-spacing:-.01em}
+.metric .l{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;margin-top:4px;font-family:var(--mono)}
+@media(max-width:560px){.metrics{grid-template-columns:repeat(2,1fr)}}
+
+/* fanout viz */
+.fanout{border:1px solid var(--line);border-radius:3px;background:var(--paper);padding:16px;margin-bottom:18px}
+.fanout .fh{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mut);margin-bottom:12px;font-weight:500}
+.fanout .fh .lane-label{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+.lanes{display:flex;gap:8px;flex-wrap:wrap}
+.lane{flex:1 1 90px;min-width:80px;border:1px dashed var(--line2);border-radius:3px;padding:9px;min-height:66px;background:var(--card)}
+.lane .lt{font-family:var(--mono);font-size:10px;color:var(--dim);margin-bottom:7px;display:flex;justify-content:space-between}
+.lane .cells{display:flex;flex-wrap:wrap;gap:4px}
+.cell{width:11px;height:11px;border-radius:2px;background:var(--line);transition:.2s}
+.cell.on{background:var(--acc);animation:pop .3s}
+@keyframes pop{from{transform:scale(.4);opacity:.3}to{transform:scale(1);opacity:1}}
+.lane.gpu{border-color:var(--acc)}
+.lane.gpu .lt{color:var(--acc)}
+
+/* log */
+.logbox{border:1px solid var(--line);border-radius:3px;background:var(--paper);height:230px;overflow:auto;
+  padding:14px;font-family:var(--mono);font-size:11.5px;line-height:1.7}
+.logbox .ln{display:flex;gap:10px;white-space:pre-wrap}
+.logbox .tag{color:var(--acc);flex:0 0 auto;font-weight:500}
+.logbox .tag.warn{color:var(--warn)} .logbox .tag.bad{color:var(--bad)} .logbox .tag.dim{color:var(--dim)}
+.logbox .msg{color:var(--mut)}
+.logbox .empty{color:var(--dim)}
+
+/* result card */
+.result{margin-top:18px;border:1px solid var(--line);border-radius:4px;padding:24px;background:var(--paper);display:none}
+.result.show{display:block}
+.result .verdict{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.badge{font-family:var(--mono);font-size:11px;font-weight:500;padding:6px 13px;border-radius:999px;letter-spacing:.1em}
+.badge.good{background:var(--acc-soft);color:var(--acc);border:1px solid var(--acc)}
+.badge.stop{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn)}
+.badge.err{background:var(--bad-soft);color:var(--bad);border:1px solid var(--bad)}
+.result h3{font-size:22px;margin:0;font-weight:460}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:18px;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.kv .i{padding:12px 14px;background:var(--card);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kv .i .l{font-size:9.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono)}
+.kv .i .v{font-family:var(--mono);font-size:14px;margin-top:4px;font-weight:500;word-break:break-word;overflow-wrap:anywhere}
+.permalink{display:inline-flex;align-items:center;gap:7px;margin-left:auto;font-family:var(--mono);font-size:11px;
+  color:var(--mut);border:1px solid var(--line2);border-radius:999px;padding:6px 13px;cursor:pointer;background:var(--paper);transition:.15s all}
+.permalink:hover{border-color:var(--acc);color:var(--acc)}
+code.spec{display:block;background:var(--paper2);border:1px solid var(--line);border-radius:3px;padding:13px 15px;
+  font-family:var(--mono);font-size:11.5px;line-height:1.75;color:var(--mut);white-space:pre;overflow-x:auto;margin-top:12px}
+pre.json{background:var(--paper2);border:1px solid var(--line);border-radius:3px;padding:13px;overflow:auto;
+  font-family:var(--mono);font-size:11px;color:var(--mut);margin-top:12px;max-height:220px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.runlist{margin-top:34px;border:1px solid var(--line);border-radius:4px;background:var(--card);overflow:hidden}
+.runlist .rlh{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);padding:12px 16px;border-bottom:1px solid var(--line)}
+.runlist .row2{display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid var(--line);font-size:12.5px;flex-wrap:wrap}
+.runlist .row2:last-child{border-bottom:0}
+.runlist .rid{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.runlist .ds{font-weight:500;min-width:110px}
+.runlist .badge{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;padding:2px 8px;border-radius:999px;border:1px solid var(--line2)}
+.runlist .badge.good{border-color:var(--acc);color:var(--acc);background:var(--acc-soft)}
+.runlist .badge.stop{border-color:var(--warn);color:var(--warn);background:var(--warn-soft)}
+.runlist .num{font-family:var(--mono);font-size:11.5px;color:var(--mut)}
+.runlist a{color:var(--acc);font-family:var(--mono);font-size:11px;text-decoration:none;border-bottom:1px solid var(--acc-soft)}
+.runlist a:hover{border-bottom-color:var(--acc)}
+.runlist .spacer2{flex:1}
+@media(max-width:900px){.gallery{grid-template-columns:1fr}}
+.gcard{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 30px;transition:.2s background}
+.gcard:hover{background:var(--card)}
+.gcard .top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.gcard .name{font-weight:600;font-size:14px}
+.gcard .met{margin-top:26px;display:flex;gap:34px}
+.gcard .met .m .n{font-family:var(--serif);font-size:38px;font-weight:380;letter-spacing:-.02em;line-height:1}
+.gcard .met .m .l{font-size:11px;color:var(--dim);margin-top:8px}
+.gcard p{color:var(--mut);font-size:13.5px;margin:18px 0 0;line-height:1.7}
+
+/* how extensive */
+.ext{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;margin-top:64px;align-items:start}
+@media(max-width:900px){.ext{grid-template-columns:1fr}}
+.ext > *{min-width:0}
+.ext ul{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.ext li{border-bottom:1px solid var(--line);padding:24px 4px}
+.ext li b{display:block;margin-bottom:6px;font-family:var(--serif);font-size:19px;font-weight:480}
+.ext li span{color:var(--mut);font-size:14.5px;line-height:1.7}
+.ext .panel h3{font-family:var(--serif);font-size:21px;font-weight:480;letter-spacing:-.01em}
+
+footer{border-top:1px solid var(--line);padding:44px 0;color:var(--dim);font-size:13px;background:var(--paper2)}
+footer .row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+footer .spacer{flex:1}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap row">
+    <a class="brand" href="#top">
+      <svg class="logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="13" stroke="#1f5f47" stroke-width="2"/>
+        <path d="M16 6a10 10 0 1 1-8.7 5" stroke="#1f5f47" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="3.4" fill="#1f5f47"/>
+      </svg>
+      Attestera
+    </a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#scale">Architecture</a>
+      <a href="#launch">Launch a run</a>
+      <a href="#runs">Verified runs</a>
+    </nav>
+    <div class="spacer"></div>
+    <span class="pill statuspill" id="statusPill"><span class="dot" id="navDot"></span><span id="navStatus">connecting…</span></span>
+    <a class="gh" href="https://github.com/AA-Alghamdi/Attestra" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<a id="top"></a>
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Autonomous ML · Auto-R&D · Recursive self-improvement</span>
+    <h1>Research that <em>improves itself</em>, until it can prove it works.</h1>
+    <p class="sub">Attestera is an autonomous machine-learning researcher: give it a goal and a target, and it proposes, trains, measures and improves its own candidate models, round after round. It certifies only when a single sealed-test peek clears your bar, and stops honestly when it can't.</p>
+    <div class="cta">
+      <a class="btn primary" href="#launch">Launch a run</a>
+      <a class="btn ghost" href="#how">See the loop</a>
+    </div>
+    <hr class="rule" />
+    <div class="stats">
+      <div class="stat"><div class="n" id="stModal">5</div><div class="l">modalities: tabular, vision, text, time-series, ranking</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">sealed-test peek per run. Never more.</div></div>
+      <div class="stat"><div class="n">150k</div><div class="l">row datasets certified end-to-end on a single box</div></div>
+      <div class="stat"><div class="n">∞</div><div class="l">unbounded rounds, bounded budget: recursion under a hard spend cap</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IT IS -->
+<section id="what">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">What it is</span>
+      <h2>Not a model. An autonomous R&D loop that builds and <em>verifies</em> models for you.</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Recursive self-improvement</h3>
+        <p>Reads its own diagnostics each round and proposes better candidates; memory carries lessons across datasets.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <h3>Parallel GPU fan-out</h3>
+        <p>Dozens of candidate trainings per round across parallel workers, GPU or CPU, never faking hardware.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/></svg>
+        <h3>Frozen certification core</h3>
+        <p>Selection on validation only; the sealed test is peeked <b>exactly once</b>, by code the search can never touch.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <h3>Literature-grounded proposals</h3>
+        <p>A live scout feeds arXiv and Hugging Face abstracts into the proposer, so candidates reflect current technique.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        <h3>Five modalities, one contract</h3>
+        <p>Tabular, vision, text, time-series and ranking, each with its own frozen certifier behind one interface.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M12 2 9 5M12 2l3 3"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 14h8"/></svg>
+        <h3>Governed autonomy</h3>
+        <p>An LLM reads your free-text goal; a per-day spend cap bounds GPU and LLM cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS: the loop (also the live view) -->
+<section id="how">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">The recursive loop</span>
+      <h2>Propose. Fan out. Measure. Diagnose. Improve. <em>Then prove it, once.</em></h2>
+      <p class="lead">This is the actual engine pipeline, drawn as what it is: a cycle. The diagram doubles as the control tower for live runs launched below.</p>
+    </div>
+    <div class="loopwrap">
+      <div class="loophead">
+        <span class="t">The engine, live</span>
+        <span class="pill"><span class="dot" id="loopDot"></span><span id="loopRunId">idle</span></span>
+      </div>
+      <div class="ringgrid" id="pipe">
+        <div class="ramp">
+          <div class="node" data-stage="intake"><div class="k">01 · Intake</div><div class="t">Understand goal</div><div class="d" data-d>task · metric · target</div></div>
+          <div class="varrow">↓</div>
+          <div class="node" data-stage="split"><div class="k">02 · Split &amp; audit</div><div class="t">Seal the test</div><div class="d" data-d>train / val / sealed</div></div>
+          <div class="into">enters the loop →</div>
+        </div>
+        <div class="ringbox">
+          <svg class="ringsvg" viewBox="0 0 430 430" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line2)"/></marker>
+              <marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--acc)"/></marker>
+            </defs>
+            <path class="rp" d="M215,65 A150,150 0 0 1 365,215" marker-end="url(#ah)"/>
+            <path class="rp" d="M365,215 A150,150 0 0 1 215,365" marker-end="url(#ah)"/>
+            <path class="rp" d="M215,365 A150,150 0 0 1 65,215" marker-end="url(#ah)"/>
+            <path class="rp ret" d="M65,215 A150,150 0 0 1 215,65" marker-end="url(#ahg)"/>
+          </svg>
+          <div class="ringlabel" style="left:2%;top:24%">↻ next round</div>
+          <div class="ringcenter"><div class="rk">round</div><div class="rn" id="ringRound">0</div><div class="rr">repeats until the budget ends or no better candidate remains</div></div>
+          <div class="node rpos rtop" data-stage="fanout"><div class="k">03 · Fan-out</div><div class="t">Train in parallel</div><div class="d" data-d>candidates × workers</div></div>
+          <div class="node rpos rright" data-stage="measure"><div class="k">04 · Measure</div><div class="t">Score on validation</div><div class="d" data-d>best val so far</div></div>
+          <div class="node rpos rbottom" data-stage="diagnose"><div class="k">05 · Diagnose</div><div class="t">Find weaknesses</div><div class="d" data-d>signals</div></div>
+          <div class="node rpos rleft" data-stage="propose"><div class="k">06 · Improve</div><div class="t">Propose better</div><div class="d" data-d>next round</div></div>
+        </div>
+        <div class="exitcol">
+          <div class="xa">loop ends →</div>
+          <div class="node" data-stage="val_bound"><div class="k">07 · Gate</div><div class="t">Val lower-bound</div><div class="d" data-d>clears θ?</div></div>
+          <div class="xa">one gated arrow ↓</div>
+          <div class="sealedframe"><div class="sf">outside the loop</div>
+            <div class="node bad" data-stage="sealed_certify"><div class="k">08 · Sealed test</div><div class="t">One peek</div><div class="d" data-d>certify · or stop</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="hint">Stages 03–06 form the recursion: they repeat every round. The sealed test sits deliberately outside the ring; it is opened only after the search is over, exactly once. During a run, each stage lights up from the engine's real event stream; on load, the diagram replays a real certified run from its recorded events.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH -->
+<section id="launch">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Launch a research run</span>
+      <h2>State a goal. <em>Watch it search.</em></h2>
+      <p class="lead">Real runs on live infrastructure, behind a spend cap. Pick a built-in dataset or bring your own, set a target, and launch. The loop diagram and the fan-out grid are driven by the engine's own event stream.</p>
+    </div>
+
+    <div class="console">
+      <!-- controls -->
+      <div class="panel" id="controls">
+        <h3>Configuration</h3>
+        <label class="f" for="goal">Goal</label>
+        <input type="text" id="goal" value="classify accurately, accuracy >= 0.92" />
+        <p class="micro">If the goal text and the Metric / Target fields disagree, the fields below win.</p>
+
+        <label class="f" for="dataset">Dataset</label>
+        <select id="dataset"></select>
+
+        <details style="margin-top:12px">
+          <summary style="cursor:pointer;color:var(--mut);font-size:13px">Or bring your own data</summary>
+          <label class="f" for="csv">Paste CSV (last column = target unless named "target")</label>
+          <textarea id="csv" placeholder="feature_a,feature_b,target&#10;0.1,0.4,1&#10;..."></textarea>
+          <label class="f" for="rows">…or JSON rows [{"features":{...},"target":...}]</label>
+          <textarea id="rows" placeholder='[{"features":{"a":0.1},"target":1}]'></textarea>
+        </details>
+
+        <div class="two">
+          <div><label class="f" for="metric">Metric</label><select id="metric"></select></div>
+          <div><label class="f" for="threshold">Target θ</label><input type="number" id="threshold" value="0.92" step="0.01" min="0" max="1" /></div>
+        </div>
+        <div class="two">
+          <div><label class="f" for="engine">Engine</label><select id="engine"><option value="catalog">catalog (full loop)</option><option value="frontier">frontier</option></select></div>
+          <div><label class="f" for="budget">Time budget (s)</label><input type="number" id="budget" value="60" step="10" min="10" /></div>
+        </div>
+
+        <label class="toggle" for="llm"><input type="checkbox" id="llm" /><div class="tx"><b>Understand goal with AI</b><span>An LLM infers task, metric and target from the goal text. Non-binding: the frozen certifier decides.</span><span class="st" id="llmPill">checking…</span></div></label>
+        <label class="toggle" for="gpu"><input type="checkbox" id="gpu" /><div class="tx"><b>Use GPU (parallel fan-out)</b><span id="gpuNote">Fans candidate trainings across remote GPU workers. Real spend, scales to zero.</span><span class="st" id="gpuPill">checking…</span></div></label>
+
+        <div id="gpuOpts" style="display:none">
+          <div class="two">
+            <div><label class="f" for="workers">Max parallel workers</label><input type="number" id="workers" value="3" min="1" max="16" /></div>
+            <div><label class="f" for="gputype">Preferred GPU</label><input type="text" id="gputype" placeholder="endpoint default" /></div>
+          </div>
+        </div>
+
+        <div class="runrow">
+          <button class="btn primary" id="runBtn">Launch run</button>
+          <button class="btn ghost" id="stopBtn" hidden>Stop</button>
+        </div>
+        <div class="spendmeter"><div class="bar"><div class="fill" id="spendFill"></div></div><div class="lbl" id="spendHint">daily budget: -</div></div>
+      </div>
+
+      <!-- live -->
+      <div class="panel">
+        <div class="live-head"><span class="dot" id="liveDot"></span><span class="t">Live telemetry</span><span class="s" id="statusTxt">idle</span></div>
+        <div class="metrics">
+          <div class="metric"><div class="n" id="mRound">0</div><div class="l">Rounds so far</div></div>
+          <div class="metric"><div class="n" id="mCand">0</div><div class="l">Candidates</div></div>
+          <div class="metric"><div class="n" id="mProp">0</div><div class="l">Proposals</div></div>
+          <div class="metric"><div class="n" id="mVal">-</div><div class="l">Best val</div></div>
+        </div>
+
+        <div class="fanout">
+          <div class="fh">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Parallel worker fan-out <span class="lane-label" id="deviceLabel">device: -</span>
+          </div>
+          <div class="lanes" id="lanes"></div>
+        </div>
+
+        <div class="logbox" id="log"><div class="empty">No run yet. State a goal and press <b>Launch run</b>.</div></div>
+
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCALE / HOW EXTENSIVE -->
+<section id="scale">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Architecture</span>
+      <h2>Built like real infrastructure, <em>not a notebook.</em></h2>
+    </div>
+    <div class="ext">
+      <ul>
+        <li><b>One worker contract, every lane</b><span>Each round serializes every candidate into the same JobSpec and dispatches it through a worker contract: remote GPU workers with client-side concurrency control, or a local CPU pool. The winner is certified from the worker's returned predictions, never a locally re-fit copy.</span>
+        <code class="spec">JobSpec { op: "fit_val", family: "poly2+scale+logreg",
+          params: {…}, seed: 7, metric: "accuracy",
+          Xtr, ytr, Xva }          // yva never ships: scored locally</code></li>
+        <li><b>A casebase that transfers</b><span>On a new dataset the engine looks up the most similar past runs by dataset signature (size, dimensionality, class balance) and seeds round one with the moves that actually paid off there. Realized gains are written back after every round, so run 50 starts smarter than run 1.</span></li>
+        <li><b>A broad model portfolio</b><span>Linear, kernel, tree-ensemble and gradient-boosting families, feature-engineering moves (polynomial, Yeo-Johnson, scaling), ASHA hyperparameter search, and neural specs routed to a torch execution substrate.</span></li>
+        <li><b>Governed autonomy</b><span>LLM goal-understanding is non-binding: it only proposes; the frozen certifier decides. A per-UTC-day spend cap bounds GPU and LLM cost and degrades to CPU and deterministic proposals. Every "GPU unavailable" is reported with its real reason.</span></li>
+      </ul>
+      <div class="panel" style="align-self:stretch">
+        <h3>The one invariant that makes it trustworthy</h3>
+        <p class="lead" style="font-size:15px;margin-top:12px">Everything above, the fan-out, the recursion, the LLM, the literature, only ever touches <b>train and validation</b> data. The sealed test is opened <b>once</b>, by frozen code, after the search is over.</p>
+        <p class="lead" style="font-size:14px;margin-top:14px">The gate is exact math, not a vibe. With <span class="mono">k</span> of <span class="mono">n</span> sealed predictions correct, certification requires the one-sided exact binomial lower bound to clear the target after multiplicity correction:</p>
+        <code class="spec">LB(k, n, α / checks) &gt; θ
+// replayed run above: k=167, n=171, α=0.05
+// LB = 0.9473 &gt; θ = 0.92  ⇒  CERTIFIED (p = 0.0017)</code>
+        <div class="kv" style="margin-top:20px">
+          <div class="i"><div class="l">Sealed peeks / run</div><div class="v" style="color:var(--acc)">exactly 1</div></div>
+          <div class="i"><div class="l">Selection signal</div><div class="v">validation only</div></div>
+          <div class="i"><div class="l">Certificate author</div><div class="v">frozen core</div></div>
+          <div class="i"><div class="l">On miss</div><div class="v">honest stop</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERIFIED RUNS -->
+<section id="runs">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Verified runs</span>
+      <h2>Certified, and <em>declined.</em></h2>
+      <p class="lead">Real results from this engine. It certifies when the sealed test backs the claim, and refuses to overclaim when it doesn't.</p>
+    </div>
+    <div class="gallery">
+      <div class="gcard">
+        <div class="top"><span class="name">digits · 10-class</span><span class="badge good">CERTIFIED</span></div>
+        <div class="met"><div class="m"><div class="n">0.978</div><div class="l">sealed-test acc</div></div><div class="m"><div class="n">0.964</div><div class="l">lower bound ≥ 0.75</div></div></div>
+        <p>Winner: poly2 + scale + logistic regression, found over 42 proposals. One sealed-test peek.</p>
+      </div>
+      <div class="gcard">
+        <div class="top"><span class="name">openml credit-g · imbalanced</span><span class="badge stop">HONEST STOP</span></div>
+        <div class="met"><div class="m"><div class="n">0.656</div><div class="l">sealed bal-acc</div></div><div class="m"><div class="n">0.591</div><div class="l">LB &lt; θ 0.75</div></div></div>
+        <p>15 rounds, 68 proposals, yj + logreg best, but the lower bound missed the bar, so it reported the real number and stopped.</p>
+      </div>
+      <div class="gcard">
+        <div class="top"><span class="name">150k-row tabular · scale</span><span class="badge good">CERTIFIED</span></div>
+        <div class="met"><div class="m"><div class="n">0.931</div><div class="l">validation</div></div><div class="m"><div class="n">16m</div><div class="l">wall · 26.9 GiB peak</div></div></div>
+        <p>End-to-end on a single box via progressive subsampling; the only memory pressure is the one mandatory sealed-test fit.</p>
+      </div>
+    </div>
+    <div class="runlist" id="runlist" hidden>
+      <div class="rlh">Recent runs on this engine · every result gets a shareable certificate link</div>
+      <div id="runrows"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <a class="brand" href="#top" style="font-size:17px"><svg class="logo" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" stroke="#1f5f47" stroke-width="2"/><circle cx="16" cy="16" r="3.4" fill="#1f5f47"/></svg> Attestera</a>
+    <span class="spacer"></span>
+    <span>Autonomous ML Auto-R&amp;D &amp; recursive self-improvement</span>
+    <a href="https://github.com/AA-Alghamdi/Attestra" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</footer>
+
+<script>
+"use strict";
+const $ = s => document.querySelector(s);
+const el = (t,c)=>{const e=document.createElement(t); if(c) e.className=c; return e;};
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function fmt(x){ if(x==null||x==="") return "-"; if(typeof x==="number") return (Math.abs(x)<1&&x!==0)?x.toFixed(4):(""+x); return x; }
+
+/* ---- canonical pipeline stage order + aliases ---- */
+const ORDER = ["intake","split","fanout","measure","diagnose","propose","val_bound","sealed_certify"];
+const ALIAS = {
+  ai_intake:"intake", prereg:"intake", engine:"intake", provider:"split", audit:"split",
+  catalog:"fanout", memory:"fanout", round:"fanout",
+  honest_stop:"sealed_certify", done:"sealed_certify", sealed_certify:"sealed_certify",
+};
+function nodeFor(stage){ const s = ALIAS[stage]||stage; return document.querySelector(`.node[data-stage="${s}"]`); }
+function lightStage(stage){
+  const s = ALIAS[stage]||stage;
+  const idx = ORDER.indexOf(s); if(idx<0) return;
+  document.querySelectorAll(".node").forEach(n=>n.classList.remove("active"));
+  for(let i=0;i<ORDER.length;i++){
+    const n = document.querySelector(`.node[data-stage="${ORDER[i]}"]`); if(!n) continue;
+    if(i<idx) n.classList.add("done"); else n.classList.remove("done");
+  }
+  const cur = document.querySelector(`.node[data-stage="${s}"]`);
+  if(cur) cur.classList.add("active");
+}
+function setNodeDetail(stage,txt){ const n=nodeFor(stage); if(n){const d=n.querySelector("[data-d]"); if(d&&txt) d.textContent=txt;} }
+function setLoopBadge(txt,live){ $("#loopRunId").textContent=txt; $("#loopDot").classList.toggle("live",!!live); }
+
+/* ---- state ---- */
+let currentRunId=null, workersMax=3, candCount=0, propCount=0, roundMax=0, lastMetric="accuracy";
+let replayTimer=null, replayActive=false;
+
+/* ---- meta / capabilities ---- */
+async function loadMeta(){
+  try{
+    const r = await fetch("/api/meta"); const m = await r.json();
+    const ds = $("#dataset"); ds.innerHTML="";
+    const grp=(label,arr)=>{ if(!arr||!arr.length) return; const og=el("optgroup"); og.label=label;
+      arr.forEach(d=>{const o=el("option");o.value=d;o.textContent=d;og.appendChild(o);}); ds.appendChild(og); };
+    grp("Tabular", m.datasets.tabular); grp("Vision", m.datasets.vision); grp("Verticals", m.datasets.verticals);
+    ds.value = (m.datasets.tabular&&m.datasets.tabular.includes("breast_cancer"))?"breast_cancer":ds.options[0]?.value;
+    const met=$("#metric"); met.innerHTML=""; (m.metrics||["accuracy"]).forEach(x=>{const o=el("option");o.value=x;o.textContent=x;met.appendChild(o);}); met.value = m.metrics.includes("accuracy")?"accuracy":m.metrics[0];
+    const eng=$("#engine"); if(m.engines){ eng.innerHTML=""; m.engines.forEach(e=>{const o=el("option");o.value=e;o.textContent=(e==="catalog"?"catalog (full loop)":e);eng.appendChild(o);}); }
+    const gp=$("#gpuPill"), lp=$("#llmPill");
+    if(m.gpu_configured){ gp.textContent="GPU lane configured"; gp.classList.add("ok"); }
+    else { gp.textContent="fallback: runs on CPU, reported as such"; gp.classList.add("fb"); }
+    if(m.llm_configured){ lp.textContent="LLM configured (spend-capped)"; lp.classList.add("ok"); }
+    else { lp.textContent="fallback: deterministic goal parsing (free)"; lp.classList.add("fb"); }
+    updateSpend(m.spend);
+    setNav(true,"live");
+  }catch(e){ setNav(false,"offline"); }
+}
+function updateSpend(s){ if(!s) return;
+  const cap=s.usd_cap||0, spent=s.usd_spent||0;
+  $("#spendFill").style.width=(cap>0?Math.min(100,100*spent/cap):0)+"%";
+  $("#spendHint").textContent=`$${(cap-spent).toFixed(2)} of today's $${cap.toFixed(2)} budget left`; }
+function setNav(ok,txt){ $("#navStatus").textContent=txt; $("#navDot").classList.toggle("live",!!ok); }
+
+/* ---- fan-out visualization ---- */
+function buildLanes(n,gpu){
+  workersMax=Math.max(1,n||1); const box=$("#lanes"); box.innerHTML="";
+  for(let i=0;i<workersMax;i++){
+    const l=el("div","lane"+(gpu?" gpu":"")); l.dataset.i=i;
+    l.innerHTML=`<div class="lt"><span>${gpu?"gpu":"cpu"} ${i}</span><span data-c>0</span></div><div class="cells"></div>`;
+    box.appendChild(l);
+  }
+}
+function fanCandidates(n){
+  const lanes=[...document.querySelectorAll("#lanes .lane")]; if(!lanes.length) buildLanes(workersMax,false);
+  const ls=[...document.querySelectorAll("#lanes .lane")];
+  for(let i=0;i<n;i++){
+    const lane=ls[i%ls.length]; const cells=lane.querySelector(".cells");
+    const c=el("div","cell"); cells.appendChild(c); requestAnimationFrame(()=>c.classList.add("on"));
+    const cnt=lane.querySelector("[data-c]"); cnt.textContent=(+cnt.textContent+1);
+  }
+  candCount+=n; $("#mCand").textContent=candCount;
+}
+
+/* ---- log ---- */
+function log(tag,msg,cls){
+  const box=$("#log"); if(box.querySelector(".empty")) box.innerHTML="";
+  const ln=el("div","ln"); const t=el("span","tag"+(cls?(" "+cls):"")); t.textContent=tag;
+  const m=el("span","msg"); m.textContent=msg; ln.append(t,m); box.appendChild(ln); box.scrollTop=box.scrollHeight;
+}
+
+/* ---- event handling ---- */
+function handleEvent(ev){
+  const st = ev.stage || "event";
+  lightStage(st);
+  switch(st){
+    case "intake": log("intake", `goal understood · ${ev.task_type||""} · ${ev.n_records||""} rows`); setNodeDetail("intake", `${ev.task_type||"?"}`); break;
+    case "ai_intake": { const inf=ev.inferred||{}; log("ai", `inferred task=${inf.task_type} metric=${inf.metric} θ=${inf.threshold}`+(ev.used_llm?" (LLM)":" (deterministic)")); setNodeDetail("intake", `${inf.metric||""}`); break; }
+    case "prereg": log("prereg", `plan locked · metric=${ev.metric} θ=${ev.threshold}`,"dim"); break;
+    case "split": log("split", `train ${ev.n_train} · val ${ev.n_val} · sealed ${ev.n_test}`); setNodeDetail("split", `sealed ${ev.n_test}`); break;
+    case "audit": log("audit", ev.status==="blocked"?`contamination: ${ev.contamination}`:"leakage audit clean", ev.status==="blocked"?"bad":undefined); break;
+    case "engine": log("engine", `engine: ${ev.engine||"?"}`,"dim"); break;
+    case "provider": {
+      const gpu = !!ev.gpu; workersMax = ev.gpu_workers_max||workersMax;
+      buildLanes(workersMax, gpu);
+      $("#deviceLabel").textContent = `device: ${gpu?"GPU":"CPU"} · ${workersMax} workers`;
+      log("provider", `${ev.provider} · ${gpu?"GPU":"CPU"} · ${workersMax} workers`);
+      if(ev.gpu_requested && !ev.gpu_available && ev.gpu_unavailable_reason) log("gpu", `GPU unavailable: ${ev.gpu_unavailable_reason} → CPU`,"warn");
+      if(ev.capped) log("cap", `spend cap hit: ${ev.cap_reason} → degraded`,"warn");
+      break;
+    }
+    case "memory": log("memory", `warm-start from prior runs`,"dim"); break;
+    case "fanout": {
+      roundMax=Math.max(roundMax,(ev.round||0)+1); $("#mRound").textContent=roundMax; $("#ringRound").textContent=roundMax;
+      const dev = ev.device||""; if(dev) $("#deviceLabel").textContent = `device: ${dev}`;
+      fanCandidates(ev.n_candidates||0);
+      log("fan-out", `round ${ev.round} · ${ev.move} · ${ev.n_candidates} candidates → workers`);
+      setNodeDetail("fanout", `${candCount} trained`);
+      break;
+    }
+    case "measure": { if(ev.best_val!=null){ $("#mVal").textContent=fmt(ev.best_val); setNodeDetail("measure", `val ${fmt(ev.best_val)}`);} log("measure", `round ${ev.round} · ${ev.move} · best val ${fmt(ev.best_val)}`); break; }
+    case "diagnose": log("diagnose", `round ${ev.round} · signals: ${(ev.signals&&(ev.signals.join?ev.signals.join(", "):JSON.stringify(ev.signals)))||"-"}`); break;
+    case "propose": { propCount+=(ev.n_proposed||0); $("#mProp").textContent=propCount; log("propose", `round ${ev.round} · +${ev.n_proposed} candidates (${ev.source})`+(ev.used_llm?" [LLM]":"")); setNodeDetail("propose", `+${ev.n_proposed}`); break; }
+    case "val_bound": log("gate", `winner ${ev.winner} · val ${fmt(ev.val)} → checking θ`); setNodeDetail("val_bound", `val ${fmt(ev.val)}`); break;
+    case "sealed_certify": log("sealed", `one peek · ${ev.winner} on ${ev.n_test} held-out`,"warn"); break;
+    case "honest_stop": log("stop", `val LB ${fmt(ev.val_lb)} < θ ${fmt(ev.threshold)} → honest stop`,"warn"); break;
+    case "done": break;
+    case "error": log("error", ev.error||"error","bad"); break;
+    default: log(st, JSON.stringify(ev).slice(0,140),"dim");
+  }
+}
+
+function renderResult(p,permaId){
+  const box=$("#result"); box.classList.add("show");
+  const rid = permaId || p.run_id || currentRunId;
+  const cert=p.certificate||null;
+  const fr=p.failure_report||null;
+  const decision=p.decision||(p.certified?"certified":"honest_stop");
+  const certified=!!p.certified;
+  let badge,title;
+  if(decision==="error"||p.error){ badge=`<span class="badge err">ERROR</span>`; title="The run hit an error."; }
+  else if(certified){ badge=`<span class="badge good">CERTIFIED</span>`; title="Model certified on the sealed test."; }
+  else if(decision==="cancelled"){ badge=`<span class="badge stop">STOPPED</span>`; title="Run stopped by operator."; }
+  else { badge=`<span class="badge stop">HONEST STOP</span>`; title="Declined: the evidence didn't clear the bar."; }
+
+  const wname=(p.winner&&(p.winner.family||p.winner.label))|| (cert&&cert.winner_family) ||"-";
+  const metric = lastMetric || (fr&&fr.power&&fr.power.metric) || "-";
+  const theta = cert?cert.theta:(fr&&fr.power?fr.power.theta:null);
+  const sealedScore = cert?cert.observed:null;
+  const lb = cert?cert.lower_bound:null;
+  const peeks = cert?(cert.peeks!=null?cert.peeks:cert.checks):(certified?1:0);
+  const nRounds = Array.isArray(p.rounds)?p.rounds.length:null;
+
+  const rows=[
+    ["Decision", decision.replace("_"," ")],
+    ["Winner family", wname],
+    ["Metric", metric],
+    ["Sealed score", certified?fmt(sealedScore):"not opened"],
+    ["Lower bound", certified?fmt(lb):"-"],
+    ["Target θ", fmt(theta)],
+    ["Sealed peeks", fmt(peeks)],
+    ["Rounds", nRounds!=null?fmt(nRounds):"-"],
+    ["Provider", p.provider||"local"],
+    ["Elapsed", p.elapsed_s!=null?(Math.round(p.elapsed_s)+"s"):"-"],
+  ];
+  const kv=rows.map(([l,v])=>`<div class="i"><div class="l">${escapeHtml(l)}</div><div class="v">${escapeHtml(fmt(v))}</div></div>`).join("");
+
+  let note="";
+  if(certified && cert && cert.reason){ note=`<p style="color:var(--acc);margin-top:14px;font-size:14px">${escapeHtml(cert.reason)}</p>`; }
+  else if(fr){
+    const parts=[];
+    if(fr.dominant_source) parts.push(`<b>Why it declined:</b> ${escapeHtml(fr.dominant_source)}`);
+    if(fr.next_experiment) parts.push(`<b>Suggested next step:</b> ${escapeHtml(fr.next_experiment)}`);
+    if(parts.length) note=`<div style="color:var(--warn);margin-top:14px;font-size:14px;line-height:1.6">${parts.join("<br>")}</div>`;
+  }
+  const err=p.error?`<pre class="json">${escapeHtml(p.error)}</pre>`:"";
+  const perma = rid?`<button class="permalink" id="permaBtn" data-rid="${escapeHtml(rid)}" title="Copy a shareable link to this certificate">⧉ copy certificate link</button>`:"";
+  box.innerHTML=`<div class="verdict">${badge}<h3 style="margin:0">${escapeHtml(title)}</h3>${perma}</div>${note}<div class="kv">${kv}</div>${err}
+    <details style="margin-top:12px"><summary style="cursor:pointer;color:var(--mut);font-size:13px">Raw ${cert?"certificate":"report"}</summary><pre class="json">${escapeHtml(JSON.stringify(cert||fr||p,null,2))}</pre></details>`;
+  const pb=$("#permaBtn");
+  if(pb) pb.addEventListener("click",async()=>{
+    const url=location.origin+location.pathname+"?cert="+pb.dataset.rid;
+    try{ await navigator.clipboard.writeText(url); pb.textContent="✓ link copied"; }
+    catch(e){ prompt("Certificate permalink:",url); }
+    setTimeout(()=>{pb.textContent="⧉ copy certificate link";},2500);
+  });
+  box.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+/* ---- run orchestration ---- */
+function stopReplay(){ replayActive=false; if(replayTimer){clearTimeout(replayTimer);replayTimer=null;} }
+function resetLive(){
+  stopReplay();
+  candCount=0;propCount=0;roundMax=0;
+  $("#mRound").textContent="0";$("#mCand").textContent="0";$("#mProp").textContent="0";$("#mVal").textContent="-";$("#ringRound").textContent="0";
+  setLoopBadge("idle",false);
+  $("#lanes").innerHTML="";$("#deviceLabel").textContent="device: -";
+  $("#log").innerHTML="";$("#result").classList.remove("show");$("#result").innerHTML="";
+  document.querySelectorAll(".node").forEach(n=>n.classList.remove("active","done"));
+}
+function failUI(msg){ $("#result").classList.add("show"); $("#result").innerHTML=`<div class="verdict"><span class="badge err">ERROR</span><h3 style="margin:0">Could not run.</h3></div><pre class="json">${escapeHtml(msg)}</pre>`; finishUI(); }
+function finishUI(){ $("#runBtn").disabled=false; $("#liveDot").classList.remove("live"); $("#statusTxt").textContent="idle"; currentRunId=null; const sb=$("#stopBtn"); sb.hidden=true; sb.disabled=false; }
+
+async function run(){
+  resetLive();
+  $("#runBtn").disabled=true; $("#liveDot").classList.add("live"); $("#statusTxt").textContent="starting…";
+  lastMetric=$("#metric").value;
+  const body={ goal:$("#goal").value.trim(), threshold:parseFloat($("#threshold").value),
+    metric:$("#metric").value, engine:$("#engine").value };
+  const budget=parseFloat($("#budget").value); if(budget>0) body.time_budget_s=budget;
+  if($("#llm").checked) body.use_llm_intake=true;
+  if($("#gpu").checked){ body.use_gpu=true; body.gpu_workers_max=parseInt($("#workers").value)||3; const gt=$("#gputype").value.trim(); if(gt) body.gpu_type=gt; }
+  const csv=$("#csv").value.trim(), rows=$("#rows").value.trim();
+  if(csv){ body.csv=csv; } else if(rows){ try{ body.rows=JSON.parse(rows); }catch(e){ failUI("rows is not valid JSON: "+e.message); return; } }
+  else { body.dataset=$("#dataset").value; }
+
+  let runId;
+  try{
+    const resp=await fetch("/run",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+    const j=await resp.json();
+    if(!resp.ok){ failUI(j.error||("HTTP "+resp.status)); return; }
+    runId=j.run_id; currentRunId=runId;
+    setLoopBadge("run "+runId+" · live",true);
+    if(j.spend) updateSpend(j.spend);
+    const sb=$("#stopBtn"); sb.hidden=false; sb.disabled=false;
+    $("#statusTxt").textContent=`run ${runId} · ${j.kind}/${j.task_type}`;
+    log("run", `#${runId} · ${j.kind}/${j.task_type} · metric ${j.metric} · θ ${j.threshold} · ${j.n_records} rows`);
+  }catch(e){ failUI("could not start run: "+e.message); return; }
+  streamEvents(runId);
+}
+
+async function cancelRun(){
+  if(!currentRunId) return; $("#stopBtn").disabled=true; $("#statusTxt").textContent="stopping…";
+  try{ await fetch("/cancel",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({run_id:currentRunId})}); }catch(e){}
+}
+
+async function streamEvents(runId){
+  let resp;
+  try{ resp=await fetch("/events/"+runId,{headers:{"Accept":"text/event-stream"}}); }
+  catch(e){ failUI("could not open event stream: "+e.message); return; }
+  if(!resp.ok||!resp.body){ failUI("event stream HTTP "+resp.status); return; }
+  const reader=resp.body.getReader(), dec=new TextDecoder("utf-8"); let buf="";
+  function dispatch(rec){
+    let name=null; const data=[];
+    for(const raw of rec.split("\n")){ const line=raw.replace(/\r$/,""); if(!line||line.startsWith(":")) continue;
+      if(line.startsWith("event:")) name=line.slice(6).trim(); else if(line.startsWith("data:")) data.push(line.slice(5).replace(/^ /,"")); }
+    if(!data.length) return; let p; try{ p=JSON.parse(data.join("\n")); }catch(e){ return; }
+    if(name==="event") handleEvent(p); else if(name==="result") renderResult(p); else if(name==="close") finishUI();
+  }
+  try{
+    while(true){ const {value,done}=await reader.read(); if(done) break; buf+=dec.decode(value,{stream:true});
+      let i; while((i=buf.indexOf("\n\n"))>=0){ const rec=buf.slice(0,i); buf=buf.slice(i+2); dispatch(rec); } }
+    if(buf.trim()) dispatch(buf);
+  }catch(e){}
+  finishUI();
+  // refresh spend after a run
+  try{ const r=await fetch("/healthz"); const h=await r.json(); if(h.spend) updateSpend(h.spend); }catch(e){}
+}
+
+/* ---- wiring ---- */
+$("#gpu").addEventListener("change",e=>{ $("#gpuOpts").style.display=e.target.checked?"block":"none"; });
+$("#runBtn").addEventListener("click",run);
+$("#stopBtn").addEventListener("click",cancelRun);
+$("#dataset").addEventListener("change",e=>{
+  const v=e.target.value;
+  if(v==="diabetes"){ $("#metric").value="r2"; $("#threshold").value="0.45"; }
+  else if(v==="timeseries_demo"){ $("#metric").value="neg_rmse"; }
+});
+loadMeta();
+
+/* ---- ambient proof: replay a real run through the diagram (on load, or any stored run via ?replay=) ---- */
+async function ambientReplay(src, finalLabel){
+  let d;
+  try{ const r=await fetch(src||"/replay.json"); if(!r.ok) return; d=await r.json(); }catch(e){ return; }
+  const evs=d.events||[];
+  const label=finalLabel||"CERTIFIED 0.9766";
+  const finishStatic=()=>{
+    document.querySelectorAll("#pipe .node").forEach(n=>n.classList.add("done"));
+    const last=nodeFor("sealed_certify"); if(last){last.classList.remove("done");last.classList.add("active");}
+    setNodeDetail("sealed_certify",label);
+    const rmax=Math.max(0,...evs.map(e=>(e.round||0)+1)); $("#ringRound").textContent=rmax;
+    setLoopBadge("replay · run "+d.run_id+" · "+label.split(" ")[0],false);
+  };
+  if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){ finishStatic(); return; }
+  replayActive=true;
+  setLoopBadge("replaying certified run "+d.run_id,true);
+  let i=0;
+  const step=()=>{
+    if(!replayActive) return;
+    if(i>=evs.length){ replayActive=false; finishStatic(); return; }
+    const ev=evs[i++];
+    const st=ev.stage; lightStage(st);
+    if(st==="fanout"){ const r=(ev.round||0)+1; $("#ringRound").textContent=Math.max(r,+$("#ringRound").textContent||0); setNodeDetail("fanout",`${ev.n_candidates||""} candidates`); }
+    else if(st==="measure"&&ev.best_val!=null){ setNodeDetail("measure",`val ${(+ev.best_val).toFixed(4)}`); }
+    else if(st==="split"){ setNodeDetail("split",`sealed ${ev.n_test}`); }
+    else if(st==="propose"){ setNodeDetail("propose",`+${ev.n_proposed||0}`); }
+    else if(st==="sealed_certify"){ setNodeDetail("sealed_certify","one peek…"); }
+    const delay = (st==="fanout"||st==="measure") ? 280 : 700;
+    replayTimer=setTimeout(step,delay);
+  };
+  replayTimer=setTimeout(step,900);
+}
+
+/* ---- certificate permalink loading (?cert=RUN_ID) ---- */
+async function loadPermalink(){
+  const rid=new URLSearchParams(location.search).get("cert");
+  if(!rid||!/^[0-9a-f]{1,32}$/.test(rid)) return false;
+  try{
+    const r=await fetch("/api/cert/"+rid); if(!r.ok) return false;
+    const p=await r.json();
+    lastMetric=(p.objective&&p.objective.metric)||lastMetric;
+    renderResult(p,rid);
+    log("cert",`loaded certificate permalink for run ${rid}`,"dim");
+    document.getElementById("launch").scrollIntoView();
+    return true;
+  }catch(e){ return false; }
+}
+/* ---- auto gallery: recent persisted runs, each with its permalink + replay ---- */
+async function loadRuns(){
+  try{
+    const r=await fetch("/api/runs"); if(!r.ok) return;
+    const {runs}=await r.json(); if(!runs||!runs.length) return;
+    const box=$("#runrows"); box.innerHTML="";
+    runs.slice(0,12).forEach(x=>{
+      const row=el("div","row2");
+      const good=x.certified;
+      row.innerHTML=
+        `<span class="ds">${escapeHtml(x.dataset||x.goal||"run")}</span>`+
+        `<span class="badge ${good?"good":"stop"}">${good?"CERTIFIED":(x.decision==="error"?"ERROR":"DECLINED")}</span>`+
+        `<span class="num">${x.sealed_score!=null?("sealed "+(+x.sealed_score).toFixed(4)):""}${x.lower_bound!=null?(" · LB "+(+x.lower_bound).toFixed(4)):""}${x.theta!=null?(" · θ "+x.theta):""}</span>`+
+        `<span class="rid">${escapeHtml(x.run_id)}${x.saved_at?(" · "+escapeHtml(x.saved_at.slice(0,10))):""}</span>`+
+        `<span class="spacer2"></span>`+
+        `<a href="/?cert=${encodeURIComponent(x.run_id)}">certificate</a>`+
+        (x.has_replay?` <a href="/?replay=${encodeURIComponent(x.run_id)}">replay</a>`:"");
+      box.appendChild(row);
+    });
+    $("#runlist").hidden=false;
+  }catch(e){}
+}
+loadRuns();
+
+async function loadReplayParam(){
+  const rid=new URLSearchParams(location.search).get("replay");
+  if(!rid||!/^[0-9a-f]{1,32}$/.test(rid)) return false;
+  let label="DONE";
+  try{
+    const r=await fetch("/api/cert/"+rid);
+    if(r.ok){ const p=await r.json();
+      const c=p.certificate||{};
+      label=(p.certified?"CERTIFIED":"DECLINED")+(c.observed!=null?(" "+(+c.observed).toFixed(4)):"");
+      renderResult(p,rid);
+    }
+  }catch(e){}
+  ambientReplay("/api/replay/"+rid,label);
+  document.getElementById("how").scrollIntoView();
+  return true;
+}
+loadPermalink().then(async shown=>{
+  const replayed=await loadReplayParam();
+  if(!shown&&!replayed) ambientReplay();
+});
+</script>
+</body>
+</html>

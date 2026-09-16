@@ -1,0 +1,163 @@
+[
+  {
+    "dataset": "iris",
+    "n": 150,
+    "features": 4,
+    "theta": 0.85,
+    "certified": false,
+    "winner_val": 0.9667,
+    "decline_reason": "winner refuted by oracle: [adversarial_self_refutation] single-feature attack: feature f2 alone reaches 0.9333 (certified lower_bound=0.8989, chance=0.3333) -> result is plausibly a single-column artifact/leak",
+    "oracle_promote": false,
+    "intel_rounds": [
+      {
+        "feature_eng": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      }
+    ],
+    "intel_totals": {
+      "feature_eng": 3,
+      "ensemble": 12,
+      "asha_hp": 9
+    },
+    "wall_seconds": 140.6
+  },
+  {
+    "dataset": "wine",
+    "n": 178,
+    "features": 13,
+    "theta": 0.8,
+    "certified": false,
+    "winner_val": 1.0,
+    "decline_reason": "did not beat baseline floor: winner sealed lower bound 0.8859 does NOT beat baseline floor 'baseline_logreg' lower bound 0.8859 (margin 0.0); reported as no improvement over baseline",
+    "oracle_promote": true,
+    "intel_rounds": [
+      {
+        "feature_eng": 4
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      }
+    ],
+    "intel_totals": {
+      "feature_eng": 4,
+      "ensemble": 12,
+      "asha_hp": 9
+    },
+    "wall_seconds": 121.1
+  },
+  {
+    "dataset": "breast_cancer",
+    "n": 569,
+    "features": 30,
+    "theta": 0.9,
+    "certified": false,
+    "winner_val": 0.9823,
+    "decline_reason": "winner refuted by oracle: [adversarial_self_refutation] single-feature attack: feature f7 alone reaches 0.8761 (certified lower_bound=0.9245, chance=0.6283) -> result is plausibly a single-column artifact/leak",
+    "oracle_promote": false,
+    "intel_rounds": [
+      {
+        "feature_eng": 4
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      }
+    ],
+    "intel_totals": {
+      "feature_eng": 4,
+      "ensemble": 12,
+      "asha_hp": 9
+    },
+    "wall_seconds": 151.4
+  },
+  {
+    "dataset": "digits",
+    "n": 1797,
+    "features": 64,
+    "theta": 0.85,
+    "certified": false,
+    "winner_val": 0.9861,
+    "decline_reason": "did not beat baseline floor: winner sealed lower bound 0.9575 does NOT beat baseline floor 'baseline_hgb' lower bound 0.9664 (margin -0.0089); reported as no improvement over baseline",
+    "oracle_promote": true,
+    "intel_rounds": [
+      {
+        "feature_eng": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      }
+    ],
+    "intel_totals": {
+      "feature_eng": 3,
+      "ensemble": 8,
+      "asha_hp": 6
+    },
+    "wall_seconds": 254.7
+  },
+  {
+    "dataset": "synthetic_hard",
+    "n": 3000,
+    "features": 50,
+    "theta": 0.55,
+    "certified": true,
+    "winner_val": 0.8114,
+    "decline_reason": "",
+    "oracle_promote": true,
+    "intel_rounds": [
+      {
+        "feature_eng": 4
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      },
+      {
+        "ensemble": 4,
+        "asha_hp": 3
+      }
+    ],
+    "intel_totals": {
+      "feature_eng": 4,
+      "ensemble": 12,
+      "asha_hp": 9
+    },
+    "wall_seconds": 134.0
+  }
+]

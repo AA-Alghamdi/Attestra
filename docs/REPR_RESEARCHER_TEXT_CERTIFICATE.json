@@ -1,0 +1,299 @@
+{
+  "arena": "20newsgroups-confusable-pairs",
+  "start_champion": "tfidf_lsa",
+  "champion": "mpnet",
+  "champion_family": "mpnet",
+  "move_class_path": [
+    "model",
+    "features",
+    "capacity"
+  ],
+  "stop_reason": "plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop",
+  "peeks_used": 8,
+  "promoted_tags": [
+    "mpnet"
+  ],
+  "promotions": [
+    {
+      "rung": "model",
+      "from_tag": "tfidf_lsa",
+      "to_tag": "mpnet",
+      "survivors": [
+        "pc.hardware_vs_mac.hardware",
+        "alt.atheism_vs_religion.misc",
+        "sport.baseball_vs_sport.hockey",
+        "sci.electronics_vs_sci.space"
+      ],
+      "n": 6,
+      "mean_lift": 0.0810185185185185
+    }
+  ],
+  "rejections": [
+    {
+      "rung": "model",
+      "tag": "minilm",
+      "survivors": [
+        "pc.hardware_vs_mac.hardware",
+        "sci.electronics_vs_sci.space"
+      ],
+      "n": 6,
+      "mean_lift": 0.04976851851851851,
+      "reason": "certified over prior champion tfidf_lsa but superseded by mpnet (sealed lower bound 0.842 > 0.809)"
+    },
+    {
+      "rung": "model",
+      "tag": "e5_small",
+      "survivors": [
+        "pc.hardware_vs_mac.hardware",
+        "sport.baseball_vs_sport.hockey",
+        "sci.electronics_vs_sci.space"
+      ],
+      "n": 6,
+      "mean_lift": 0.0462962962962963,
+      "reason": "certified over prior champion tfidf_lsa but superseded by mpnet (sealed lower bound 0.842 > 0.805)"
+    },
+    {
+      "rung": "model",
+      "tag": "e5_base",
+      "survivors": [],
+      "n": 6,
+      "mean_lift": -0.005787037037037017,
+      "reason": "frozen Tier-3 did not certify over champion mpnet (0 FDR survivors, mean_lift -0.006)"
+    },
+    {
+      "rung": "features",
+      "tag": "fuse[mpnet+minilm]",
+      "survivors": [],
+      "n": 6,
+      "mean_lift": -0.005787037037037017,
+      "reason": "frozen Tier-3 did not certify over champion mpnet (0 FDR survivors, mean_lift -0.006)"
+    },
+    {
+      "rung": "features",
+      "tag": "fuse[mpnet+e5_small]",
+      "survivors": [],
+      "n": 6,
+      "mean_lift": 0.0011574074074074219,
+      "reason": "frozen Tier-3 did not certify over champion mpnet (0 FDR survivors, mean_lift +0.001)"
+    },
+    {
+      "rung": "features",
+      "tag": "fuse[mpnet+tfidf_lsa]",
+      "survivors": [],
+      "n": 6,
+      "mean_lift": 0.00347222222222221,
+      "reason": "frozen Tier-3 did not certify over champion mpnet (0 FDR survivors, mean_lift +0.003)"
+    },
+    {
+      "rung": "features",
+      "tag": "fuse[mpnet+e5_base]",
+      "survivors": [],
+      "n": 6,
+      "mean_lift": 0.013888888888888895,
+      "reason": "frozen Tier-3 did not certify over champion mpnet (0 FDR survivors, mean_lift +0.014)"
+    }
+  ],
+  "data_ceiling_tasks": [
+    "alt.atheism_vs_religion.misc",
+    "ms-windows.misc_vs_windows.x",
+    "pc.hardware_vs_mac.hardware",
+    "rec.autos_vs_rec.motorcycles"
+  ],
+  "sealed_acc": {
+    "pc.hardware_vs_mac.hardware": 0.8472,
+    "ms-windows.misc_vs_windows.x": 0.875,
+    "alt.atheism_vs_religion.misc": 0.7014,
+    "sport.baseball_vs_sport.hockey": 0.9306,
+    "rec.autos_vs_rec.motorcycles": 0.8681,
+    "sci.electronics_vs_sci.space": 0.9514
+  },
+  "sealed_lb": {
+    "pc.hardware_vs_mac.hardware": 0.7891,
+    "ms-windows.misc_vs_windows.x": 0.8203,
+    "alt.atheism_vs_religion.misc": 0.6324,
+    "sport.baseball_vs_sport.hockey": 0.8851,
+    "rec.autos_vs_rec.motorcycles": 0.8124,
+    "sci.electronics_vs_sci.space": 0.9106
+  },
+  "gold_confirmation": {
+    "champion": "mpnet",
+    "baseline": "tfidf_lsa",
+    "n_tasks": 6,
+    "gold_n": 2400,
+    "survivors": [
+      "pc.hardware_vs_mac.hardware",
+      "ms-windows.misc_vs_windows.x",
+      "alt.atheism_vs_religion.misc",
+      "sport.baseball_vs_sport.hockey",
+      "sci.electronics_vs_sci.space"
+    ],
+    "mean_lift": 0.0629,
+    "champion_gold_lb": 0.8465,
+    "baseline_gold_lb": 0.7818,
+    "per_task": [
+      {
+        "task": "pc.hardware_vs_mac.hardware",
+        "champ_gold_acc": 0.8175,
+        "base_gold_acc": 0.7725,
+        "lift": 0.045,
+        "p_gt_base": 0.0427,
+        "n": 400
+      },
+      {
+        "task": "ms-windows.misc_vs_windows.x",
+        "champ_gold_acc": 0.88,
+        "base_gold_acc": 0.835,
+        "lift": 0.045,
+        "p_gt_base": 0.0178,
+        "n": 400
+      },
+      {
+        "task": "alt.atheism_vs_religion.misc",
+        "champ_gold_acc": 0.7125,
+        "base_gold_acc": 0.6225,
+        "lift": 0.09,
+        "p_gt_base": 0.0031,
+        "n": 400
+      },
+      {
+        "task": "sport.baseball_vs_sport.hockey",
+        "champ_gold_acc": 0.945,
+        "base_gold_acc": 0.8425,
+        "lift": 0.1025,
+        "p_gt_base": 0.0,
+        "n": 400
+      },
+      {
+        "task": "rec.autos_vs_rec.motorcycles",
+        "champ_gold_acc": 0.845,
+        "base_gold_acc": 0.8275,
+        "lift": 0.0175,
+        "p_gt_base": 0.2648,
+        "n": 400
+      },
+      {
+        "task": "sci.electronics_vs_sci.space",
+        "champ_gold_acc": 0.9525,
+        "base_gold_acc": 0.875,
+        "lift": 0.0775,
+        "p_gt_base": 0.0,
+        "n": 400
+      }
+    ],
+    "confirmed": true,
+    "note": "champion FDR-beats the start baseline on a NEVER-PEEKED gold set, queried exactly once after all climbing -- so the confirmation carries none of the sealed-test re-use multiplicity accrued during the climb"
+  },
+  "multiplicity": {
+    "champion": "mpnet",
+    "baseline": "tfidf_lsa",
+    "n_tasks": 6,
+    "sealed_comparisons": 8,
+    "mcnemar_tests_total": 48,
+    "per_comparison_fdr_alpha": 0.1,
+    "session_bonferroni_alpha": 0.0125,
+    "champion_vs_start_sealed": [
+      {
+        "task": "pc.hardware_vs_mac.hardware",
+        "champ_acc": 0.8472,
+        "start_acc": 0.6944,
+        "lift": 0.1528,
+        "p_gt_start": 0.0008
+      },
+      {
+        "task": "ms-windows.misc_vs_windows.x",
+        "champ_acc": 0.875,
+        "start_acc": 0.8611,
+        "lift": 0.0139,
+        "p_gt_start": 0.4225
+      },
+      {
+        "task": "alt.atheism_vs_religion.misc",
+        "champ_acc": 0.7014,
+        "start_acc": 0.6111,
+        "lift": 0.0903,
+        "p_gt_start": 0.0524
+      },
+      {
+        "task": "sport.baseball_vs_sport.hockey",
+        "champ_acc": 0.9306,
+        "start_acc": 0.8264,
+        "lift": 0.1042,
+        "p_gt_start": 0.0013
+      },
+      {
+        "task": "rec.autos_vs_rec.motorcycles",
+        "champ_acc": 0.8681,
+        "start_acc": 0.8264,
+        "lift": 0.0417,
+        "p_gt_start": 0.1725
+      },
+      {
+        "task": "sci.electronics_vs_sci.space",
+        "champ_acc": 0.9514,
+        "start_acc": 0.8681,
+        "lift": 0.0833,
+        "p_gt_start": 0.0059
+      }
+    ],
+    "fdr_survivors_nominal": [
+      "pc.hardware_vs_mac.hardware",
+      "alt.atheism_vs_religion.misc",
+      "sport.baseball_vs_sport.hockey",
+      "sci.electronics_vs_sci.space"
+    ],
+    "bonferroni_survivors_session": [
+      "pc.hardware_vs_mac.hardware",
+      "sport.baseball_vs_sport.hockey",
+      "sci.electronics_vs_sci.space"
+    ],
+    "champion_sealed_lb": 0.8415,
+    "robust_to_session_multiplicity": true,
+    "gold_independent_confirmation": true,
+    "note": "M sealed certifications were spent climbing; the champion is the argmax over them, so its sealed lower bound is selection-biased. bonferroni_survivors_session re-tests champion vs start at alpha/M as a conservative family-wise check; the multiplicity-FREE verdict is the gold confirmation, which never read the sealed set."
+  },
+  "pareto_front": [
+    "tfidf_lsa",
+    "mpnet"
+  ],
+  "pareto_report": "Certified Pareto front: 2 of 2 candidates certified+nondominated\n  mpnet: metric_lb=0.632 latency=110.0ms cost=$0.1100 ece=0.000\n  tfidf_lsa: metric_lb=0.539 latency=0.0ms cost=$0.0000 ece=0.000\n  pick[fastest_certified] = tfidf_lsa\n  pick[most_accurate] = mpnet\n  pick[best_calibrated] = tfidf_lsa\n  pick[cheapest_certified] = tfidf_lsa",
+  "acceptance": {
+    "representation lever fires (promoted off the lexical baseline)": true,
+    "first move is a family swap lexical -> neural sentence encoder": true,
+    "every promotion is FDR-certified (>=1 survivor, positive mean lift)": true,
+    "champion is a frozen neural sentence encoder (not lexical)": true,
+    "champion CONFIRMED over the baseline on a NEVER-PEEKED gold set (>=1 FDR survivor, positive lift)": true,
+    "frozen certifier byte-identical (sole promoter, untouched)": true
+  },
+  "all_pass": true,
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  },
+  "log": [
+    "start champion=tfidf_lsa (lexical) sealed_lb=0.757 theta_floor=0.5",
+    "[model] e5_small: competence-screen SURVIVED (val_acc 0.857) -> Tier-3 eligible",
+    "[model] minilm: competence-screen SURVIVED (val_acc 0.872) -> Tier-3 eligible",
+    "[model] mpnet: competence-screen SURVIVED (val_acc 0.875) -> Tier-3 eligible",
+    "[model] mpnet: frozen Tier-3 CERTIFIED over tfidf_lsa (survivors 4/6, mean_lift +0.081, sealed_lb 0.842)",
+    "[model] minilm: frozen Tier-3 CERTIFIED over tfidf_lsa (survivors 2/6, mean_lift +0.050, sealed_lb 0.809)",
+    "[model] e5_small: frozen Tier-3 CERTIFIED over tfidf_lsa (survivors 3/6, mean_lift +0.046, sealed_lb 0.805)",
+    "[model] supersede minilm (sealed_lb 0.809) by mpnet (sealed_lb 0.842)",
+    "[model] supersede e5_small (sealed_lb 0.805) by mpnet (sealed_lb 0.842)",
+    "[model] PROMOTE tfidf_lsa -> mpnet (survivors 4/6, mean_lift +0.081, sealed_lb 0.842)",
+    "[model] e5_base: competence-screen SURVIVED (val_acc 0.872) -> Tier-3 eligible",
+    "[model] reject e5_base (not certified over mpnet: 0/6, mean_lift -0.006)",
+    "escalate: escalate_to_features (from=model since_improve=3: val_lb plateaued for >= 3 rounds on the 'model' class; the same-class sweep is saturated -> switch KIND of move to 'features')",
+    "[features] fuse[mpnet+e5_base]: competence-screen SURVIVED (val_acc 0.885) -> Tier-3 eligible",
+    "[features] fuse[mpnet+e5_small]: competence-screen SURVIVED (val_acc 0.887) -> Tier-3 eligible",
+    "[features] fuse[mpnet+minilm]: competence-screen SURVIVED (val_acc 0.894) -> Tier-3 eligible",
+    "[features] fuse[mpnet+tfidf_lsa]: competence-screen SURVIVED (val_acc 0.887) -> Tier-3 eligible",
+    "[features] reject fuse[mpnet+minilm] (not certified over mpnet: 0/6, mean_lift -0.006)",
+    "[features] reject fuse[mpnet+e5_small] (not certified over mpnet: 0/6, mean_lift +0.001)",
+    "[features] reject fuse[mpnet+tfidf_lsa] (not certified over mpnet: 0/6, mean_lift +0.003)",
+    "[features] reject fuse[mpnet+e5_base] (not certified over mpnet: 0/6, mean_lift +0.014)",
+    "escalate: escalate_to_capacity (from=features since_improve=3: val_lb plateaued for >= 3 rounds on the 'features' class; the same-class sweep is saturated -> switch KIND of move to 'capacity')",
+    "escalate: stop (from=capacity since_improve=3: plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop)",
+    "gold-confirmation on a NEVER-PEEKED set (n=2400): mpnet vs tfidf_lsa -> 5/6 FDR survivors, champion_gold_lb 0.847 (baseline 0.782), confirmed=True",
+    "session-multiplicity: 8 sealed certifications (48 McNemar tests); Bonferroni alpha/M=0.0125 -> 3/6 champion-vs-start survivors (FDR-nominal 4); robust=True, gold-independent=True"
+  ]
+}

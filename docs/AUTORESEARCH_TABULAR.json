@@ -1,0 +1,301 @@
+{
+  "modality": "tabular",
+  "arena": "letter-recognition-confusable-pairs",
+  "champion": "tabpfn",
+  "champion_family": "tabpfn",
+  "move_class_path": [
+    "model",
+    "features",
+    "capacity"
+  ],
+  "stop_reason": "plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop",
+  "peeks_used": 3,
+  "promotions": [
+    {
+      "rung": "model",
+      "from_tag": "gbm_raw",
+      "to_tag": "tabpfn",
+      "survivors": [
+        "U_vs_V",
+        "B_vs_D",
+        "I_vs_J",
+        "C_vs_G",
+        "V_vs_Y"
+      ],
+      "n": 10,
+      "mean_lift": 0.03333333333333335
+    }
+  ],
+  "rejections": [
+    {
+      "rung": "features",
+      "tag": "fuse[tabpfn+gbm_raw]",
+      "survivors": [],
+      "n": 10,
+      "mean_lift": -0.003888888888888886,
+      "reason": "frozen Tier-3 did not certify over champion tabpfn (0 FDR survivors, mean_lift -0.004)"
+    },
+    {
+      "rung": "capacity",
+      "tag": "tabpfn_big",
+      "survivors": [],
+      "n": 10,
+      "mean_lift": -0.0016666666666666718,
+      "reason": "frozen Tier-3 did not certify over champion tabpfn (0 FDR survivors, mean_lift -0.002)"
+    }
+  ],
+  "data_ceiling_tasks": [],
+  "sealed_acc": {
+    "O_vs_Q": 0.9222,
+    "E_vs_F": 0.9556,
+    "M_vs_N": 0.9611,
+    "U_vs_V": 0.9833,
+    "B_vs_D": 0.95,
+    "I_vs_J": 0.9167,
+    "K_vs_X": 0.9556,
+    "P_vs_R": 0.9778,
+    "C_vs_G": 0.95,
+    "V_vs_Y": 0.9444
+  },
+  "sealed_lb": {
+    "O_vs_Q": 0.8811,
+    "E_vs_F": 0.9212,
+    "M_vs_N": 0.9282,
+    "U_vs_V": 0.9575,
+    "B_vs_D": 0.9144,
+    "I_vs_J": 0.8746,
+    "K_vs_X": 0.9212,
+    "P_vs_R": 0.9499,
+    "C_vs_G": 0.9144,
+    "V_vs_Y": 0.9076
+  },
+  "gold_confirmation": {
+    "champion": "tabpfn",
+    "baseline": "gbm_raw",
+    "n_tasks": 10,
+    "gold_n": 1800,
+    "survivors": [
+      "O_vs_Q",
+      "I_vs_J",
+      "C_vs_G",
+      "V_vs_Y"
+    ],
+    "mean_lift": 0.0244,
+    "champion_gold_lb": 0.9485,
+    "baseline_gold_lb": 0.9223,
+    "per_task": [
+      {
+        "task": "O_vs_Q",
+        "champ_gold_acc": 0.95,
+        "base_gold_acc": 0.9056,
+        "lift": 0.0444,
+        "p_gt_base": 0.0039,
+        "n": 180
+      },
+      {
+        "task": "E_vs_F",
+        "champ_gold_acc": 0.9667,
+        "base_gold_acc": 0.9667,
+        "lift": 0.0,
+        "p_gt_base": 0.75,
+        "n": 180
+      },
+      {
+        "task": "M_vs_N",
+        "champ_gold_acc": 0.9556,
+        "base_gold_acc": 0.9389,
+        "lift": 0.0167,
+        "p_gt_base": 0.1875,
+        "n": 180
+      },
+      {
+        "task": "U_vs_V",
+        "champ_gold_acc": 0.9722,
+        "base_gold_acc": 0.9722,
+        "lift": 0.0,
+        "p_gt_base": 1.0,
+        "n": 180
+      },
+      {
+        "task": "B_vs_D",
+        "champ_gold_acc": 0.9389,
+        "base_gold_acc": 0.9444,
+        "lift": -0.0056,
+        "p_gt_base": 0.6964,
+        "n": 180
+      },
+      {
+        "task": "I_vs_J",
+        "champ_gold_acc": 0.9167,
+        "base_gold_acc": 0.8667,
+        "lift": 0.05,
+        "p_gt_base": 0.0318,
+        "n": 180
+      },
+      {
+        "task": "K_vs_X",
+        "champ_gold_acc": 0.9667,
+        "base_gold_acc": 0.9444,
+        "lift": 0.0222,
+        "p_gt_base": 0.1719,
+        "n": 180
+      },
+      {
+        "task": "P_vs_R",
+        "champ_gold_acc": 0.9889,
+        "base_gold_acc": 0.9667,
+        "lift": 0.0222,
+        "p_gt_base": 0.0625,
+        "n": 180
+      },
+      {
+        "task": "C_vs_G",
+        "champ_gold_acc": 0.9611,
+        "base_gold_acc": 0.9056,
+        "lift": 0.0556,
+        "p_gt_base": 0.0032,
+        "n": 180
+      },
+      {
+        "task": "V_vs_Y",
+        "champ_gold_acc": 0.9556,
+        "base_gold_acc": 0.9167,
+        "lift": 0.0389,
+        "p_gt_base": 0.0327,
+        "n": 180
+      }
+    ],
+    "confirmed": true,
+    "note": "champion FDR-beats the start baseline on a NEVER-PEEKED gold set, queried exactly once after all climbing -- so the confirmation carries none of the sealed-test re-use multiplicity accrued during the climb"
+  },
+  "multiplicity": {
+    "champion": "tabpfn",
+    "baseline": "gbm_raw",
+    "n_tasks": 10,
+    "sealed_comparisons": 3,
+    "mcnemar_tests_total": 30,
+    "per_comparison_fdr_alpha": 0.1,
+    "session_bonferroni_alpha": 0.033333,
+    "champion_vs_start_sealed": [
+      {
+        "task": "O_vs_Q",
+        "champ_acc": 0.9222,
+        "start_acc": 0.9167,
+        "lift": 0.0056,
+        "p_gt_start": 0.5
+      },
+      {
+        "task": "E_vs_F",
+        "champ_acc": 0.9556,
+        "start_acc": 0.95,
+        "lift": 0.0056,
+        "p_gt_start": 0.5
+      },
+      {
+        "task": "M_vs_N",
+        "champ_acc": 0.9611,
+        "start_acc": 0.95,
+        "lift": 0.0111,
+        "p_gt_start": 0.3633
+      },
+      {
+        "task": "U_vs_V",
+        "champ_acc": 0.9833,
+        "start_acc": 0.95,
+        "lift": 0.0333,
+        "p_gt_start": 0.0352
+      },
+      {
+        "task": "B_vs_D",
+        "champ_acc": 0.95,
+        "start_acc": 0.8944,
+        "lift": 0.0556,
+        "p_gt_start": 0.0262
+      },
+      {
+        "task": "I_vs_J",
+        "champ_acc": 0.9167,
+        "start_acc": 0.85,
+        "lift": 0.0667,
+        "p_gt_start": 0.0145
+      },
+      {
+        "task": "K_vs_X",
+        "champ_acc": 0.9556,
+        "start_acc": 0.9389,
+        "lift": 0.0167,
+        "p_gt_start": 0.2539
+      },
+      {
+        "task": "P_vs_R",
+        "champ_acc": 0.9778,
+        "start_acc": 0.9778,
+        "lift": 0.0,
+        "p_gt_start": 0.6562
+      },
+      {
+        "task": "C_vs_G",
+        "champ_acc": 0.95,
+        "start_acc": 0.8778,
+        "lift": 0.0722,
+        "p_gt_start": 0.0012
+      },
+      {
+        "task": "V_vs_Y",
+        "champ_acc": 0.9444,
+        "start_acc": 0.8778,
+        "lift": 0.0667,
+        "p_gt_start": 0.0059
+      }
+    ],
+    "fdr_survivors_nominal": [
+      "U_vs_V",
+      "B_vs_D",
+      "I_vs_J",
+      "C_vs_G",
+      "V_vs_Y"
+    ],
+    "bonferroni_survivors_session": [
+      "B_vs_D",
+      "I_vs_J",
+      "C_vs_G",
+      "V_vs_Y"
+    ],
+    "champion_sealed_lb": 0.9425,
+    "robust_to_session_multiplicity": true,
+    "gold_independent_confirmation": true,
+    "note": "M sealed certifications were spent climbing; the champion is the argmax over them, so its sealed lower bound is selection-biased. bonferroni_survivors_session re-tests champion vs start at alpha/M as a conservative family-wise check; the multiplicity-FREE verdict is the gold confirmation, which never read the sealed set."
+  },
+  "pareto_front": [
+    "gbm_raw",
+    "tabpfn"
+  ],
+  "pareto_report": "Certified Pareto front: 2 of 2 candidates certified+nondominated\n  tabpfn: metric_lb=0.875 latency=25.0ms cost=$0.0250 ece=0.000\n  gbm_raw: metric_lb=0.799 latency=0.5ms cost=$0.0005 ece=0.000\n  pick[fastest_certified] = gbm_raw\n  pick[most_accurate] = tabpfn\n  pick[best_calibrated] = gbm_raw\n  pick[cheapest_certified] = gbm_raw",
+  "acceptance": {
+    "frozen certifier byte-identical (sole promoter, untouched)": true,
+    "every promotion is FDR-certified (>=1 survivor, positive mean lift)": true,
+    "the brain honest-stopped within budget (no peek overrun)": true,
+    "champion is a registry encoder or an FDR-certified stack of registry encoders": true,
+    "gold confirmation is on a DISJOINT never-peeked set (or honestly absent)": true
+  },
+  "all_pass": true,
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  },
+  "log": [
+    "start champion=gbm_raw (gbm) sealed_lb=0.907 theta_floor=0.5",
+    "[model] tabpfn: competence-screen SURVIVED (val_acc 0.940) -> Tier-3 eligible",
+    "[model] tabpfn: frozen Tier-3 CERTIFIED over gbm_raw (survivors 5/10, mean_lift +0.033, sealed_lb 0.943)",
+    "[model] PROMOTE gbm_raw -> tabpfn (survivors 5/10, mean_lift +0.033, sealed_lb 0.943)",
+    "escalate: escalate_to_features (from=model since_improve=3: val_lb plateaued for >= 3 rounds on the 'model' class; the same-class sweep is saturated -> switch KIND of move to 'features')",
+    "[features] fuse[tabpfn+gbm_raw]: competence-screen SURVIVED (val_acc 0.952) -> Tier-3 eligible",
+    "[features] reject fuse[tabpfn+gbm_raw] (not certified over tabpfn: 0/10, mean_lift -0.004)",
+    "escalate: escalate_to_capacity (from=features since_improve=3: val_lb plateaued for >= 3 rounds on the 'features' class; the same-class sweep is saturated -> switch KIND of move to 'capacity')",
+    "[capacity] tabpfn_big: competence-screen SURVIVED (val_acc 0.940) -> Tier-3 eligible",
+    "[capacity] reject tabpfn_big (not certified over tabpfn: 0/10, mean_lift -0.002)",
+    "escalate: stop (from=capacity since_improve=3: plateaued at the top of the escalation ladder ('capacity'); every cheaper lever exhausted -> honest stop)",
+    "gold-confirmation on a NEVER-PEEKED set (n=1800): tabpfn vs gbm_raw -> 4/10 FDR survivors, champion_gold_lb 0.949 (baseline 0.922), confirmed=True",
+    "session-multiplicity: 3 sealed certifications (30 McNemar tests); Bonferroni alpha/M=0.0333 -> 4/10 champion-vs-start survivors (FDR-nominal 5); robust=True, gold-independent=True"
+  ]
+}

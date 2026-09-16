@@ -1,0 +1,290 @@
+{
+  "arena": "fgvc-aircraft",
+  "per_class": 100,
+  "champion": "dinov2_vitl14",
+  "pls_comp": 32,
+  "rows": [
+    {
+      "name": "737-700_vs_737-800",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.55,
+        "dinov2_vitl14": 0.85,
+        "fuse_concat": 0.75,
+        "fuse_pls": 0.6833
+      },
+      "lb": {
+        "clip_vitb32": 0.436,
+        "dinov2_vitl14": 0.7528,
+        "fuse_concat": 0.6415,
+        "fuse_pls": 0.5708
+      },
+      "lift_concat_vs_dino": -0.1,
+      "lift_pls_vs_dino": -0.1667,
+      "lift_concat_vs_clip": 0.2,
+      "lift_dino_vs_clip": 0.3,
+      "p_concat_gt_dino": 0.9892578125,
+      "p_pls_gt_dino": 0.9979095458984375,
+      "p_concat_gt_clip": 0.00091552734375,
+      "p_dino_gt_clip": 2.002716064453125e-05,
+      "secs": 7.7
+    },
+    {
+      "name": "737-300_vs_737-400",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.5667,
+        "dinov2_vitl14": 0.7667,
+        "fuse_concat": 0.7333,
+        "fuse_pls": 0.6667
+      },
+      "lb": {
+        "clip_vitb32": 0.4524,
+        "dinov2_vitl14": 0.6595,
+        "fuse_concat": 0.6236,
+        "fuse_pls": 0.5535
+      },
+      "lift_concat_vs_dino": -0.0334,
+      "lift_pls_vs_dino": -0.1,
+      "lift_concat_vs_clip": 0.1666,
+      "lift_dino_vs_clip": 0.2,
+      "p_concat_gt_dino": 0.7727508544921875,
+      "p_pls_gt_dino": 0.951873779296875,
+      "p_concat_gt_clip": 0.0064697265625,
+      "p_dino_gt_clip": 0.017849069088697433,
+      "secs": 8.0
+    },
+    {
+      "name": "747-200_vs_747-400",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.6333,
+        "dinov2_vitl14": 0.75,
+        "fuse_concat": 0.75,
+        "fuse_pls": 0.7667
+      },
+      "lb": {
+        "clip_vitb32": 0.5193,
+        "dinov2_vitl14": 0.6415,
+        "fuse_concat": 0.6415,
+        "fuse_pls": 0.6595
+      },
+      "lift_concat_vs_dino": 0.0,
+      "lift_pls_vs_dino": 0.0167,
+      "lift_concat_vs_clip": 0.1167,
+      "lift_dino_vs_clip": 0.1167,
+      "p_concat_gt_dino": 0.5981903076171875,
+      "p_pls_gt_dino": 0.5,
+      "p_concat_gt_clip": 0.0717315673828125,
+      "p_dino_gt_clip": 0.11476147174835205,
+      "secs": 7.6
+    },
+    {
+      "name": "A330-200_vs_A330-300",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.6,
+        "dinov2_vitl14": 0.75,
+        "fuse_concat": 0.5167,
+        "fuse_pls": 0.55
+      },
+      "lb": {
+        "clip_vitb32": 0.4856,
+        "dinov2_vitl14": 0.6415,
+        "fuse_concat": 0.4035,
+        "fuse_pls": 0.436
+      },
+      "lift_concat_vs_dino": -0.2333,
+      "lift_pls_vs_dino": -0.2,
+      "lift_concat_vs_clip": -0.0833,
+      "lift_dino_vs_clip": 0.15,
+      "p_concat_gt_dino": 0.9987530410289764,
+      "p_pls_gt_dino": 0.9987115859985352,
+      "p_concat_gt_clip": 0.8761057183146477,
+      "p_dino_gt_clip": 0.07480639219284058,
+      "secs": 8.4
+    },
+    {
+      "name": "A340-300_vs_A340-600",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.6667,
+        "dinov2_vitl14": 0.8167,
+        "fuse_concat": 0.75,
+        "fuse_pls": 0.8
+      },
+      "lb": {
+        "clip_vitb32": 0.5535,
+        "dinov2_vitl14": 0.7148,
+        "fuse_concat": 0.6415,
+        "fuse_pls": 0.6962
+      },
+      "lift_concat_vs_dino": -0.0667,
+      "lift_pls_vs_dino": -0.0167,
+      "lift_concat_vs_clip": 0.0833,
+      "lift_dino_vs_clip": 0.15,
+      "p_concat_gt_dino": 0.927001953125,
+      "p_pls_gt_dino": 0.7255859375,
+      "p_concat_gt_clip": 0.1334228515625,
+      "p_dino_gt_clip": 0.0317840576171875,
+      "secs": 7.7
+    },
+    {
+      "name": "CRJ-700_vs_CRJ-900",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.65,
+        "dinov2_vitl14": 0.75,
+        "fuse_concat": 0.8,
+        "fuse_pls": 0.7333
+      },
+      "lb": {
+        "clip_vitb32": 0.5364,
+        "dinov2_vitl14": 0.6415,
+        "fuse_concat": 0.6962,
+        "fuse_pls": 0.6236
+      },
+      "lift_concat_vs_dino": 0.05,
+      "lift_pls_vs_dino": -0.0167,
+      "lift_concat_vs_clip": 0.15,
+      "lift_dino_vs_clip": 0.1,
+      "p_concat_gt_dino": 0.29052734375,
+      "p_pls_gt_dino": 0.70947265625,
+      "p_concat_gt_clip": 0.0317840576171875,
+      "p_dino_gt_clip": 0.17246422544121742,
+      "secs": 7.9
+    },
+    {
+      "name": "ERJ 135_vs_ERJ 145",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.7,
+        "dinov2_vitl14": 0.7167,
+        "fuse_concat": 0.8,
+        "fuse_pls": 0.7167
+      },
+      "lb": {
+        "clip_vitb32": 0.5883,
+        "dinov2_vitl14": 0.6058,
+        "fuse_concat": 0.6962,
+        "fuse_pls": 0.6058
+      },
+      "lift_concat_vs_dino": 0.0833,
+      "lift_pls_vs_dino": -0.0,
+      "lift_concat_vs_clip": 0.1,
+      "lift_dino_vs_clip": 0.0167,
+      "p_concat_gt_dino": 0.11328125,
+      "p_pls_gt_dino": 0.61279296875,
+      "p_concat_gt_clip": 0.08978271484375,
+      "p_dino_gt_clip": 0.5,
+      "secs": 9.9
+    },
+    {
+      "name": "E-190_vs_E-195",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.7833,
+        "dinov2_vitl14": 0.7167,
+        "fuse_concat": 0.7833,
+        "fuse_pls": 0.7667
+      },
+      "lb": {
+        "clip_vitb32": 0.6778,
+        "dinov2_vitl14": 0.6058,
+        "fuse_concat": 0.6778,
+        "fuse_pls": 0.6595
+      },
+      "lift_concat_vs_dino": 0.0666,
+      "lift_pls_vs_dino": 0.05,
+      "lift_concat_vs_clip": 0.0,
+      "lift_dino_vs_clip": -0.0666,
+      "p_concat_gt_dino": 0.21197509765625,
+      "p_pls_gt_dino": 0.25390625,
+      "p_concat_gt_clip": 0.61279296875,
+      "p_dino_gt_clip": 0.8462718725204468,
+      "secs": 8.2
+    },
+    {
+      "name": "767-300_vs_767-400",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.9,
+        "dinov2_vitl14": 0.8833,
+        "fuse_concat": 0.9667,
+        "fuse_pls": 0.9833
+      },
+      "lb": {
+        "clip_vitb32": 0.8121,
+        "dinov2_vitl14": 0.792,
+        "fuse_concat": 0.8988,
+        "fuse_pls": 0.9234
+      },
+      "lift_concat_vs_dino": 0.0834,
+      "lift_pls_vs_dino": 0.1,
+      "lift_concat_vs_clip": 0.0667,
+      "lift_dino_vs_clip": -0.0167,
+      "p_concat_gt_dino": 0.03125,
+      "p_pls_gt_dino": 0.015625,
+      "p_concat_gt_clip": 0.109375,
+      "p_dino_gt_clip": 0.7255859375,
+      "secs": 8.0
+    },
+    {
+      "name": "DHC-8-100_vs_DHC-8-300",
+      "n_test": 60,
+      "acc": {
+        "clip_vitb32": 0.7833,
+        "dinov2_vitl14": 0.8667,
+        "fuse_concat": 0.8167,
+        "fuse_pls": 0.8
+      },
+      "lb": {
+        "clip_vitb32": 0.6778,
+        "dinov2_vitl14": 0.7723,
+        "fuse_concat": 0.7148,
+        "fuse_pls": 0.6962
+      },
+      "lift_concat_vs_dino": -0.05,
+      "lift_pls_vs_dino": -0.0667,
+      "lift_concat_vs_clip": 0.0334,
+      "lift_dino_vs_clip": 0.0834,
+      "p_concat_gt_dino": 0.8665771484375,
+      "p_pls_gt_dino": 0.927001953125,
+      "p_concat_gt_clip": 0.36328125,
+      "p_dino_gt_clip": 0.1796417236328125,
+      "secs": 8.9
+    }
+  ],
+  "summary": {
+    "FUSE-CONCAT vs DINOv2-L(champion)": {
+      "survivors": [],
+      "n": 10,
+      "mean_lift": -0.02
+    },
+    "FUSE-PLS vs DINOv2-L(champion)": {
+      "survivors": [],
+      "n": 10,
+      "mean_lift": -0.04
+    },
+    "FUSE-CONCAT vs CLIP-B": {
+      "survivors": [
+        "737-700_vs_737-800",
+        "737-300_vs_737-400"
+      ],
+      "n": 10,
+      "mean_lift": 0.0833
+    },
+    "DINOv2-L(champion) vs CLIP-B (sanity, reproduces #3)": {
+      "survivors": [
+        "737-700_vs_737-800",
+        "737-300_vs_737-400"
+      ],
+      "n": 10,
+      "mean_lift": 0.1033
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

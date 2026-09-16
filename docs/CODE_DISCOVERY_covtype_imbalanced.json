@@ -1,0 +1,99 @@
+{
+  "champion": "raw \u00b7 linear_probe \u00b7 head=linear",
+  "champion_recipe": {
+    "backbone": "raw",
+    "adaptation": "linear_probe",
+    "augmentation": "none",
+    "optimizer": "adamw",
+    "schedule": "cosine",
+    "llrd": false,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 10,
+    "aggregation": "single",
+    "data_strategy": "none",
+    "head": "linear"
+  },
+  "promotions": [],
+  "move_class_path": [],
+  "stop_reason": "framing rejected by meta-certifier",
+  "sealed_lb": {},
+  "sealed_acc": {},
+  "pareto_front": [],
+  "pareto_report": "",
+  "data_ceiling_tasks": [
+    "covtype_imbalanced_shard0",
+    "covtype_imbalanced_shard1",
+    "covtype_imbalanced_shard2"
+  ],
+  "peeks_used": 0,
+  "novelty": {
+    "champion": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "champion_backbone": "raw",
+    "backbone_is_novel": false,
+    "recipe_is_novel": false,
+    "uses_authored_code": false,
+    "from_retrieval": false,
+    "menu_free": false,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 1,
+    "n_proposed_recipes": 1,
+    "n_retrieved_backbones": 0
+  },
+  "discovery": {
+    "pool_size": 1,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 1,
+    "n_retrieved_backbones": 0,
+    "seed_backbones": [
+      "raw"
+    ],
+    "sample_pool": [
+      "raw"
+    ]
+  },
+  "framing_report": {
+    "trustworthy": false,
+    "summary": "trustworthy=False -- framing rejected: trivial_baseline; label_shuffle\n  [FAIL] trivial_baseline: majority-class score=0.506 vs theta=0.500 (GAMEABLE: trivial model clears theta)\n  [FAIL] label_shuffle: mean shuffled-label score=0.502 over 5 perms vs theta=0.500 (LEAK: shuffled labels still clear theta)\n  [PASS] straddle_leak: no near-duplicate straddle\n  [PASS] split_leak: no group/time structure declared"
+  },
+  "data_hygiene": {
+    "admitted": true,
+    "dataset": "covtype_imbalanced",
+    "certificate": {
+      "passed": true,
+      "n": 5544,
+      "near_dup_straddle": 0,
+      "label_noise_est": 0.28535353535353536,
+      "min_class_fraction": 0.003787878787878788,
+      "degenerate_features": [
+        20,
+        21,
+        28,
+        49
+      ],
+      "warnings": [
+        "degenerate feature columns (constant or row-id-like): [20, 21, 28, 49]"
+      ],
+      "detail": {
+        "near_dup_eps": 1e-06,
+        "k": 5
+      }
+    },
+    "pool_counts": {
+      "total": 4,
+      "by_modality": {
+        "forest_cartographic": 3,
+        "pixel_tabular": 1
+      }
+    }
+  },
+  "gold_confirmation": null,
+  "multiplicity": null,
+  "qd_coverage": 0,
+  "driver": "climb",
+  "refused": true,
+  "log": [
+    "meta-certifier framing probe -> trustworthy=False -- framing rejected: trivial_baseline; label_shuffle",
+    "data-hygiene gate -> ADMITTED 'covtype_imbalanced' (near_dup_straddle=0, n=5544)"
+  ]
+}

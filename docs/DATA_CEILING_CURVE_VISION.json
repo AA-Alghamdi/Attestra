@@ -1,0 +1,500 @@
+{
+  "modality": "vision",
+  "champion": "dinov2_g",
+  "alpha": 0.1,
+  "seeds": 5,
+  "hard_tasks": [
+    "737-300_vs_737-400",
+    "737-700_vs_737-800",
+    "747-200_vs_747-400",
+    "A330-200_vs_A330-300",
+    "CRJ-700_vs_CRJ-900",
+    "DHC-8-100_vs_DHC-8-300",
+    "E-190_vs_E-195"
+  ],
+  "data_limited_survivors": [
+    "737-300_vs_737-400",
+    "737-700_vs_737-800",
+    "747-200_vs_747-400",
+    "A330-200_vs_A330-300",
+    "CRJ-700_vs_CRJ-900",
+    "DHC-8-100_vs_DHC-8-300",
+    "E-190_vs_E-195"
+  ],
+  "n_data_limited": 7,
+  "per_task": {
+    "737-300_vs_737-400": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        56
+      ],
+      "n_test": 60,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.54,
+          "acc_std": 0.0554,
+          "acc_lb_mean": 0.4268,
+          "acc_lb_canonical": 0.469
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.59,
+          "acc_std": 0.0583,
+          "acc_lb_mean": 0.4764,
+          "acc_lb_canonical": 0.5708
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.5867,
+          "acc_std": 0.098,
+          "acc_lb_mean": 0.4744,
+          "acc_lb_canonical": 0.3874
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.7567,
+          "acc_std": 0.0309,
+          "acc_lb_mean": 0.649,
+          "acc_lb_canonical": 0.6415
+        },
+        {
+          "budget_per_class": 56,
+          "n_train": 112,
+          "acc_mean": 0.7833,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.6778,
+          "acc_lb_canonical": 0.6778
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 56,
+        "lift": 0.2,
+        "p": 0.0145
+      },
+      "top_step": {
+        "from_b": 48,
+        "to_b": 56,
+        "lift": 0.0333,
+        "p": 0.3125
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    },
+    "737-700_vs_737-800": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        56
+      ],
+      "n_test": 60,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.5633,
+          "acc_std": 0.0653,
+          "acc_lb_mean": 0.45,
+          "acc_lb_canonical": 0.4524
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.6267,
+          "acc_std": 0.0814,
+          "acc_lb_mean": 0.5141,
+          "acc_lb_canonical": 0.4197
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.74,
+          "acc_std": 0.0793,
+          "acc_lb_mean": 0.6324,
+          "acc_lb_canonical": 0.6595
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.8567,
+          "acc_std": 0.0226,
+          "acc_lb_mean": 0.7608,
+          "acc_lb_canonical": 0.7337
+        },
+        {
+          "budget_per_class": 56,
+          "n_train": 112,
+          "acc_mean": 0.8833,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.792,
+          "acc_lb_canonical": 0.792
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 56,
+        "lift": 0.3167,
+        "p": 0.0
+      },
+      "top_step": {
+        "from_b": 48,
+        "to_b": 56,
+        "lift": 0.05,
+        "p": 0.1875
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    },
+    "747-200_vs_747-400": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        56
+      ],
+      "n_test": 60,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.53,
+          "acc_std": 0.04,
+          "acc_lb_mean": 0.4168,
+          "acc_lb_canonical": 0.3874
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.4967,
+          "acc_std": 0.034,
+          "acc_lb_mean": 0.3844,
+          "acc_lb_canonical": 0.4035
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.5967,
+          "acc_std": 0.0974,
+          "acc_lb_mean": 0.4843,
+          "acc_lb_canonical": 0.4856
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.7467,
+          "acc_std": 0.0267,
+          "acc_lb_mean": 0.6381,
+          "acc_lb_canonical": 0.5883
+        },
+        {
+          "budget_per_class": 56,
+          "n_train": 112,
+          "acc_mean": 0.75,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.6415,
+          "acc_lb_canonical": 0.6415
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 56,
+        "lift": 0.25,
+        "p": 0.003
+      },
+      "top_step": {
+        "from_b": 48,
+        "to_b": 56,
+        "lift": 0.05,
+        "p": 0.125
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    },
+    "A330-200_vs_A330-300": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        56
+      ],
+      "n_test": 60,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.49,
+          "acc_std": 0.02,
+          "acc_lb_mean": 0.3779,
+          "acc_lb_canonical": 0.3398
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.5267,
+          "acc_std": 0.0403,
+          "acc_lb_mean": 0.4135,
+          "acc_lb_canonical": 0.3874
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.5633,
+          "acc_std": 0.0581,
+          "acc_lb_mean": 0.4498,
+          "acc_lb_canonical": 0.4035
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.6333,
+          "acc_std": 0.0782,
+          "acc_lb_mean": 0.5207,
+          "acc_lb_canonical": 0.3874
+        },
+        {
+          "budget_per_class": 56,
+          "n_train": 112,
+          "acc_mean": 0.7333,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.6236,
+          "acc_lb_canonical": 0.6236
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 56,
+        "lift": 0.2833,
+        "p": 0.0008
+      },
+      "top_step": {
+        "from_b": 48,
+        "to_b": 56,
+        "lift": 0.2333,
+        "p": 0.0007
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": true,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy and the curve is still rising at the full pool"
+    },
+    "CRJ-700_vs_CRJ-900": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        56
+      ],
+      "n_test": 60,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.52,
+          "acc_std": 0.1019,
+          "acc_lb_mean": 0.4089,
+          "acc_lb_canonical": 0.2479
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.58,
+          "acc_std": 0.0733,
+          "acc_lb_mean": 0.4668,
+          "acc_lb_canonical": 0.5364
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.8,
+          "acc_std": 0.0471,
+          "acc_lb_mean": 0.6971,
+          "acc_lb_canonical": 0.7148
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.89,
+          "acc_std": 0.0271,
+          "acc_lb_mean": 0.8006,
+          "acc_lb_canonical": 0.7528
+        },
+        {
+          "budget_per_class": 56,
+          "n_train": 112,
+          "acc_mean": 0.8667,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.7723,
+          "acc_lb_canonical": 0.7723
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 56,
+        "lift": 0.5167,
+        "p": 0.0
+      },
+      "top_step": {
+        "from_b": 48,
+        "to_b": 56,
+        "lift": 0.0167,
+        "p": 0.5
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    },
+    "DHC-8-100_vs_DHC-8-300": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        56
+      ],
+      "n_test": 60,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.6533,
+          "acc_std": 0.0464,
+          "acc_lb_mean": 0.5403,
+          "acc_lb_canonical": 0.4856
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.79,
+          "acc_std": 0.0501,
+          "acc_lb_mean": 0.686,
+          "acc_lb_canonical": 0.6236
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.8067,
+          "acc_std": 0.049,
+          "acc_lb_mean": 0.7045,
+          "acc_lb_canonical": 0.6058
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.8833,
+          "acc_std": 0.0211,
+          "acc_lb_mean": 0.7923,
+          "acc_lb_canonical": 0.8121
+        },
+        {
+          "budget_per_class": 56,
+          "n_train": 112,
+          "acc_mean": 0.8833,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.792,
+          "acc_lb_canonical": 0.792
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 56,
+        "lift": 0.2833,
+        "p": 0.0008
+      },
+      "top_step": {
+        "from_b": 48,
+        "to_b": 56,
+        "lift": -0.0167,
+        "p": 1.0
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": false,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy but it is approaching the in-budget plateau"
+    },
+    "E-190_vs_E-195": {
+      "grid": [
+        6,
+        12,
+        24,
+        48,
+        56
+      ],
+      "n_test": 60,
+      "curve": [
+        {
+          "budget_per_class": 6,
+          "n_train": 12,
+          "acc_mean": 0.5533,
+          "acc_std": 0.0287,
+          "acc_lb_mean": 0.4394,
+          "acc_lb_canonical": 0.3874
+        },
+        {
+          "budget_per_class": 12,
+          "n_train": 24,
+          "acc_mean": 0.5667,
+          "acc_std": 0.0527,
+          "acc_lb_mean": 0.453,
+          "acc_lb_canonical": 0.5364
+        },
+        {
+          "budget_per_class": 24,
+          "n_train": 48,
+          "acc_mean": 0.67,
+          "acc_std": 0.0645,
+          "acc_lb_mean": 0.558,
+          "acc_lb_canonical": 0.6058
+        },
+        {
+          "budget_per_class": 48,
+          "n_train": 96,
+          "acc_mean": 0.73,
+          "acc_std": 0.0245,
+          "acc_lb_mean": 0.6202,
+          "acc_lb_canonical": 0.5883
+        },
+        {
+          "budget_per_class": 56,
+          "n_train": 112,
+          "acc_mean": 0.7667,
+          "acc_std": 0.0,
+          "acc_lb_mean": 0.6595,
+          "acc_lb_canonical": 0.6595
+        }
+      ],
+      "slope_min_to_max": {
+        "from_b": 6,
+        "to_b": 56,
+        "lift": 0.2667,
+        "p": 0.0026
+      },
+      "top_step": {
+        "from_b": 48,
+        "to_b": 56,
+        "lift": 0.0667,
+        "p": 0.0625
+      },
+      "data_limited_certified": true,
+      "still_rising_at_top": true,
+      "verdict": "DATA-LIMITED: more labels certifiably raise sealed accuracy and the curve is still rising at the full pool"
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

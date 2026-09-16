@@ -1,0 +1,223 @@
+{
+  "champion": "raw \u00b7 linear_probe \u00b7 +code[classifier]",
+  "champion_recipe": {
+    "backbone": "raw",
+    "adaptation": "linear_probe",
+    "augmentation": "none",
+    "optimizer": "adamw",
+    "schedule": "cosine",
+    "llrd": false,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 10,
+    "aggregation": "single",
+    "data_strategy": "none",
+    "head": "linear",
+    "code_role": "classifier",
+    "uses_code_patch": true,
+    "code_patch": "from sklearn.ensemble import RandomForestClassifier\n\n\ndef build_estimator(seed):\n    return RandomForestClassifier(n_estimators=300, max_features=\"sqrt\",\n                                  min_samples_leaf=4, random_state=seed, n_jobs=1)\n",
+    "label": "raw \u00b7 linear_probe \u00b7 +code[classifier]"
+  },
+  "promotions": [
+    {
+      "rung": "features",
+      "from_recipe": "raw \u00b7 linear_probe \u00b7 head=linear",
+      "to_recipe": "raw \u00b7 linear_probe \u00b7 +code[classifier]",
+      "survivors": [
+        "covtype_noisy_label_shard0",
+        "covtype_noisy_label_shard1",
+        "covtype_noisy_label_shard2"
+      ],
+      "mean_lift": 0.1393849206349206,
+      "sealed_lb": 0.7701
+    }
+  ],
+  "move_class_path": [
+    "model",
+    "features",
+    "capacity"
+  ],
+  "stop_reason": "no budget left; cannot run any further move -> honest stop",
+  "sealed_lb": {
+    "covtype_noisy_label_shard0": 0.7658,
+    "covtype_noisy_label_shard1": 0.758,
+    "covtype_noisy_label_shard2": 0.7503
+  },
+  "sealed_acc": {
+    "covtype_noisy_label_shard0": 0.7932,
+    "covtype_noisy_label_shard1": 0.7857,
+    "covtype_noisy_label_shard2": 0.7783
+  },
+  "pareto_front": [
+    "raw \u00b7 linear_probe \u00b7 +code[classifier]"
+  ],
+  "pareto_report": "Certified Pareto front: 1 of 2 candidates certified+nondominated\n  raw \u00b7 linear_probe \u00b7 +code[classifier]: metric_lb=0.750 latency=1.0ms cost=$1.0000 ece=0.000\n  pick[fastest_certified] = raw \u00b7 linear_probe \u00b7 head=linear\n  pick[most_accurate] = raw \u00b7 linear_probe \u00b7 +code[classifier]\n  pick[best_calibrated] = raw \u00b7 linear_probe \u00b7 head=linear\n  pick[cheapest_certified] = raw \u00b7 linear_probe \u00b7 head=linear",
+  "data_ceiling_tasks": [
+    "covtype_noisy_label_shard0",
+    "covtype_noisy_label_shard1",
+    "covtype_noisy_label_shard2"
+  ],
+  "peeks_used": 16,
+  "novelty": {
+    "champion": "raw \u00b7 linear_probe \u00b7 +code[classifier]",
+    "champion_backbone": "raw",
+    "backbone_is_novel": false,
+    "recipe_is_novel": true,
+    "uses_authored_code": true,
+    "from_retrieval": false,
+    "menu_free": true,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 1,
+    "n_proposed_recipes": 17,
+    "n_retrieved_backbones": 0
+  },
+  "discovery": {
+    "pool_size": 1,
+    "n_seed_backbones": 1,
+    "n_proposed_backbones": 1,
+    "n_retrieved_backbones": 0,
+    "seed_backbones": [
+      "raw"
+    ],
+    "sample_pool": [
+      "raw"
+    ]
+  },
+  "framing_report": {
+    "trustworthy": true,
+    "summary": "trustworthy=True -- all probes passed -- framing is trustworthy to drive search\n  [PASS] trivial_baseline: majority-class score=0.132 vs theta=0.500 (ok: trivial model fails)\n  [PASS] label_shuffle: mean shuffled-label score=0.134 over 5 perms vs theta=0.500 (ok: shuffle fails)\n  [PASS] straddle_leak: no near-duplicate straddle\n  [PASS] split_leak: no group/time structure declared"
+  },
+  "data_hygiene": {
+    "admitted": true,
+    "dataset": "covtype_noisy_label",
+    "certificate": {
+      "passed": true,
+      "n": 5544,
+      "near_dup_straddle": 0,
+      "label_noise_est": 0.2435064935064935,
+      "min_class_fraction": 0.14105339105339104,
+      "degenerate_features": [
+        20,
+        21,
+        28,
+        47,
+        49
+      ],
+      "warnings": [
+        "degenerate feature columns (constant or row-id-like): [20, 21, 28, 47, 49]"
+      ],
+      "detail": {
+        "near_dup_eps": 1e-06,
+        "k": 5
+      }
+    },
+    "pool_counts": {
+      "total": 4,
+      "by_modality": {
+        "forest_cartographic": 3,
+        "pixel_tabular": 1
+      }
+    }
+  },
+  "gold_confirmation": {
+    "champion": "raw \u00b7 linear_probe \u00b7 +code[classifier]",
+    "baseline": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "n_tasks": 3,
+    "gold_n": 4284,
+    "survivors": [
+      "covtype_noisy_label_shard0",
+      "covtype_noisy_label_shard1",
+      "covtype_noisy_label_shard2"
+    ],
+    "mean_lift": 0.1162,
+    "champion_gold_lb": 0.768,
+    "baseline_gold_lb": 0.6504,
+    "per_task": [
+      {
+        "task": "covtype_noisy_label_shard0",
+        "champ_gold_acc": 0.7787,
+        "base_gold_acc": 0.6625,
+        "lift": 0.1162,
+        "p_gt_base": 0.0,
+        "n": 1428
+      },
+      {
+        "task": "covtype_noisy_label_shard1",
+        "champ_gold_acc": 0.7787,
+        "base_gold_acc": 0.6625,
+        "lift": 0.1162,
+        "p_gt_base": 0.0,
+        "n": 1428
+      },
+      {
+        "task": "covtype_noisy_label_shard2",
+        "champ_gold_acc": 0.7787,
+        "base_gold_acc": 0.6625,
+        "lift": 0.1162,
+        "p_gt_base": 0.0,
+        "n": 1428
+      }
+    ],
+    "confirmed": true
+  },
+  "multiplicity": {
+    "champion": "raw \u00b7 linear_probe \u00b7 +code[classifier]",
+    "baseline": "raw \u00b7 linear_probe \u00b7 head=linear",
+    "n_tasks": 3,
+    "sealed_comparisons": 16,
+    "mcnemar_tests_total": 48,
+    "per_comparison_fdr_alpha": 0.1,
+    "session_bonferroni_alpha": 0.00625,
+    "champion_vs_start_sealed": [
+      {
+        "task": "covtype_noisy_label_shard0",
+        "champ_acc": 0.7932,
+        "start_acc": 0.6518,
+        "lift": 0.1414,
+        "p_gt_start": 0.0
+      },
+      {
+        "task": "covtype_noisy_label_shard1",
+        "champ_acc": 0.7857,
+        "start_acc": 0.6295,
+        "lift": 0.1562,
+        "p_gt_start": 0.0
+      },
+      {
+        "task": "covtype_noisy_label_shard2",
+        "champ_acc": 0.7783,
+        "start_acc": 0.6577,
+        "lift": 0.1205,
+        "p_gt_start": 0.0
+      }
+    ],
+    "fdr_survivors_nominal": [
+      "covtype_noisy_label_shard0",
+      "covtype_noisy_label_shard1",
+      "covtype_noisy_label_shard2"
+    ],
+    "bonferroni_survivors_session": [
+      "covtype_noisy_label_shard0",
+      "covtype_noisy_label_shard1",
+      "covtype_noisy_label_shard2"
+    ],
+    "champion_sealed_lb": 0.7701,
+    "robust_to_session_multiplicity": true,
+    "gold_independent_confirmation": true
+  },
+  "qd_coverage": 3,
+  "driver": "climb",
+  "refused": false,
+  "log": [
+    "meta-certifier framing probe -> trustworthy=True -- all probes passed -- framing is trustworthy to drive search",
+    "data-hygiene gate -> ADMITTED 'covtype_noisy_label' (near_dup_straddle=0, n=5544)",
+    "start champion=raw \u00b7 linear_probe \u00b7 head=linear sealed_lb=0.628 theta_floor=0.5 driver=climb",
+    "escalate: escalate_to_features (from=model since_improve=3: val_lb plateaued for >= 3 rounds on the 'model' class; the same-class sweep is saturated -> switch KIND of move to 'features')",
+    "[features] raw \u00b7 linear_probe \u00b7 +code[classifier]: frozen Tier-3 CERTIFIED over raw \u00b7 linear_probe \u00b7 head=linear (survivors 3/3, mean_lift +0.139, sealed_lb 0.770)",
+    "[features] PROMOTE raw \u00b7 linear_probe \u00b7 head=linear -> raw \u00b7 linear_probe \u00b7 +code[classifier] (sealed_lb 0.770)",
+    "escalate: escalate_to_capacity (from=features since_improve=3: val_lb plateaued for >= 3 rounds on the 'features' class; the same-class sweep is saturated -> switch KIND of move to 'capacity')",
+    "escalate: stop (from=capacity since_improve=3: no budget left; cannot run any further move -> honest stop)",
+    "gold-confirmation (never-peeked n=4284): raw \u00b7 linear_probe \u00b7 +code[classifier] vs raw \u00b7 linear_probe \u00b7 head=linear -> 3/3 FDR survivors, confirmed=True",
+    "ANTI-MENU novelty: menu_free=True (champion backbone 'raw', backbone_is_novel=False, uses_authored_code=True, from_retrieval=False)"
+  ]
+}

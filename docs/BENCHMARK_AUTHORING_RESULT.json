@@ -1,0 +1,267 @@
+{
+  "per_class": 500,
+  "n_author_requested": 8,
+  "model": "claude-opus-4-8",
+  "n_admitted": 8,
+  "n_attempts": 15,
+  "author_log": [
+    {
+      "slot": 1,
+      "rev": 0,
+      "authored": false,
+      "reason": "DECLINED: verify rejected: static gate: sklearn submodule 'sklearn.utils.validation' not in allowlist",
+      "usage": {
+        "input_tokens": 1646,
+        "output_tokens": 1926
+      }
+    },
+    {
+      "slot": 1,
+      "rev": 1,
+      "authored": false,
+      "reason": "DECLINED: verify rejected: static gate: use of banned name 'staticmethod'",
+      "usage": {
+        "input_tokens": 1776,
+        "output_tokens": 2755
+      }
+    },
+    {
+      "slot": 1,
+      "rev": 2,
+      "authored": true,
+      "family": "authored__prototype_cosine_gated_logistic",
+      "rationale": "Represents samples by RBF-softmax cosine similarity to class-conditional KMeans prototypes, then a logistic head \u2014 a kernel/prototype bias unlike forests/boosting/linear-on-raw.",
+      "code_digest": "sha256:c04055827fcf46b9",
+      "usage": {
+        "input_tokens": 1819,
+        "output_tokens": 1803
+      }
+    },
+    {
+      "slot": 2,
+      "rev": 0,
+      "authored": false,
+      "reason": "DECLINED: verify rejected: static gate: sklearn submodule 'sklearn.utils.validation' not in allowlist",
+      "usage": {
+        "input_tokens": 1760,
+        "output_tokens": 2133
+      }
+    },
+    {
+      "slot": 2,
+      "rev": 1,
+      "authored": true,
+      "family": "authored__random_hyperplane_tessellation_logistic",
+      "rationale": "Random hyperplane tessellation: soft-sign half-space products form soft polytope-cell memberships, a locality-sensitive expansion read out by a logistic head.",
+      "code_digest": "sha256:baf59b37f5a74dc3",
+      "usage": {
+        "input_tokens": 1890,
+        "output_tokens": 1868
+      }
+    },
+    {
+      "slot": 3,
+      "rev": 0,
+      "authored": false,
+      "reason": "DECLINED: verify rejected: static gate: sklearn submodule 'sklearn.utils.validation' not in allowlist",
+      "usage": {
+        "input_tokens": 1854,
+        "output_tokens": 2438
+      }
+    },
+    {
+      "slot": 3,
+      "rev": 1,
+      "authored": true,
+      "family": "authored__authored__cosine_nystrom_pairwise_intera",
+      "rationale": "Low-rank Nystrom cosine-kernel feature map plus explicit pairwise products of leading kernel coordinates \u2014 a data-adaptive kernel basis with second-order interactions, unlike prototype-softmax or hyperplane tessellation.",
+      "code_digest": "sha256:aa2b42280b5042f1",
+      "usage": {
+        "input_tokens": 1984,
+        "output_tokens": 1994
+      }
+    },
+    {
+      "slot": 4,
+      "rev": 0,
+      "authored": false,
+      "reason": "DECLINED: verify rejected: static gate: sklearn submodule 'sklearn.utils.validation' not in allowlist",
+      "usage": {
+        "input_tokens": 1983,
+        "output_tokens": 2042
+      }
+    },
+    {
+      "slot": 4,
+      "rev": 1,
+      "authored": true,
+      "family": "authored__authored__sparse_random_projection_margi",
+      "rationale": "Committee of non-linear univariate Gaussian (quadratic) discriminants computed in many sparse random subspaces, AUC-selected and logistically calibrated.",
+      "code_digest": "sha256:1e57fd398bea59f4",
+      "usage": {
+        "input_tokens": 2113,
+        "output_tokens": 2773
+      }
+    },
+    {
+      "slot": 5,
+      "rev": 0,
+      "authored": false,
+      "reason": "DECLINED: verify rejected: static gate: sklearn submodule 'sklearn.utils.validation' not in allowlist",
+      "usage": {
+        "input_tokens": 2075,
+        "output_tokens": 2994
+      }
+    },
+    {
+      "slot": 5,
+      "rev": 1,
+      "authored": true,
+      "family": "authored__authored__angular_margin_prototype_diffe",
+      "rationale": "Represents each point by signed contrasts and order-statistic margins of its cosine affinity toward the two classes' prototype banks \u2014 a competition/winner-difference geometry, distinct from similarity-embedding prototype-softmax.",
+      "code_digest": "sha256:312999c7905ea4fe",
+      "usage": {
+        "input_tokens": 2205,
+        "output_tokens": 1895
+      }
+    },
+    {
+      "slot": 6,
+      "rev": 0,
+      "authored": true,
+      "family": "authored__authored__random_fourier_orthogonal_subs",
+      "rationale": "Orthogonal-block Random Fourier Features (Bochner spectral RBF map) augmented with cross-frequency phase-coherence terms cos/sin(\u03b8i\u2212\u03b8j) \u2014 an oscillatory shift-invariant-kernel bias unlike prototype/hyperplane/Nystrom families.",
+      "code_digest": "sha256:9f1c4a0732ab0d44",
+      "usage": {
+        "input_tokens": 2192,
+        "output_tokens": 2424
+      }
+    },
+    {
+      "slot": 7,
+      "rev": 0,
+      "authored": false,
+      "reason": "DECLINED: verify rejected: static gate: sklearn submodule 'sklearn.utils.validation' not in allowlist",
+      "usage": {
+        "input_tokens": 2346,
+        "output_tokens": 2902
+      }
+    },
+    {
+      "slot": 7,
+      "rev": 1,
+      "authored": true,
+      "family": "authored__authored__class_conditional_random_subsp",
+      "rationale": "Committee of class-conditional discriminants in random subspaces under a log-domain geodesic-blended covariance metric, combining whitened LDA axes with QDA density-ratio curvature \u2014 a Riemannian metric-learning bias unlike prototype/hyperplane/Nystrom/RFF families.",
+      "code_digest": "sha256:1db54492f6dd5282",
+      "usage": {
+        "input_tokens": 2476,
+        "output_tokens": 3179
+      }
+    },
+    {
+      "slot": 8,
+      "rev": 0,
+      "authored": true,
+      "family": "authored__authored__copula_rank_spectral_cca_logis",
+      "rationale": "Monotone-invariant Gaussian-copula rank scoring of each feature, then label-correlation (CCA) whitened discriminative axes plus squared coordinates for variance-shift signal \u2014 a rank/distribution-space bias unlike kernel/prototype/RFF families.",
+      "code_digest": "sha256:2068f8f40b7daf0d",
+      "usage": {
+        "input_tokens": 2486,
+        "output_tokens": 3097
+      }
+    }
+  ],
+  "rows": [
+    {
+      "name": "cat_vs_dog",
+      "n_test": 300,
+      "authored_winner": "authored__prototype_cosine_gated_logistic",
+      "authored_rationale": "Represents samples by RBF-softmax cosine similarity to class-conditional KMeans prototypes, then a logistic head \u2014 a kernel/prototype bias unlike forests/boosting/linear-on-raw.",
+      "authored_val_acc": 0.8929,
+      "n_authored": 8,
+      "acc_emb_strong": 0.83,
+      "lb_emb_strong": 0.7903,
+      "acc_authored": 0.8067,
+      "lb_authored": 0.7653,
+      "lift_authored_vs_embstrong": -0.0233,
+      "p_authored_gt_embstrong": 0.918622171273455,
+      "p_embstrong_gt_authored": 0.1481031842995435,
+      "secs": 15.4
+    },
+    {
+      "name": "automobile_vs_truck",
+      "n_test": 300,
+      "authored_winner": "authored__authored__cosine_nystrom_pairwise_intera",
+      "authored_rationale": "Low-rank Nystrom cosine-kernel feature map plus explicit pairwise products of leading kernel coordinates \u2014 a data-adaptive kernel basis with second-order interactions, unlike prototype-softmax or hyperplane tessellation.",
+      "authored_val_acc": 0.9071,
+      "n_authored": 8,
+      "acc_emb_strong": 0.9133,
+      "lb_emb_strong": 0.8818,
+      "acc_authored": 0.9133,
+      "lb_authored": 0.8818,
+      "lift_authored_vs_embstrong": 0.0,
+      "p_authored_gt_embstrong": 0.5880985260009766,
+      "p_embstrong_gt_authored": 0.5880985260009766,
+      "secs": 15.6
+    },
+    {
+      "name": "deer_vs_horse",
+      "n_test": 300,
+      "authored_winner": "authored__prototype_cosine_gated_logistic",
+      "authored_rationale": "Represents samples by RBF-softmax cosine similarity to class-conditional KMeans prototypes, then a logistic head \u2014 a kernel/prototype bias unlike forests/boosting/linear-on-raw.",
+      "authored_val_acc": 0.9429,
+      "n_authored": 8,
+      "acc_emb_strong": 0.8967,
+      "lb_emb_strong": 0.8631,
+      "acc_authored": 0.91,
+      "lb_authored": 0.878,
+      "lift_authored_vs_embstrong": 0.0133,
+      "p_authored_gt_embstrong": 0.2785985469818115,
+      "p_embstrong_gt_authored": 0.8365302085876465,
+      "secs": 15.5
+    },
+    {
+      "name": "airplane_vs_ship",
+      "n_test": 300,
+      "authored_winner": "authored__authored__cosine_nystrom_pairwise_intera",
+      "authored_rationale": "Low-rank Nystrom cosine-kernel feature map plus explicit pairwise products of leading kernel coordinates \u2014 a data-adaptive kernel basis with second-order interactions, unlike prototype-softmax or hyperplane tessellation.",
+      "authored_val_acc": 0.9643,
+      "n_authored": 8,
+      "acc_emb_strong": 0.8933,
+      "lb_emb_strong": 0.8594,
+      "acc_authored": 0.9067,
+      "lb_authored": 0.8743,
+      "lift_authored_vs_embstrong": 0.0133,
+      "p_authored_gt_embstrong": 0.27062809467315674,
+      "p_embstrong_gt_authored": 0.8462718725204468,
+      "secs": 15.2
+    },
+    {
+      "name": "bird_vs_frog",
+      "n_test": 300,
+      "authored_winner": "authored__authored__copula_rank_spectral_cca_logis",
+      "authored_rationale": "Monotone-invariant Gaussian-copula rank scoring of each feature, then label-correlation (CCA) whitened discriminative axes plus squared coordinates for variance-shift signal \u2014 a rank/distribution-space bias unlike kernel/prototype/RFF families.",
+      "authored_val_acc": 0.9286,
+      "n_authored": 8,
+      "acc_emb_strong": 0.9033,
+      "lb_emb_strong": 0.8705,
+      "acc_authored": 0.8867,
+      "lb_authored": 0.852,
+      "lift_authored_vs_embstrong": -0.0167,
+      "p_authored_gt_embstrong": 0.8949801921844482,
+      "p_embstrong_gt_authored": 0.2024364471435547,
+      "secs": 15.5
+    }
+  ],
+  "summary": {
+    "AUTHORED vs EMB-STRONG": {
+      "survivors": [],
+      "n": 5
+    }
+  },
+  "frozen_hashes": {
+    "vectorforge/science.py": "b564fba2",
+    "vfplatform/sealed.py": "30ad6245"
+  }
+}

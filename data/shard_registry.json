@@ -1,0 +1,8 @@
+[
+  {"task_id": "openml-blood-transfusion", "source_uri": "openml://dataset/1464", "metric": "balanced_accuracy", "threshold": 0.55, "min_rows": 600, "max_rows": 800},
+  {"task_id": "openml-credit-g", "source_uri": "openml://dataset/31", "metric": "balanced_accuracy", "threshold": 0.62, "min_rows": 800, "max_rows": 1000},
+  {"task_id": "openml-diabetes-pima", "source_uri": "openml://dataset/37", "metric": "balanced_accuracy", "threshold": 0.65, "min_rows": 600, "max_rows": 800},
+  {"task_id": "openml-phoneme", "source_uri": "openml://dataset/1489", "metric": "balanced_accuracy", "threshold": 0.70, "min_rows": 2000, "max_rows": 3000},
+  {"task_id": "hf-rotten-tomatoes", "source_uri": "hf://cornell-movie-review-data/rotten_tomatoes/default", "metric": "accuracy", "threshold": 0.60, "min_rows": 800, "max_rows": 1500},
+  {"task_id": "hf-ag-news", "source_uri": "hf://fancyzhx/ag_news/default", "metric": "macro_f1", "threshold": 0.55, "min_rows": 900, "max_rows": 1500}
+]
